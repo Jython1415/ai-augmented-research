@@ -85,7 +85,7 @@ def validate_result(result: dict, result_num: int) -> Optional[str]:
 
 
 def import_results(pass_num: int, results: list[dict]) -> tuple[int, int, int]:
-    """Import coding results into citation_units table.
+    """Import coding results into the appropriate coding_passN table.
 
     Args:
         pass_num: Coding pass (1 or 2).
@@ -101,6 +101,9 @@ def import_results(pass_num: int, results: list[dict]) -> tuple[int, int, int]:
     imported = 0
     skipped = 0
     errors = 0
+
+    # Determine target table based on pass number
+    table_name = f"coding_pass{pass_num}"
 
     for result_num, result in enumerate(results, start=1):
         # Validate result
@@ -138,42 +141,37 @@ def import_results(pass_num: int, results: list[dict]) -> tuple[int, int, int]:
 
             # Check if already coded for this pass
             cursor.execute(
-                """
-                SELECT coding_pass FROM citation_units WHERE id = ?
+                f"""
+                SELECT citation_unit_id FROM {table_name}
+                WHERE citation_unit_id = ?
                 """,
                 (cu_id,),
             )
             existing = cursor.fetchone()
 
-            if existing and existing[0] is not None:
-                # Already coded for this pass or higher
+            if existing:
+                # Already coded for this pass
                 skipped += 1
                 continue
 
-            # Update citation_unit with coding results
+            # Insert coding results into the pass-specific table
+            # Note: rationale field contains all reasoning
             cursor.execute(
-                """
-                UPDATE citation_units SET
-                    claim_strength = ?,
-                    claim_strength_reasoning = ?,
-                    paper_fidelity = ?,
-                    paper_fidelity_reasoning = ?,
-                    field_accuracy = ?,
-                    field_accuracy_reasoning = ?,
-                    epoch = ?,
-                    coding_pass = ?
-                WHERE id = ?
+                f"""
+                INSERT INTO {table_name}
+                    (citation_unit_id, claim_strength, field_accuracy,
+                     paper_fidelity, rationale, agent_id)
+                VALUES (?, ?, ?, ?, ?, NULL)
                 """,
                 (
-                    result.get("claim_strength"),
-                    result.get("claim_strength_reasoning"),
-                    result.get("paper_fidelity"),
-                    result.get("paper_fidelity_reasoning"),
-                    result.get("field_accuracy"),
-                    result.get("field_accuracy_reasoning"),
-                    result.get("epoch"),
-                    str(pass_num),
                     cu_id,
+                    result.get("claim_strength"),
+                    result.get("field_accuracy"),
+                    result.get("paper_fidelity"),
+                    # Combine all reasoning fields into rationale
+                    f"claim_strength: {result.get('claim_strength_reasoning')}\n"
+                    f"paper_fidelity: {result.get('paper_fidelity_reasoning')}\n"
+                    f"field_accuracy: {result.get('field_accuracy_reasoning')}",
                 ),
             )
             imported += 1

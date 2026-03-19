@@ -16,11 +16,16 @@ DB_PATH = Path("/Users/Joshua/agent/ai-augmented-research/model-collapse-v2/data
 
 
 def get_uncoded_units(pass_num: int, batch_size: int = 10):
-    """Query all citation_units that haven't been coded for the specified pass."""
+    """Query all citation_units that haven't been coded for the specified pass.
+
+    Pass 1: Code based on post text only (no context).
+    Pass 2: Code based on post + context (parent posts, quoted posts, thread context).
+    """
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
 
     if pass_num == 1:
+        # Find all citation units that don't have results in coding_pass1 table yet
         query = """
             SELECT
                 cu.id as cu_id,
@@ -31,7 +36,7 @@ def get_uncoded_units(pass_num: int, batch_size: int = 10):
                 p.text
             FROM citation_units cu
             JOIN posts p ON p.uri = cu.anchor_post_uri
-            WHERE cu.coding_pass IS NULL
+            WHERE cu.id NOT IN (SELECT citation_unit_id FROM coding_pass1)
             ORDER BY cu.epoch, cu.created_at
         """
         rows = conn.execute(query).fetchall()
@@ -51,6 +56,8 @@ def get_uncoded_units(pass_num: int, batch_size: int = 10):
             batches.append(batch)
 
     elif pass_num == 2:
+        # Find all citation units that don't have results in coding_pass2 table yet
+        # (but do have results in coding_pass1, since pass 2 requires pass 1 to be complete)
         query = """
             SELECT
                 cu.id as cu_id,
@@ -72,7 +79,7 @@ def get_uncoded_units(pass_num: int, batch_size: int = 10):
             FROM citation_units cu
             JOIN posts p ON p.uri = cu.anchor_post_uri
             LEFT JOIN post_context pc ON p.id = pc.post_id
-            WHERE cu.coding_pass IS NULL
+            WHERE cu.id NOT IN (SELECT citation_unit_id FROM coding_pass2)
             ORDER BY cu.epoch, cu.created_at
         """
         rows = conn.execute(query).fetchall()

@@ -83,9 +83,9 @@ def save_profile(did: str, profile_data: dict | None):
             conn.execute(
                 """
                 INSERT INTO author_profiles
-                (did, handle, display_name, description, followers_count,
-                 follows_count, posts_count, created_at, fetched_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                (did, handle, display_name, bio, followers_count,
+                 follows_count, posts_count)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     did,
@@ -95,8 +95,6 @@ def save_profile(did: str, profile_data: dict | None):
                     None,
                     None,
                     None,
-                    None,
-                    datetime.now().isoformat(),
                 ),
             )
         else:
@@ -104,9 +102,9 @@ def save_profile(did: str, profile_data: dict | None):
             conn.execute(
                 """
                 INSERT INTO author_profiles
-                (did, handle, display_name, description, followers_count,
-                 follows_count, posts_count, created_at, fetched_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                (did, handle, display_name, bio, followers_count,
+                 follows_count, posts_count)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     profile_data.get("did"),
@@ -116,8 +114,6 @@ def save_profile(did: str, profile_data: dict | None):
                     profile_data.get("followersCount"),
                     profile_data.get("followsCount"),
                     profile_data.get("postsCount"),
-                    profile_data.get("createdAt"),
-                    datetime.now().isoformat(),
                 ),
             )
         conn.commit()

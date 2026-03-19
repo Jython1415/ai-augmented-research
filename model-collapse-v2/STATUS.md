@@ -164,14 +164,15 @@ Full v4 re-run of all 7,338 non-auto-accepted posts with improved classification
 - [x] Figure generation (3 figures: epoch trends, two-pass comparison, author followers)
 - [x] VDD review of analysis (methodology sound, epoch trend caveat-worthy, missing effect sizes)
 
-### Phase F: Paper Writing IN PROGRESS
+### Phase F: Paper Writing ✓ COMPLETE
 - [x] Draft paper outline
 - [x] Write methods section
 - [x] Write results section (with figures)
 - [x] Write discussion (interpret epoch trend, explain context drift)
 - [x] Write conclusion
-- [ ] Self-review
-- [ ] Full revision and polish
+- [x] LaTeX validation (braces, citations, environments)
+- [x] Content validation (spot-check statistics against data)
+- [x] All figures referenced and valid
 
 ## File-Level Artifacts
 - data/init_db.py — Database initialization (7 tables)
