@@ -89,3 +89,14 @@ Iteration-by-iteration log. Append only.
 
 ### Next Phase
 Moving to Phase C: Fleet Coding Pass 2 (with context, 539 CUs)
+
+## Iteration 12 (2026-03-19)
+
+### Phase C: Fleet Coding Pass 2 — Started
+- Pass 2 batches staged: 54 batches with context (parent_text, quoted_text, thread context)
+- Fixed schema issue: coding_pass2 table now supports Pass 2 enum values
+  - claim_strength: `neutral_share`, `substantive_mention`, `authoritative_claim` (different from Pass 1)
+  - paper_fidelity & field_accuracy: added `not_applicable` value for neutral_share posts
+- First wave imported: 140/540 CUs coded (26%)
+- Agents using context reduces throughput (only ~2 batches/agent before loop cycles)
+- Adjusting strategy: dispatching fewer batches per agent to maintain steady flow
