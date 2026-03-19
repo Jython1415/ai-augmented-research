@@ -143,9 +143,9 @@ Full v4 re-run of all 7,338 non-auto-accepted posts with improved classification
 - [x] Build citation units (Step 5): 581 units created (36 link, 60 author_name, 152 title_phrase, 333 indirect)
 - [x] Fetch full thread context (Step 6): 691 context posts for 263/581 units (45% have context; 318 standalone)
   - 377 parent posts, 232 reply children, 82 self-replies
-- [ ] Fetch author profiles (Step 7): script TBD
+- [ ] Fetch author profiles (Step 7): script ready, deferred pending dependency fix
 
-### Phase 5: Coding — Pass 1 COMPLETE, Pass 2 IN PROGRESS
+### Phase 5: Coding — Pass 1 COMPLETE, Pass 2 COMPLETE
 - [x] Design tight coding scheme (3 dimensions: claim_strength, paper_fidelity, field_accuracy)
 - [x] Build examples iteratively (10 worked examples in codebook)
 - [x] Calibration: 8 rounds with 3 independent Haiku agents on 50-post sample
@@ -154,7 +154,7 @@ Full v4 re-run of all 7,338 non-auto-accepted posts with improved classification
 - [x] Shumailov false positive cleanup (42 removed, 539 CUs final)
 - [x] Build production infrastructure (staging, import, pass 2 codebook, author profiles)
 - [x] Fleet coding Pass 1 (post-only, 539 CUs) — COMPLETE
-- [ ] Fleet coding Pass 2 (with-context, 539 CUs) — IN PROGRESS (350/539 = 64.9% complete)
+- [x] Fleet coding Pass 2 (with-context, 539 CUs) — COMPLETE (all 539 coded)
 
 ### Phase 6: Analysis & Paper
 - [ ] Statistical analysis (citation fidelity over time)

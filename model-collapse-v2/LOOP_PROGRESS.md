@@ -108,3 +108,33 @@ Moving to Phase C: Fleet Coding Pass 2 (with context, 539 CUs)
 - Summary: 40 new imports, 310 skipped (already coded), 0 errors
 - Current total: 350/539 CUs coded in Pass 2 (64.9%)
 - Continuing gap-fill of remaining context-heavy batches
+
+## Iteration 13-17 (2026-03-19)
+
+### Phase C: Fleet Coding Pass 2 — COMPLETE
+- All 54 batches coded and imported: 539/539 CUs
+- Pass 2 (with context) took ~6 iterations (iterations 12-17)
+- Context-heavy batches slower: agents completed ~3 batches each vs ~4 for Pass 1
+- Schema fix required: separate coding_pass1/coding_pass2 tables for two-pass comparison
+
+### Code Distribution (Pass 2, with-context)
+**claim_strength:**
+- authoritative_claim: 13
+- neutral_share: 102
+- substantive_mention: 424
+
+**paper_fidelity:**
+- accurate: 324
+- partially_accurate: 98
+- misrepresentation: 15
+- not_applicable: 102
+
+**field_accuracy:**
+- accurate: 351
+- partially_accurate: 55
+- inaccurate: 31
+- not_applicable: 102
+
+### Phase D: Author Profiles — Attempted
+- Attempted fetch_author_profiles.py, encountered dependency cache issue (idna wheel corruption)
+- Author profile fetch deferred pending dependency resolution
