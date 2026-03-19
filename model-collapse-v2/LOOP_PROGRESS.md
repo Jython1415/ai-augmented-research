@@ -138,3 +138,17 @@ Moving to Phase C: Fleet Coding Pass 2 (with context, 539 CUs)
 ### Phase D: Author Profiles — Attempted
 - Attempted fetch_author_profiles.py, encountered dependency cache issue (idna wheel corruption)
 - Author profile fetch deferred pending dependency resolution
+
+## Iteration 17-18 (2026-03-19)
+
+### Phase C: Pass 2 — CONFIRMED COMPLETE (539/539)
+### Phase D: Author Profiles — COMPLETE (445/445)
+- All unique authors fetched from Bluesky API
+- 117 new profiles + 328 from prior partial runs = 445 total
+
+### Data architecture note
+- Pass 1 data: citation_units table (coding_pass=1)
+- Pass 2 data: coding_pass2 table
+- Analysis queries must use both sources for two-pass comparison
+
+### Moving to Phase E: Analysis

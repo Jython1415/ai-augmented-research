@@ -155,6 +155,7 @@ Full v4 re-run of all 7,338 non-auto-accepted posts with improved classification
 - [x] Build production infrastructure (staging, import, pass 2 codebook, author profiles)
 - [x] Fleet coding Pass 1 (post-only, 539 CUs) — COMPLETE
 - [x] Fleet coding Pass 2 (with-context, 539 CUs) — COMPLETE (all 539 coded)
+- [x] Fetch author profiles (445/445 from Bluesky API) — COMPLETE
 
 ### Phase 6: Analysis & Paper
 - [ ] Statistical analysis (citation fidelity over time)
