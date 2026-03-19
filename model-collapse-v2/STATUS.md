@@ -153,7 +153,7 @@ Full v4 re-run of all 7,338 non-auto-accepted posts with improved classification
 - [x] VDD review of codebook (contradictions found and fixed)
 - [x] Shumailov false positive cleanup (42 removed, 539 CUs final)
 - [x] Build production infrastructure (staging, import, pass 2 codebook, author profiles)
-- [x] Fleet coding Pass 1 (post-only, 539 CUs) — 539/539 coded, all batches complete
+- [x] Fleet coding Pass 1 (post-only, 539 CUs) — COMPLETE
 - [ ] Fleet coding Pass 2 (with-context, 539 CUs)
 
 ### Phase 6: Analysis & Paper

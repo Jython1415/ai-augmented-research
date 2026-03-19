@@ -59,12 +59,33 @@ Iteration-by-iteration log. Append only.
 - All verification checks passing: valid JSON, correct fields, no Bash violations
 - Progress: 170/539 CUs coded (31.5%)
 
-## Iteration 7-10 (2026-03-19)
+## Iteration 7-11 (2026-03-19)
 
 ### Phase B: Fleet Coding Pass 1 — COMPLETE
 - Multi-batch agent strategy: each Haiku agent handles ~3-4 batches before hitting context limits
-- 53/54 result files completed: all 539 citation units fully coded
+- All 54 result files completed: all 539 citation units fully coded
 - All imports clean, no errors, no Bash violations detected
 - Final verification: 539/539 CUs with coding_pass = 1 in database
-- Remaining: 1 batch (054) may have failed to execute or still processing
 - Pattern confirmed: dispatch 4 agents × 4 batches each per iteration = ~16 batches/iteration
+- Final idempotent import sweep (iteration 11): 0 new imports, 540 skipped (already coded), 0 errors
+
+### Code Distribution (Pass 1, post-only)
+**claim_strength:**
+- authoritative_claim: 19
+- neutral_share: 129
+- substantive_mention: 391
+
+**paper_fidelity:**
+- accurate: 303
+- partially_accurate: 85
+- misrepresentation: 20
+- not_applicable: 131
+
+**field_accuracy:**
+- accurate: 334
+- partially_accurate: 53
+- inaccurate: 21
+- not_applicable: 131
+
+### Next Phase
+Moving to Phase C: Fleet Coding Pass 2 (with context, 539 CUs)
