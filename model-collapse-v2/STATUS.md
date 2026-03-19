@@ -154,7 +154,7 @@ Full v4 re-run of all 7,338 non-auto-accepted posts with improved classification
 - [x] Shumailov false positive cleanup (42 removed, 539 CUs final)
 - [x] Build production infrastructure (staging, import, pass 2 codebook, author profiles)
 - [x] Fleet coding Pass 1 (post-only, 539 CUs) — COMPLETE
-- [ ] Fleet coding Pass 2 (with-context, 539 CUs) — IN PROGRESS (140/539 = 26% complete)
+- [ ] Fleet coding Pass 2 (with-context, 539 CUs) — IN PROGRESS (350/539 = 64.9% complete)
 
 ### Phase 6: Analysis & Paper
 - [ ] Statistical analysis (citation fidelity over time)

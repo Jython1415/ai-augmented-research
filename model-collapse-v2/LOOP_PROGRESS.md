@@ -100,3 +100,11 @@ Moving to Phase C: Fleet Coding Pass 2 (with context, 539 CUs)
 - First wave imported: 140/540 CUs coded (26%)
 - Agents using context reduces throughput (only ~2 batches/agent before loop cycles)
 - Adjusting strategy: dispatching fewer batches per agent to maintain steady flow
+
+## Iteration 13 (2026-03-19)
+
+### Phase C: Fleet Coding Pass 2 — Progress Checkpoint
+- Imported all available Pass 2 result batches
+- Summary: 40 new imports, 310 skipped (already coded), 0 errors
+- Current total: 350/539 CUs coded in Pass 2 (64.9%)
+- Continuing gap-fill of remaining context-heavy batches
