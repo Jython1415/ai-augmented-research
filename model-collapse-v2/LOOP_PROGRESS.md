@@ -48,3 +48,13 @@ Iteration-by-iteration log. Append only.
 - Wrote data/fetch_author_profiles.py (Bluesky public API, 445 authors, rate limited)
 - Tested end-to-end: stage → mock import → verify → rollback. Pipeline works.
 - 54 batches for pass 1, DB clean and ready for fleet coding
+
+## Iteration 4-6 (2026-03-19)
+
+### Phase B: Fleet Coding Pass 1 — Waves 2-3 complete
+- Wave 2 (batches 006-010): all verified and imported
+- Wave 3 (batches 011-015): completed across iterations (some agents didn't finish before loop cycled, re-dispatched)
+- Wave 4 partial (016-017): all 50 new results verified and imported
+- Pattern: agents typically complete within 1-2 loop cycles; dispatching 5-7 per iteration works well
+- All verification checks passing: valid JSON, correct fields, no Bash violations
+- Progress: 170/539 CUs coded (31.5%)
