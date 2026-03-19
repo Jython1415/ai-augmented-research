@@ -152,3 +152,16 @@ Moving to Phase C: Fleet Coding Pass 2 (with context, 539 CUs)
 - Analysis queries must use both sources for two-pass comparison
 
 ### Moving to Phase E: Analysis
+
+## Iteration 18-19 (2026-03-19)
+
+### Phase E: Analysis — COMPLETE
+- Summary statistics for both passes (539 CUs)
+- Epoch trend analysis: accuracy declines in Epoch 6 (paper fidelity 69.7%→49.8%, field accuracy 80.3%→53.8%), authoritative claims rise (2.6%→5.5%)
+- Two-pass comparison: κ=0.695 (claim strength), κ=0.551 (paper fidelity), κ=0.514 (field accuracy) — context changes ~26% of codes
+- Author demographics: 19% AI/ML, 16% journalist, 14% researcher, 45% other (445 unique authors)
+- Repeat citers: 53 authors account for 147/539 CUs (27%), 1 super-citer with 18 posts
+- Reach correlation: insufficient variation in follower data (constant input), correlation undefined
+- 3 figures generated: epoch_fidelity_trends.png, twopass_comparison.png, author_followers_dist.png
+- VDD review completed: analysis is methodologically sound, epoch trend plausible but caveat-worthy (Epoch 6 3.6x larger sample, potential recency bias), missing effect sizes and confidence intervals
+- Moving to Phase F: Paper Writing

@@ -157,13 +157,20 @@ Full v4 re-run of all 7,338 non-auto-accepted posts with improved classification
 - [x] Fleet coding Pass 2 (with-context, 539 CUs) — COMPLETE (all 539 coded)
 - [x] Fetch author profiles (445/445 from Bluesky API) — COMPLETE
 
-### Phase 6: Analysis & Paper
-- [ ] Statistical analysis (citation fidelity over time)
-- [ ] Demographics analysis (bio roles, reach, repeat citers)
-- [ ] Two-pass comparison (context effect on coding)
-- [ ] Figure generation
-- [ ] Paper writing (independent study, stands alone)
-- [ ] Review and revision
+### Phase E: Analysis ✓ COMPLETE
+- [x] Statistical analysis (citation fidelity over time, epoch trends)
+- [x] Demographics analysis (bio roles, reach, repeat citers)
+- [x] Two-pass comparison (context effect on coding, κ=0.51-0.70)
+- [x] Figure generation (3 figures: epoch trends, two-pass comparison, author followers)
+- [x] VDD review of analysis (methodology sound, epoch trend caveat-worthy, missing effect sizes)
+
+### Phase F: Paper Writing
+- [ ] Draft paper outline
+- [ ] Write methods section
+- [ ] Write results section (with figures)
+- [ ] Write discussion (interpret epoch trend, explain context drift)
+- [ ] Write conclusion
+- [ ] Full review and revision
 
 ## File-Level Artifacts
 - data/init_db.py — Database initialization (7 tables)

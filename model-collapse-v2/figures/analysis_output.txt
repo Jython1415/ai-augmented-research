@@ -1,0 +1,280 @@
+/Users/Joshua/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /tmp/claude/matplotlib-bvjao06h because there was an issue with the default path (/Users/Joshua/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/Joshua/.cache/fontconfig
+	/Users/Joshua/.fontconfig
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/Joshua/.cache/fontconfig
+	/Users/Joshua/.fontconfig
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/Joshua/.cache/fontconfig
+	/Users/Joshua/.fontconfig
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/Joshua/.cache/fontconfig
+	/Users/Joshua/.fontconfig
+Matplotlib is building the font cache; this may take a moment.
+/Users/Joshua/agent/ai-augmented-research/model-collapse-v2/data/analyze_all.py:285: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  corr_pf, p_pf = spearmanr(followers, paper_fidelities_reach)
+/Users/Joshua/agent/ai-augmented-research/model-collapse-v2/data/analyze_all.py:286: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  corr_fa, p_fa = spearmanr(followers, field_accuracies_reach)
+2026-03-19 00:40:07.369 python3[64779:42532325] +[NSXPCSharedListener endpointForReply:withListenerName:replyErrorCode:]: an error occurred while attempting to obtain endpoint for listener 'ClientCallsAuxiliary': Connection invalid
+================================================================================
+PHASE E: COMPREHENSIVE ANALYSIS
+================================================================================
+
+1. SUMMARY STATISTICS
+--------------------------------------------------------------------------------
+
+Pass 1: 539 citation units
+
+Pass 1 Claim Strength Distribution:
+  substantive_mention: 391 (72.5%)
+  neutral_share: 129 (23.9%)
+  authoritative_claim: 19 (3.5%)
+
+Pass 1 Paper Fidelity Distribution:
+  accurate: 303 (56.2%)
+  not_applicable: 131 (24.3%)
+  partially_accurate: 85 (15.8%)
+  misrepresentation: 20 (3.7%)
+
+Pass 1 Field Accuracy Distribution:
+  accurate: 334 (62.0%)
+  not_applicable: 131 (24.3%)
+  partially_accurate: 53 (9.8%)
+  inaccurate: 21 (3.9%)
+
+Pass 1 Epoch Distribution:
+  2: 60 (11.1%)
+  3: 14 (2.6%)
+  4: 111 (20.6%)
+  5: 76 (14.1%)
+  6: 273 (50.6%)
+  None: 5 (0.9%)
+
+Pass 1 Citation Type Distribution:
+  indirect: 333 (61.8%)
+  title_phrase: 152 (28.2%)
+  link: 36 (6.7%)
+  author_name: 18 (3.3%)
+
+
+Pass 2: 539 records
+
+Pass 2 Claim Strength Distribution:
+  substantive_mention: 424 (78.7%)
+  neutral_share: 102 (18.9%)
+  authoritative_claim: 13 (2.4%)
+
+Pass 2 Paper Fidelity Distribution:
+  accurate: 324 (60.1%)
+  not_applicable: 102 (18.9%)
+  partially_accurate: 98 (18.2%)
+  misrepresentation: 15 (2.8%)
+
+Pass 2 Field Accuracy Distribution:
+  accurate: 351 (65.1%)
+  not_applicable: 102 (18.9%)
+  partially_accurate: 55 (10.2%)
+  inaccurate: 31 (5.8%)
+
+
+2. EPOCH TRENDS (Pass 1)
+--------------------------------------------------------------------------------
+
+CLAIM_STRENGTH by Epoch:
+  Epoch 2:
+    authoritative_claim: 1 (1.7%)
+    neutral_share: 16 (26.7%)
+    substantive_mention: 43 (71.7%)
+  Epoch 3:
+    neutral_share: 3 (21.4%)
+    substantive_mention: 11 (78.6%)
+  Epoch 4:
+    authoritative_claim: 1 (0.9%)
+    neutral_share: 28 (25.2%)
+    substantive_mention: 82 (73.9%)
+  Epoch 5:
+    authoritative_claim: 2 (2.6%)
+    neutral_share: 12 (15.8%)
+    substantive_mention: 62 (81.6%)
+  Epoch 6:
+    authoritative_claim: 15 (5.5%)
+    neutral_share: 65 (23.8%)
+    substantive_mention: 193 (70.7%)
+
+PAPER_FIDELITY by Epoch:
+  Epoch 2:
+    accurate: 37 (61.7%)
+    misrepresentation: 1 (1.7%)
+    not_applicable: 16 (26.7%)
+    partially_accurate: 6 (10.0%)
+  Epoch 3:
+    accurate: 7 (50.0%)
+    not_applicable: 3 (21.4%)
+    partially_accurate: 4 (28.6%)
+  Epoch 4:
+    accurate: 70 (63.1%)
+    misrepresentation: 1 (0.9%)
+    not_applicable: 28 (25.2%)
+    partially_accurate: 12 (10.8%)
+  Epoch 5:
+    accurate: 53 (69.7%)
+    misrepresentation: 3 (3.9%)
+    not_applicable: 12 (15.8%)
+    partially_accurate: 8 (10.5%)
+  Epoch 6:
+    accurate: 136 (49.8%)
+    misrepresentation: 15 (5.5%)
+    not_applicable: 67 (24.5%)
+    partially_accurate: 55 (20.1%)
+
+FIELD_ACCURACY by Epoch:
+  Epoch 2:
+    accurate: 42 (70.0%)
+    not_applicable: 16 (26.7%)
+    partially_accurate: 2 (3.3%)
+  Epoch 3:
+    accurate: 8 (57.1%)
+    inaccurate: 1 (7.1%)
+    not_applicable: 3 (21.4%)
+    partially_accurate: 2 (14.3%)
+  Epoch 4:
+    accurate: 76 (68.5%)
+    inaccurate: 1 (0.9%)
+    not_applicable: 28 (25.2%)
+    partially_accurate: 6 (5.4%)
+  Epoch 5:
+    accurate: 61 (80.3%)
+    inaccurate: 2 (2.6%)
+    not_applicable: 12 (15.8%)
+    partially_accurate: 1 (1.3%)
+  Epoch 6:
+    accurate: 147 (53.8%)
+    inaccurate: 17 (6.2%)
+    not_applicable: 67 (24.5%)
+    partially_accurate: 42 (15.4%)
+
+
+3. TWO-PASS COMPARISON
+--------------------------------------------------------------------------------
+
+Common citation units (in both passes): 539
+
+CLAIM_STRENGTH Agreement:
+  Exact agreement: 476/539 (88.3%)
+  Confusion matrix (Pass 1 rows, Pass 2 cols):
+    authoritative_claimneutral_sharesubstantive_mention
+  authoritative_claim:       9       2       8
+  neutral_share:       0      90      39
+  substantive_mention:       4      10     377
+  Direction of change:
+    Increased: 49 (9.1%)
+    Decreased: 14 (2.6%)
+    No change: 476 (88.3%)
+  Cohen's Kappa (simplified): 0.695
+
+PAPER_FIDELITY Agreement:
+  Exact agreement: 397/539 (73.7%)
+  Confusion matrix (Pass 1 rows, Pass 2 cols):
+    accuratemisrepresentationnot_applicablepartially_accurate
+  accurate:     256       1       5      41
+  misrepresentation:       1      10       2       7
+  not_applicable:      32       0      90       9
+  partially_accurate:      35       4       5      41
+  Direction of change:
+    Increased: 65 (12.1%)
+    Decreased: 77 (14.3%)
+    No change: 397 (73.7%)
+  Cohen's Kappa (simplified): 0.551
+
+FIELD_ACCURACY Agreement:
+  Exact agreement: 398/539 (73.8%)
+  Confusion matrix (Pass 1 rows, Pass 2 cols):
+    accurateinaccuratenot_applicablepartially_accurate
+  accurate:     283       8       8      35
+  inaccurate:       2      12       2       5
+  not_applicable:      36       3      90       2
+  partially_accurate:      30       8       2      13
+  Direction of change:
+    Increased: 60 (11.1%)
+    Decreased: 81 (15.0%)
+    No change: 398 (73.8%)
+  Cohen's Kappa (simplified): 0.514
+
+
+4. AUTHOR DEMOGRAPHICS
+--------------------------------------------------------------------------------
+
+Total authors: 445
+
+Author Categories:
+  ai_ml: 85 (19.1%)
+  journalist: 72 (16.2%)
+  researcher: 64 (14.4%)
+  developer: 20 (4.5%)
+  student: 4 (0.9%)
+  other: 200 (44.9%)
+
+
+5. REPEAT CITERS
+--------------------------------------------------------------------------------
+
+Authors with >1 citation unit: 53
+
+Top 20 repeat citers:
+  1. did:plc:zo6iondhav5zbnuuum2awvwb: 18 citation units
+  2. did:plc:3mbqqo3dxddhl7nwqmghsn6a: 4 citation units
+  3. did:plc:5euigs3as423hhpcs4a4awwm: 4 citation units
+  4. did:plc:6li4cee4mhfwvuouapi4guc3: 4 citation units
+  5. did:plc:mnhxpvp5kajva54yxdl5tclw: 4 citation units
+  6. did:plc:sfmur4r4wzriaupbgmz7sshy: 4 citation units
+  7. did:plc:wlaockadnrw3orei4yvlphxf: 4 citation units
+  8. did:plc:6omwpywertobiisnnwier7g6: 3 citation units
+  9. did:plc:a56dbiks5wmzacs5hsdsxw55: 3 citation units
+  10. did:plc:bona7ckyap3bbtcipfxxx3hn: 3 citation units
+  11. did:plc:ioiqfz2fcjcrcay5hcg35edf: 3 citation units
+  12. did:plc:jmuhjrotgvcquoaqtpcuxjii: 3 citation units
+  13. did:plc:lui5epjfu4cdbyg6ujyn27tl: 3 citation units
+  14. did:plc:nrfqk6t446qme4kb7aiemqig: 3 citation units
+  15. did:plc:p6kobudgqiawuewdq2elkyxs: 3 citation units
+  16. did:plc:s33lmvk7rwmlypc2qm6wn2lr: 3 citation units
+  17. did:plc:s4xmseub4a4pwwetg2xxmcyy: 3 citation units
+  18. did:plc:tb5qpjc73ga35ircj6uboq4j: 3 citation units
+  19. did:plc:z7u34fd3ws2hg4hfz5deq57p: 3 citation units
+  20. did:plc:zxlg7db5co4df67avdzolwqs: 3 citation units
+
+Repeat citations account for 147/539 (27.3%) of all Pass 1 data
+
+
+6. REACH ANALYSIS (Followers vs Accuracy)
+--------------------------------------------------------------------------------
+
+Records with follower data: 481
+Mean followers: 4667
+Median followers: 814
+Min followers: 2
+Max followers: 254208
+
+Spearman correlations (followers vs accuracy):
+  Paper Fidelity: r=nan, p=nan
+  Field Accuracy: r=nan, p=nan
+
+
+7. GENERATING FIGURES
+--------------------------------------------------------------------------------
+✓ Saved: epoch_fidelity_trends.png
+✓ Saved: twopass_comparison.png
+✓ Saved: author_followers_dist.png
+
+================================================================================
+ANALYSIS COMPLETE
+================================================================================
