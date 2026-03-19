@@ -23,6 +23,16 @@ Iteration-by-iteration log. Append only.
 - Pass 2 codebook needed: prompts/coding_scheme_pass2.md
 - DB schema: citation_units table has columns for coding results (claim_strength, paper_fidelity, field_accuracy + reasoning, epoch, coding_pass)
 
+## Iteration 2-3 (2026-03-19)
+
+### Phase B: Fleet Coding Pass 1 — Wave 1 complete
+- Dispatched 5 coding agents (batches 001-005, 50 posts)
+- 3 agents completed in iteration 1, 2 completed between iterations (loop cycled before they finished)
+- All 5 result files verified: valid JSON, all fields present, correct enum values, neutral_share constraints met
+- Imported all 50 results to DB (0 errors)
+- Progress: 50/539 CUs coded (9.3%)
+- Wave 2 dispatched (batches 006-010)
+
 ### Key Learnings
 - Haiku agents use Bash ~75% of the time unless explicitly banned in BOTH spawn prompt and instruction file
 - Positive framing ("X IS accurate") outperforms negative ("don't code X as partially_accurate") by ~8%
