@@ -27,6 +27,32 @@ REQUIRED_FIELDS = {
     "epoch",
 }
 
+# V2 to V3 codebook translations
+V2_TO_V3_CLAIM_STRENGTH = {
+    "casual": "neutral_share",
+    "moderate": "substantive_mention",
+    "authoritative": "authoritative_claim",
+}
+
+V2_TO_V3_PAPER_FIDELITY = {
+    # V3 values: accurate, partially_accurate, misrepresentation, not_applicable
+    # V2 likely uses same values, but map for compatibility
+    "accurate": "accurate",
+    "partially_accurate": "partially_accurate",
+    "misrepresentation": "misrepresentation",
+    "not_applicable": "not_applicable",
+}
+
+V2_TO_V3_FIELD_ACCURACY = {
+    # V3 values: accurate, partially_accurate, oversimplified, inaccurate, not_applicable
+    # V2 likely uses same values, but map for compatibility
+    "accurate": "accurate",
+    "partially_accurate": "partially_accurate",
+    "oversimplified": "oversimplified",
+    "inaccurate": "inaccurate",
+    "not_applicable": "not_applicable",
+}
+
 
 def load_result_files(source: Path) -> list[dict]:
     """Load result JSON files from file or directory.
@@ -84,6 +110,35 @@ def validate_result(result: dict, result_num: int) -> Optional[str]:
     return None
 
 
+def translate_values(result: dict) -> dict:
+    """Translate V2 codebook values to V3.
+
+    Args:
+        result: Result object with potentially V2 values.
+
+    Returns:
+        Result object with V3 values.
+    """
+    translated = result.copy()
+
+    # Translate claim_strength
+    claim_strength = result.get("claim_strength", "")
+    if claim_strength in V2_TO_V3_CLAIM_STRENGTH:
+        translated["claim_strength"] = V2_TO_V3_CLAIM_STRENGTH[claim_strength]
+
+    # Translate paper_fidelity
+    paper_fidelity = result.get("paper_fidelity", "")
+    if paper_fidelity in V2_TO_V3_PAPER_FIDELITY:
+        translated["paper_fidelity"] = V2_TO_V3_PAPER_FIDELITY[paper_fidelity]
+
+    # Translate field_accuracy
+    field_accuracy = result.get("field_accuracy", "")
+    if field_accuracy in V2_TO_V3_FIELD_ACCURACY:
+        translated["field_accuracy"] = V2_TO_V3_FIELD_ACCURACY[field_accuracy]
+
+    return translated
+
+
 def import_results(pass_num: int, results: list[dict]) -> tuple[int, int, int]:
     """Import coding results into the appropriate coding_passN table.
 
@@ -93,6 +148,11 @@ def import_results(pass_num: int, results: list[dict]) -> tuple[int, int, int]:
 
     Returns:
         Tuple of (imported_count, skipped_count, error_count).
+
+    Note: Translates V2 codebook values to V3 automatically:
+    - claim_strength: casual → neutral_share, moderate → substantive_mention, authoritative → authoritative_claim
+    - paper_fidelity: accurate, partially_accurate, misrepresentation, not_applicable
+    - field_accuracy: accurate, partially_accurate, oversimplified, inaccurate, not_applicable
     """
     conn = sqlite3.connect(DB_PATH)
     conn.execute("PRAGMA journal_mode=WAL")
@@ -121,6 +181,9 @@ def import_results(pass_num: int, results: list[dict]) -> tuple[int, int, int]:
             continue
 
         try:
+            # Translate V2 values to V3
+            result = translate_values(result)
+
             # Find citation_unit by post_id -> uri -> anchor_post_uri
             cursor.execute(
                 """
@@ -156,6 +219,7 @@ def import_results(pass_num: int, results: list[dict]) -> tuple[int, int, int]:
 
             # Insert coding results into the pass-specific table
             # Note: rationale field contains all reasoning
+            # Values are translated to V3 codebook values
             cursor.execute(
                 f"""
                 INSERT INTO {table_name}

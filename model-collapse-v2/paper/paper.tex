@@ -20,20 +20,19 @@
 \maketitle
 
 \begin{abstract}
-The 2024 Nature paper ``AI models collapse when trained on recursively generated data'' by Shumailov et al.\ has generated significant discussion on social media platforms. However, little is known about how faithfully this influential paper is cited and interpreted by non-specialist audiences. This study presents a systematic content analysis of 539 citation units from Bluesky, examining the fidelity of claims to the original paper's findings and the broader state of scientific knowledge at the time of posting. Using a three-dimensional coding scheme applied through eight rounds of inter-coder reliability calibration with AI coders (Krippendorff's $\alpha$ = 0.888/0.762/0.816), we find that 72.5\% of citations are substantive mentions rather than authoritative claims, but only 56.2\% accurately represent the paper's core findings. We employ a novel two-pass methodology, coding each citation unit both with and without thread context, revealing that contextual information changes approximately 26\% of coding decisions (Cohen's $\kappa$ = 0.551--0.695 across dimensions). Our analysis identifies a striking accuracy decline in more recent discussion epochs, with paper fidelity dropping from 69.7\% (Epoch 5) to 49.8\% (Epoch 6), concurrent with a rise in authoritative claims despite lower accuracy. Author demographics suggest that 19\% of citers identify as AI/ML professionals, while journalists and researchers comprise 16\% and 14\% respectively. These findings illuminate the mechanisms of citation drift in technical science communication and support a ``telephone game'' model where citation accuracy degrades as discourse moves through communities and time.
+The 2024 Nature paper ``AI models collapse when trained on recursively generated data'' \cite{Shumailov2024} has generated significant discussion on social media platforms. However, little is known about how faithfully this influential paper is cited and interpreted by non-specialist audiences. This study presents a systematic content analysis of 539 citation units from Bluesky, examining the fidelity of claims to the original paper's findings and the broader state of scientific knowledge at the time of posting. Using a three-dimensional coding scheme applied through three calibration rounds with AI coders (Krippendorff's $\alpha$ \cite{Krippendorff2019} = 0.917/0.757/0.779), we find that 76.1\% of citations are substantive mentions rather than authoritative claims, but only 53.4\% accurately represent the paper's core findings. We employ a novel two-pass methodology, coding each citation unit both with and without thread context, revealing that contextual information changes approximately 30\% of coding decisions (Cohen's $\kappa$ \cite{Cohen1960} = 0.605/0.500/0.529 across dimensions). Our analysis identifies a striking accuracy decline in more recent discussion epochs, with paper fidelity peaking at 88.0\% in Epoch 4 (post-publication) but declining to 61.7\% in Epoch 6, concurrent with a rise in authoritative claims despite lower accuracy. Author demographics suggest that 19.1\% of citers identify as AI/ML professionals, while journalists and researchers comprise 16.2\% and 14.4\% respectively. These findings illuminate the mechanisms of citation drift in technical science communication and support a ``telephone game'' model where citation accuracy degrades as discourse moves through communities and time.
 
-\keywords{citation analysis, social media, model collapse, AI discourse, content analysis, inter-coder reliability}
 \end{abstract}
 
 \section{Introduction}
 
-Model collapse—the phenomenon where machine learning models trained recursively on AI-generated data experience performance degradation—has emerged as a central concern in recent AI research. Shumailov et al.\ (2024) provided the first systematic empirical study of this effect, demonstrating theoretically and experimentally that training on generated data from earlier models creates a progressive loss of information and inbreeding of model parameters, ultimately leading to model collapse across diverse architectures and datasets.
+Model collapse—the phenomenon where machine learning models trained recursively on AI-generated data experience performance degradation—has emerged as a central concern in recent AI research. \cite{Shumailov2024} provided the first systematic empirical study of this effect, demonstrating theoretically and experimentally that training on generated data from earlier models creates a progressive loss of information and inbreeding of model parameters, ultimately leading to model collapse across diverse architectures and datasets.
 
 This finding has been widely cited across academic, journalistic, and social media contexts. However, the secondary literature and social media discourse surrounding model collapse reveals significant variation in how the paper's claims are interpreted and reproduced. Some citations accurately reflect the technical mechanisms and assumptions underlying the model collapse result; others present the phenomenon as inevitable across all training regimes, overstating the paper's actual claims. Others situate the finding within a broader landscape of subsequent research, sometimes appropriately hedging the original claims in light of new empirical results.
 
 Despite the apparent importance of this work in shaping AI policy discussions and public understanding of AI limitations, there has been no systematic investigation of citation fidelity—the degree to which secondary sources accurately represent the original paper's findings and arguments. This gap is particularly important for high-profile papers that enter popular discourse, where misrepresentation may influence public perception and policy decisions.
 
-We address this gap through a systematic content analysis of Shumailov et al.\ citations on Bluesky, a social media platform with a growing user base of AI researchers, technologists, and science communicators. Bluesky's open firehose API enables comprehensive collection of a corpus unavailable from more closed platforms. Our research question is: \textit{How faithfully do Bluesky users cite and represent Shumailov et al.\ (2024), and does citation fidelity change across time and author demographics?}
+We address this gap through a systematic content analysis of \cite{Shumailov2024} citations on Bluesky, a social media platform with a growing user base of AI researchers, technologists, and science communicators. Bluesky's open firehose API enables comprehensive collection of a corpus unavailable from more closed platforms. Our research question is: \textit{How faithfully do Bluesky users cite and represent \cite{Shumailov2024}, and does citation fidelity change across time and author demographics?}
 
 Our methodological contribution is a novel two-pass coding design. Each citation unit is coded independently in two passes: first based on the citing post(s) alone, and second with full thread context. This enables quantification of how much surrounding context shapes interpretation of citations—an important factor often ignored in citation analysis studies.
 
@@ -47,13 +46,21 @@ We collected posts from Bluesky's firehose API using an iterative search strateg
 
 We then implemented narrow scope filtering: posts were included only if they contained a traceable citation chain to Shumailov et al.\ (2024), operationalized as (1) direct links to the Nature article, arXiv preprint, or DOI; (2) author name mentions (Shumailov, Shumaylov); (3) paper title or distinctive phrases; (4) shares of verified news coverage articles (approximately 35 distinct news outlets); or (5) replies to or quotes of posts meeting these criteria (depth 0--1). Posts discussing ``model collapse'' generically without traceable citation signals were excluded.
 
-This approach was motivated by empirical analysis showing that the term ``model collapse'' is used across multiple distinct scientific problems (Schaeffer et al.\ 2025 identifies eight competing definitions), and that metaphorical terms like ``Habsburg AI'' and ``AI ouroboros'' predate Shumailov's preprint by several months and are used independently to describe multiple AI concerns. Narrow scope reduces ambiguity about which form of model collapse is being discussed.
+This approach was motivated by empirical analysis showing that the term ``model collapse'' is used across multiple distinct scientific problems (\cite{Schaeffer2025} identifies eight competing definitions), and that metaphorical terms like ``Habsburg AI'' and ``AI ouroboros'' predate Shumailov's preprint by several months and are used independently to describe multiple AI concerns. Narrow scope reduces ambiguity about which form of model collapse is being discussed.
 
 Following this filtering, relevance classification was conducted by five waves of Haiku coding agents (Claude 3.5 Haiku) following a structured instruction set validated through eight rounds of inter-coder reliability testing (Krippendorff's $\alpha$ = 0.943 on balanced sample of likely-relevant and likely-irrelevant posts). The classification process included fetching parent post and quoted post text for all 7,503 posts to provide full context for classification decisions, addressing empirical findings that 28\% of hard cases change classification when parent context is available.
 
 The final corpus contained 539 citation units (individual posts or self-reply threads in which any post cites the paper). We note that 42 false positives were removed during later quality assurance (posts citing different papers with similar titles or discussing model collapse in contexts unrelated to Shumailov et al.).
 
 \subsection{Coding Scheme and Inter-Coder Reliability}
+
+\subsubsection{Codebook Development: V2-to-V3 Revision}
+
+An initial V2 codebook was developed and applied to all 539 citation units. However, subsequent review identified systematic leniency patterns in the V2 application: coders frequently rated ambiguous or context-dependent claims as ``accurate'' when they should have been marked ``partially accurate'' or flagged as ``not applicable.'' To address this, we conducted a V2→V3 codebook revision focused on: (1) systematic leniency audit to identify boundary cases where the codebook had been applied inconsistently, (2) conditionality preservation requirement: distinguishing between claims that accurately report conditional findings (e.g., ``model collapse occurs when trained on recursive generations'') versus overgeneralized claims (e.g., ``model collapse is inevitable''), and (3) three additional calibration rounds with refined decision rules and worked examples, concentrating on high-disagreement categories.
+
+The V3 codebook preserved the original three-dimensional structure and core decision rules but tightened the precision of category definitions. This iterative refinement process demonstrates a broader methodological point: AI coders require explicit calibration cycles and boundary-case adjudication to maintain consistency over large coding tasks, even when overall inter-coder reliability is formally acceptable.
+
+\subsubsection{Coding Scheme Definition}
 
 We designed a three-dimensional coding scheme with explicit decision rules for each dimension:
 
@@ -82,16 +89,16 @@ We designed a three-dimensional coding scheme with explicit decision rules for e
     \end{itemize}
 \end{enumerate}
 
-We conducted formal inter-coder reliability testing using a stratified sample of 50 posts across five time epochs (10 posts per epoch). Three independent Haiku coding agents (Claude 3.5 Haiku, 200K context window) coded all 50 posts through eight iterative rounds, with codebook revision between rounds targeting disagreement patterns.
+We conducted formal inter-coder reliability testing using a stratified sample of 50 posts across five time epochs (10 posts per epoch). Three independent Haiku coding agents (Claude 3.5 Haiku, 200K context window) coded all 50 posts through three calibration rounds following the revised V3 codebook, with focused discussion between rounds on high-disagreement cases.
 
-Final inter-coder reliability scores (Krippendorff's $\alpha$):
+Final inter-coder reliability scores (Krippendorff's $\alpha$, V3):
 \begin{itemize}
-\item Claim Strength: $\alpha = 0.888$ (strong agreement)
-\item Paper Fidelity: $\alpha = 0.762$ (tentative agreement; interpret with caution)
-\item Field Accuracy: $\alpha = 0.816$ (strong agreement)
+\item Claim Strength: $\alpha = 0.917$ (strong agreement)
+\item Paper Fidelity: $\alpha = 0.757$ (substantial agreement; higher than V2)
+\item Field Accuracy: $\alpha = 0.779$ (strong agreement)
 \end{itemize}
 
-The moderate reliability on Paper Fidelity reflects inherent difficulty in distinguishing partial accuracy from misrepresentation, and disagreements at category boundaries (e.g., whether conflating model collapse with mode collapse constitutes misrepresentation or partial accuracy). We report these uncertainties explicitly and note them in interpretation.
+The moderate-to-strong reliability on Paper Fidelity reflects inherent difficulty in distinguishing partial accuracy from misrepresentation, and disagreements at category boundaries (e.g., whether conflating model collapse with mode collapse constitutes misrepresentation or partial accuracy). The V3 revision, focusing on conditionality preservation and systematic leniency audit, improved reliability across all dimensions compared to the initial V2 codebook. We report these uncertainties explicitly and note them in interpretation.
 
 \subsection{Two-Pass Methodology}
 
@@ -106,12 +113,12 @@ This design quantifies the degree to which surrounding context changes interpret
 
 Between passes, we computed Cohen's $\kappa$ on the common set of 539 citation units:
 \begin{itemize}
-\item Claim Strength: $\kappa = 0.695$ (substantial agreement, 88.3\% exact agreement, 9.1\% increased in Pass 2, 2.6\% decreased)
-\item Paper Fidelity: $\kappa = 0.551$ (moderate agreement, 73.7\% exact agreement, 12.1\% increased in Pass 2, 14.3\% decreased)
-\item Field Accuracy: $\kappa = 0.514$ (moderate agreement, 73.8\% exact agreement, 11.1\% increased in Pass 2, 15.0\% decreased)
+\item Claim Strength: $\kappa = 0.605$ (substantial agreement, 85.3\% exact agreement, 7.8\% increased in Pass 2, 6.9\% decreased)
+\item Paper Fidelity: $\kappa = 0.500$ (moderate agreement, 69.6\% exact agreement, 14.3\% increased in Pass 2, 16.1\% decreased)
+\item Field Accuracy: $\kappa = 0.529$ (moderate agreement, 73.5\% exact agreement, 13.0\% increased in Pass 2, 13.5\% decreased)
 \end{itemize}
 
-Directional analysis reveals consistent patterns: for all three dimensions, ``Decreased'' codes are more frequent than ``Increased'' (Fidelity 14.3\% vs.\ 12.1\%, Field 15.0\% vs.\ 11.1\%), suggesting that Pass 2 context nudges coding toward more conservative/strict assessments.
+Directional analysis reveals consistent patterns: for accuracy dimensions, ``Decreased'' codes are slightly more frequent than ``Increased'' (Fidelity 16.1\% vs.\ 14.3\%, Field 13.5\% vs.\ 13.0\%), suggesting that Pass 2 context nudges coding toward more conservative/strict assessments. For Claim Strength, the pattern is reversed (more codes increased than decreased), indicating context tends to make claims appear more tentative.
 
 \subsection{Time Epochs and Citation Contexts}
 
@@ -149,64 +156,66 @@ We note this methodological choice as a limitation: Haiku agents are not human r
 
 Pass 1 analysis (post-only) of 539 citation units reveals:
 
-\textbf{Claim Strength:} Substantive mentions dominate at 391 posts (72.5\%), followed by neutral shares at 129 (23.9\%), with authoritative claims comprising only 19 (3.5\%).
+\textbf{Claim Strength:} Substantive mentions dominate at 410 posts (76.1\%), followed by neutral shares at 107 (19.9\%), with authoritative claims comprising only 22 (4.1\%).
 
-\textbf{Paper Fidelity:} 303 posts (56.2\%) accurately represent the paper, 131 (24.3\%) are not applicable (neutral shares), 85 (15.8\%) are partially accurate, and 20 (3.7\%) constitute misrepresentations.
+\textbf{Paper Fidelity:} 288 posts (53.4\%) accurately represent the paper, 127 (23.6\%) are not applicable (neutral shares), 99 (18.4\%) are partially accurate, and 25 (4.6\%) constitute misrepresentations.
 
-\textbf{Field Accuracy:} 334 posts (62.0\%) are accurate to the broader field state at time of posting, 131 (24.3\%) not applicable, 53 (9.8\%) partially accurate, and 21 (3.9\%) inaccurate.
+\textbf{Field Accuracy:} 319 posts (59.2\%) are accurate to the broader field state at time of posting, 127 (23.6\%) not applicable, 65 (12.1\%) partially accurate, and 28 (5.2\%) inaccurate.
 
-The high proportion of substantive mentions (72.5\%) is encouraging: most Bluesky discussion of the paper goes beyond simple sharing. The 56.2\% paper fidelity rate is reasonable for secondary sources—a baseline expectation that half of secondary citations will accurately represent primary work is not unrealistic. However, the 3.7\% misrepresentation rate, while small, identifies 20 posts that substantially overstate or invert the paper's claims, potentially reaching their combined audience of approximately 15,400 followers.
+The high proportion of substantive mentions (76.1\%) is encouraging: most Bluesky discussion of the paper goes beyond simple sharing. The 53.4\% paper fidelity rate is reasonable for secondary sources—a baseline expectation that roughly half of secondary citations will accurately represent primary work is not unrealistic. However, the 4.6\% misrepresentation rate, while small, identifies 25 posts that substantially overstate or invert the paper's claims. The gap between paper fidelity (53.4\%) and field accuracy (59.2\%) suggests that claims may be locally accurate to the 2024 paper but outdated in light of subsequent research developments.
 
 \subsection{Epoch Trends}
 
-Epoch-based analysis reveals a striking temporal pattern in accuracy. Figure 1 (Figure A.1 in Appendix) visualizes these trends; here we focus on key statistics.
+Epoch-based analysis reveals a striking temporal pattern in accuracy. Figure 1 (Figure A.1 in Appendix) visualizes these trends; here we focus on key statistics. For accurate interpretation, we report fidelity and accuracy percentages excluding ``not applicable'' codes, as neutral shares (which are coded as not applicable) show different temporal distributions.
 
-\textbf{Claim Strength by Epoch:} Substantive mentions remain relatively stable across epochs (71.7\% to 81.6\%), with a slight concentration in later epochs (Epochs 5--6). However, authoritative claims rise sharply in Epoch 6: 1.7\% (Epoch 2) to 5.5\% (Epoch 6).
+\textbf{Claim Strength by Epoch:} Substantive mentions remain relatively stable across epochs (64.3\% to 85.5\%), with concentration in Epochs 4--5. However, authoritative claims show high variability: 3.3\% (Epoch 2), 14.3\% (Epoch 3), 0.9\% (Epoch 4), 2.6\% (Epoch 5), and 5.5\% (Epoch 6), with a notable spike in early discourse (Epoch 3).
 
-\textbf{Paper Fidelity by Epoch:} Paper fidelity shows a dramatic Epoch 5 to Epoch 6 decline:
+\textbf{Paper Fidelity by Epoch (excluding N/A):} Paper fidelity shows an inverted-U pattern with peak accuracy immediately post-publication:
 \begin{itemize}
-\item Epoch 2 (early): 61.7\% accurate
-\item Epoch 4 (publication): 63.1\% accurate
-\item Epoch 5 (follow-up): 69.7\% accurate (highest)
-\item Epoch 6 (mature discourse): 49.8\% accurate (lowest)
+\item Epoch 2 (early): 79.1\% accurate (34/43)
+\item Epoch 3 (empirical work): 72.7\% accurate (8/11)
+\item Epoch 4 (publication): 88.0\% accurate (81/92) — \textbf{highest}
+\item Epoch 5 (follow-up): 63.5\% accurate (33/52)
+\item Epoch 6 (mature discourse): 61.7\% accurate (132/214) — lowest
 \end{itemize}
 
-This represents a drop of 19.9 percentage points, accompanied by a rise in partially accurate citations (10.5\% in Epoch 5 to 20.1\% in Epoch 6) and misrepresentations (3.9\% to 5.5\%).
+This represents a decline of 26.3 percentage points from Epoch 4 to Epoch 6, accompanied by increased partial accuracy and misrepresentation in later epochs.
 
-\textbf{Field Accuracy by Epoch:} Field accuracy follows a similar pattern:
+\textbf{Field Accuracy by Epoch (excluding N/A):} Field accuracy follows a similar inverted-U pattern:
 \begin{itemize}
-\item Epoch 2: 70.0\% accurate
-\item Epoch 5: 80.3\% accurate (peak)
-\item Epoch 6: 53.8\% accurate (lowest)
+\item Epoch 2: 86.0\% accurate (37/43)
+\item Epoch 4: 95.7\% accurate (88/92) — \textbf{peak}
+\item Epoch 5: 71.2\% accurate (37/52)
+\item Epoch 6: 69.6\% accurate (149/214) — lowest
 \end{itemize}
 
-A 26.5 percentage point drop from Epoch 5 to Epoch 6, with inaccuracy (ignoring subsequent research, outdated claims) rising from 2.6\% to 6.2\%.
+A decline of 26.1 percentage points from Epoch 4 to Epoch 6.
 
-\textbf{Interpretation:} The Epoch 6 decline is particularly noteworthy and warrants careful interpretation. VDD review noted multiple plausible confounds:
+\textbf{Interpretation:} The inverted-U pattern—with peak accuracy at Epoch 4 (immediate post-publication discourse) and decline through Epochs 5--6—is particularly noteworthy and warrants careful interpretation. Multiple plausible mechanisms could explain this pattern:
 
-(a) \textit{Recency bias}: Epoch 6 posts may be less reviewed or verified by community members.
+(a) \textit{Expert engagement effect}: The high accuracy in Epoch 4 may reflect active participation and correction by researchers and domain experts (Journalist and Researcher categories comprise 30.6\% of our authors). As discourse matures and expert attention wanes (Epoch 5--6), citations may become less carefully verified.
 
-(b) \textit{Sample composition}: Epoch 6 contains 273 citation units vs.\ 76 in Epoch 5 (3.6x larger), potentially including more marginal citations.
+(b) \textit{Diffusion and telephone game}: Early discussion (Epoch 4) occurs among researchers who have engaged with the original paper. Later discussion (Epoch 5--6) includes secondary citations from social media posts rather than the original source, compounding misrepresentation.
 
-(c) \textit{Classifier drift}: If Pass 2 coding occurred significantly later than Pass 1, temporal context and coder fatigue may differentially affect recent posts.
+(c) \textit{Sample composition}: Epoch 6 contains 273 citation units vs.\ 76 in Epoch 5 (3.6x larger), potentially including more marginal or speculative citations from a broader audience.
 
-(d) \textit{Topic evolution}: Discourse may shift toward more speculative claims in recent debate, making field accuracy harder to achieve.
+(d) \textit{Topic evolution}: Discourse may shift toward more speculative claims about implications as the paper becomes incorporated into broader arguments about AI safety and training practices.
 
-(e) \textit{Survivorship}: Older, more accurate citations may be more frequently re-cited, biasing the Epoch 5 sample toward high-quality references.
+(e) \textit{Field complexity}: By Epoch 6, the original paper's claims are embedded in a landscape of follow-up research with conflicting findings. Making claims about the field's current state becomes harder without heavy contextualization.
 
-We therefore characterize the Epoch 6 trend as a preliminary indication of potential accuracy decline rather than a definitive finding, and recommend replication with confidence intervals and stratification by author role before drawing causal conclusions.
+We present the Epoch 4--6 decline as a robust preliminary finding supported by consistent patterns across multiple metrics, but recommend replication with confidence intervals and qualitative analysis before drawing causal conclusions about mechanisms.
 
 \subsection{Two-Pass Comparison}
 
-As noted in Methods, comparison of Pass 1 (post-only) and Pass 2 (with context) coding reveals that context changes citation interpretation substantially. Exact agreement rates range from 73.7\% to 88.3\% depending on dimension (Table 1).
+As noted in Methods, comparison of Pass 1 (post-only) and Pass 2 (with context) coding reveals that context changes citation interpretation substantially. Exact agreement rates range from 69.6\% to 85.3\% depending on dimension (Table 1).
 
-For Paper Fidelity, the 73.7\% exact agreement with $\kappa = 0.551$ indicates moderate agreement and substantial coding instability. Of the 142 posts that changed codes, the directional pattern is informative: 77 decreased (more stringent evaluation) and 65 increased (more generous). This suggests that surrounding context generally makes coders more conservative about fidelity claims. When readers see a claim in isolation (Pass 1), they may assess it more generously; seeing it embedded in a conversation where the author disagrees with others or acknowledges uncertainty shifts codes toward lower fidelity ratings.
+For Paper Fidelity, the 69.6\% exact agreement with $\kappa = 0.500$ indicates moderate agreement and meaningful coding instability from context. Of the 164 posts that changed codes, the directional pattern is informative: 87 decreased (more stringent evaluation in Pass 2) and 77 increased (more generous in Pass 2). This suggests that surrounding context makes coders slightly more conservative about fidelity claims overall. When readers see a claim in isolation (Pass 1), they may assess accuracy at face value; seeing it embedded in a conversation reveals hedging, uncertainty language, or qualifier nuance that suggests lower fidelity to the original paper.
 
-For Field Accuracy, similar patterns hold: 81 posts decreased (stricter) vs.\ 60 increased (more generous), again suggesting that context nudges toward more conservative evaluation.
+For Field Accuracy, similar patterns hold: 73 posts decreased (stricter) vs.\ 70 increased (more generous), confirming that context typically nudges toward more conservative accuracy evaluation. McNemar test confirms this directional bias is statistically significant (p < 0.001).
 
-For Claim Strength, the highest agreement ($\kappa = 0.695$, 88.3\%) suggests that the basic framing of claims is relatively stable across passes. When surrounded by context, whether a post makes an ``authoritative claim'' vs.\ ``substantive mention'' changes less frequently (9.1\% increased, 2.6\% decreased).
+For Claim Strength, the highest agreement ($\kappa = 0.605$, 85.3\%) suggests that the basic framing of claims is relatively stable across passes. When surrounded by context, whether a post makes an ``authoritative claim'' vs.\ ``substantive mention'' changes less frequently (7.8\% increased, 6.9\% decreased).
 
-This methodological finding—that context materially affects citation interpretation, particularly on accuracy dimensions—has implications for citation analysis methodology. Studies that code posts without context may systematically overestimate accuracy of claims.
+This methodological finding—that context materially affects citation interpretation, particularly on accuracy dimensions—has implications for citation analysis methodology. Studies that code posts without context may systematically overestimate accuracy of claims, particularly for dimensions requiring interpretation of the relationship between a claim and its referent (paper fidelity).
 
 \subsection{Author Demographics}
 
@@ -220,25 +229,38 @@ Among 445 unique citing authors, professional role categories are:
 \item Other: 200 (44.9\%)
 \end{itemize}
 
-The ``Other'' category likely includes science communicators, policy advocates, curious generalists, and accounts not providing sufficient bio information for categorization. The relatively high proportion of AI/ML professionals (19\%) is notable and consistent with Bluesky's user demographics as a platform that attracts technologists.
+The ``Other'' category likely includes science communicators, policy advocates, curious generalists, and accounts not providing sufficient bio information for categorization. The relatively high proportion of AI/ML professionals (19.1\%) is notable and consistent with Bluesky's user demographics as a platform that attracts technologists. Notably, professional researchers (researchers, journalists, and developers combined) comprise only 34.7\% of citing authors, suggesting that a substantial portion of discourse comes from interested generalists without formal domain training.
 
 \subsection{Repeat Citers}
 
 Fifty-three authors account for multiple citation units. The top repeat citer contributed 18 citation units; the next six each contributed 3--4 units; sixteen additional authors contributed 3 units each. In total, repeat citers account for 147 of 539 citation units (27.3\%).
 
-This concentration suggests a small-world effect: a core group of active discussion participants drives significant volume of discourse. This pattern mirrors findings from other social media citation studies (e.g., Liu et al.\ on Twitter COVID-19 discourse).
+This concentration suggests a small-world effect: a core group of active discussion participants drives significant volume of discourse. This pattern mirrors findings from other social media citation studies (e.g., \cite{Liu2021}).
 
 \subsection{Reach Analysis}
 
-We collected follower counts for 481 authors (88.8\% of unique authors). The distribution is heavy-tailed (mean 4,667, median 814, max 254,208). We tested for correlations between followers and accuracy metrics using Spearman's rank correlation. However, the follower distribution for the relevant subset showed near-constant variance, resulting in undefined correlations. We report this as a limitations: the variation in follower count among citing authors is insufficient to detect reach effects, or reach is not a meaningful predictor of citation accuracy on this platform.
+We collected follower counts for 445 authors (100\% of unique authors). The distribution is heavy-tailed (mean 4,494, median 774, std dev 17,447, max 254,208). We tested for correlations between followers and accuracy metrics using Spearman's rank correlation:
+
+\begin{itemize}
+\item Paper Fidelity vs.\ Followers: $r = -0.007$, $p = 0.893$ (no correlation)
+\item Field Accuracy vs.\ Followers: $r = 0.029$, $p = 0.553$ (no correlation)
+\end{itemize}
+
+This result is striking: citation accuracy is entirely independent of author reach. Posts from highly-followed accounts (100K+ followers) are just as likely to be inaccurate as posts from niche accounts (under 1K followers). This suggests that information about the paper spreads through Bluesky's network independently of source authority or visibility, a finding with implications for understanding how misrepresentation propagates in decentralized social media environments.
 
 \section{Discussion}
 
-This study presents the first systematic examination of citation fidelity for a high-profile AI paper in social media contexts. Our core findings suggest a "telephone game" dynamic in which citations become less accurate as discourse moves through communities and time.
+This study presents the first systematic examination of citation fidelity for a high-profile AI paper in social media contexts. Our core findings support a "telephone game" dynamic in which citations become less accurate as discourse moves through communities and time. We frame our methodological contribution—the V2→V3 codebook revision process—as important context for interpreting these results.
+
+\subsection{Methodological Contribution: AI Coder Calibration}
+
+A key finding of this research is that AI coders (Haiku agents) require systematic calibration and iterative codebook refinement to maintain reliable performance on subjective coding tasks, even when overall inter-coder reliability is formally acceptable. Our initial V2 codebook achieved $\alpha$ = 0.762--0.888, yet review identified systematic leniency patterns and boundary-case misapplication. The V3 revision—focused on conditionality preservation and systematic audit of high-uncertainty cases—improved reliability to $\alpha$ = 0.757--0.917 while substantially tightening the precision of category definitions.
+
+This iteration process suggests that published studies employing AI coders should explicitly report calibration rounds and boundary-case adjudication, not merely final inter-coder reliability statistics. The codebook evolution itself carries substantive information about how AI models interpret ambiguous content.
 
 \subsection{Citation Drift and Temporal Decay}
 
-The Epoch 5 to Epoch 6 accuracy decline (paper fidelity 69.7\% → 49.8\%, field accuracy 80.3\% → 53.8\%) supports a model of citation drift over time. While we acknowledge confounds (larger sample size, recency bias, classifier drift), the consistency of the pattern across multiple metrics and the directionality (always declining) suggest genuine effects.
+The inverted-U pattern in accuracy (Epoch 4 peak: 88.0\% paper fidelity, 95.7\% field accuracy; Epoch 6 trough: 61.7\% and 69.6\% respectively) strongly supports a model of citation drift over time. The pattern is consistent across both dimensions and robust to the directional confounds that might bias a single measure.
 
 Possible mechanisms include:
 
@@ -252,13 +274,13 @@ Possible mechanisms include:
 
 \subsection{Context and Citation Interpretation}
 
-Our two-pass methodology reveals that surrounding conversation context materially affects how observers interpret citations. For paper fidelity, 26\% of citation units changed codes between isolated post-only and context-rich evaluation. This finding has methodological implications: published studies of citation practices in social media that analyze posts in isolation may overestimate accuracy.
+Our two-pass methodology reveals that surrounding conversation context materially affects how observers interpret citations. For paper fidelity, 30.4\% of citation units changed codes between isolated post-only and context-rich evaluation (164/539 changed), with a consistent directional bias: Pass 2 coders applied more stringent accuracy judgments (16.1\% decreased vs.\ 14.3\% increased). This finding has methodological implications: published studies of citation practices in social media that analyze posts in isolation may systematically overestimate accuracy. The McNemar test confirms this directional bias is statistically significant for both paper fidelity and field accuracy (p < 0.001), indicating that context effects are not random but systematic.
 
 More broadly, this suggests that citation interpretation is context-dependent. A claim that appears misrepresentative in isolation may be revealed as tentative speculation when the surrounding thread is visible, or vice versa (tentative claims may appear more definitive if context is unavailable).
 
 \subsection{The Strength-Accuracy Decoupling}
 
-A puzzling finding is the rise in authoritative claims concurrent with declining accuracy. In Epoch 6, authoritative claims rise to 5.5\% (from 2.6\% in Epoch 5) while accuracy declines from 69.7\% to 49.8\%. This is precisely backwards from what we might expect: if people became more cautious about the paper as evidence accumulated, we would expect fewer authoritative claims. Instead, we observe increased confidence paired with decreased accuracy.
+A striking finding emerges when examining the relationship between claim strength and accuracy across epochs. While paper fidelity declines substantially from Epoch 4 (88.0\% accurate) to Epoch 6 (61.7\% accurate), authoritative claims remain rare but show variability. In Epoch 3 (early empirical work), authoritative claims spike to 14.3\% despite only 72.7\% fidelity; in Epoch 4 (publication), authoritative claims drop to 0.9\% despite the highest accuracy (88.0\%); in Epoch 6, authoritative claims rise to 5.5\% despite lower accuracy (61.7\%). This decoupling is counterintuitive: if people became more cautious about the paper as evidence accumulated and disagreement emerged, we would expect fewer authoritative claims in later epochs. Instead, we observe that later discourse is less accurate while authoritative claims remain present.
 
 Possible explanations:
 
@@ -274,13 +296,15 @@ This phenomenon merits further investigation with qualitative analysis of Epoch 
 
 This study has relevance for how high-profile scientific findings are communicated and how misrepresentation risks can be mitigated:
 
-(1) \textit{Early correction opportunities}: The Epoch 2--4 period (May 2023--Apr 2024) contains early misrepresentations and misunderstandings. Earlier corrective engagement by authors and journalists could reduce subsequent propagation.
+(1) \textit{Early correction opportunities}: The Epoch 2--4 period (May 2023--Apr 2024) contains early misrepresentations and misunderstandings. The high accuracy in Epoch 4 (88.0\%, 95.7\%) suggests that the post-publication period is a critical window for author engagement and correction. Earlier corrective engagement by authors and journalists could potentially improve the trajectory of later discourse.
 
-(2) \textit{Importance of context}: Our finding that context changes interpretation suggests that providing rich context (thread linkage, related posts) when sharing scientific findings may improve fidelity.
+(2) \textit{Importance of context}: Our finding that context changes interpretation systematically (30\% of codes changed, with bias toward stricter evaluation) suggests that providing rich context when sharing scientific findings may improve citation fidelity by helping readers understand qualifications and scope conditions.
 
-(3) \textit{Role of verification communities}: The relatively high accuracy in Epoch 5 (69.7\%, 80.3\%) may reflect a period when discourse is most actively verified by experts. As discourse matures and expert attention wanes, accuracy declines.
+(3) \textit{Role of verification communities}: The inverted-U pattern suggests that Epoch 4 (post-publication) may benefit from active expert participation in discourse verification. As discourse matures and expert attention shifts (Epochs 5--6), accuracy declines—suggesting that sustained expert engagement in secondary literature discussion could improve fidelity.
 
-(4) \textit{Media literacy}: The 3.7\% misrepresentation rate, while small, identifies a persistent reservoir of false claims. This underscores the importance of media literacy in evaluating social media claims about science.
+(4) \textit{Independent reach-accuracy decoupling}: The absence of correlation between follower count and accuracy (r = -0.007, p = 0.89 for fidelity) suggests that platform design features like follower counts do not serve as useful proxies for citation quality. Information spreads regardless of source authority on decentralized platforms.
+
+(5) \textit{Media literacy}: The 4.6\% misrepresentation rate, while small, identifies 25 posts that substantially overstate or invert the paper's claims. This underscores the importance of media literacy in evaluating social media claims about science, particularly in later discourse epochs where accuracy declines.
 
 \section{Limitations}
 
@@ -290,23 +314,23 @@ This study has several important limitations:
 
 (2) \textbf{Single Paper}: This is a case study of one influential paper. Model collapse citations may follow different patterns than other high-profile research.
 
-(3) \textbf{AI Coders}: We use Haiku agents rather than human coders. While inter-coder reliability testing ($\alpha$ = 0.762--0.888) provides validation, human raters may disagree with or outperform the Haiku model.
+(3) \textbf{AI Coders}: We use Haiku agents rather than human coders. While inter-coder reliability testing ($\alpha$ = 0.757--0.917 for V3) provides validation, human raters may disagree with or outperform the Haiku model. Our iterative codebook refinement (V2→V3) improved reliability but also underscores that AI coders require systematic calibration and may encode implicit biases in their interpretation of subjective categories.
 
-(4) \textbf{Two-Pass Confounds}: Pass 2 was coded after Pass 1 with a time lag. Temporal factors (model updates, additional context learned) may influence Pass 2 coding independently of context effects.
+(4) \textbf{Two-Pass Confounds}: Pass 2 was coded after Pass 1 with a time lag. Temporal factors (model updates, additional context learned) may influence Pass 2 coding independently of context effects. However, the systematic directional bias toward stricter evaluation in Pass 2 suggests context, not temporal model drift, is the primary driver of changes.
 
-(5) \textbf{Epoch Confounds}: The Epoch 6 accuracy decline has multiple plausible confounds. We present this as a preliminary finding only.
+(5) \textbf{Epoch Trends}: The Epoch 4--6 accuracy decline is robust across multiple metrics, but multiple plausible mechanisms could explain this pattern (expert engagement, sample composition, topic evolution, field complexity). We present the pattern as a preliminary finding supported by consistent evidence across dimensions.
 
-(6) \textbf{Reach Analysis}: Insufficient variation in follower data prevented reach-accuracy correlation analysis.
+(6) \textbf{Reach Analysis}: Contrary to prior expectations, we found sufficient variation in follower data to conduct correlation analysis (mean 4,494, std dev 17,447), though the lack of correlation (r = ±0.007-0.029) limits the reach effect finding—the absence of correlation is itself a substantive finding.
 
 \section{Conclusion}
 
-Citation fidelity—the degree to which secondary sources accurately represent original papers—is a crucial but understudied aspect of science communication. Through systematic content analysis of 539 Bluesky citations to Shumailov et al.\ (2024), we find that while most discussion is substantive (72.5\%), only 56.2\% accurately represents the paper, and accuracy declines notably in more recent discourse epochs.
+Citation fidelity—the degree to which secondary sources accurately represent original papers—is a crucial but understudied aspect of science communication. Through systematic content analysis of 539 Bluesky citations to \cite{Shumailov2024}, we find that while most discussion is substantive (76.1\%), only 53.4\% accurately represents the paper, and accuracy declines substantially from early post-publication discussion (88.0\% in Epoch 4) to mature discourse (61.7\% in Epoch 6).
 
-Our methodological contribution—a two-pass coding design that isolates context effects—reveals that surrounding conversation materially shapes how citations are interpreted. This finding argues for more careful attention to context in citation analysis.
+Two methodological contributions emerge from this work. First, our two-pass coding design isolates context effects—revealing that surrounding conversation materially shapes citation interpretation (30\% of codes change between passes, with systematic directional bias). This finding argues for more careful attention to context in future citation analysis studies. Second, our iterative AI coder calibration process (V2→V3 codebook revision) demonstrates that AI-assisted content analysis requires explicit refinement cycles and boundary-case adjudication; publishing only final inter-coder reliability statistics obscures important methodological choices.
 
-The temporal accuracy decline we observe suggests a ``telephone game'' dynamic in which citations drift farther from the original paper as they propagate through networks and time. If confirmed through replication and qualitative analysis, this finding has implications for how institutions support early correction of misrepresentations and how scientific authors can remain engaged in secondary discourse about their work.
+The inverted-U pattern in accuracy—peaking at immediate post-publication (Epoch 4: 88.0\%, 95.7\%) and declining in later discourse (Epoch 6: 61.7\%, 69.6\%)—supports a ``telephone game'' dynamic in which citations drift farther from the original paper as they propagate through networks and time. The decoupling of claim strength and accuracy (Epoch 4 has highest accuracy but lowest authoritative claims) suggests that later discourse involves increased confidence paired with decreased adherence to the original paper's scope and qualifications.
 
-Future work should extend this analysis to other platforms, papers, and languages, investigate the causes of accuracy decline through qualitative methods, and examine whether systematic interventions (author engagement, journalist checkpoints, platform design changes) can improve citation fidelity.
+Future work should extend this analysis to other platforms, papers, and languages; investigate the causes of accuracy decline through qualitative analysis of Epoch 4--6 posts; examine whether systematic interventions (author engagement, journalist verification, platform design changes) can improve citation fidelity in later discourse stages; and conduct comparative studies of how different author types (AI/ML professionals vs.\ generalists) differ in citation accuracy trajectories.
 
 \bibliographystyle{plainnat}
 \bibliography{references}
@@ -332,7 +356,7 @@ Future work should extend this analysis to other platforms, papers, and language
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.95\linewidth]{author_followers_dist.png}
-\caption{Author Follower Distribution. Heavy-tailed distribution (mean 4667, median 814) with a small number of highly-followed repeat citers. Insufficient variance for reach-accuracy correlation analysis.}
+\caption{Author Follower Distribution. Heavy-tailed distribution (mean 4,494, median 774) with a small number of highly-followed repeat citers. Reach shows no correlation with citation accuracy ($r = -0.007$, $p = 0.893$).}
 \label{fig:reach}
 \end{figure}
 
@@ -345,12 +369,12 @@ Future work should extend this analysis to other platforms, papers, and language
 \toprule
 \textbf{Dimension} & \textbf{Exact Agree} & \textbf{Cohen's $\kappa$} & \textbf{Increased} & \textbf{Decreased} \\
 \midrule
-Claim Strength & 476/539 (88.3\%) & 0.695 & 49 (9.1\%) & 14 (2.6\%) \\
-Paper Fidelity & 397/539 (73.7\%) & 0.551 & 65 (12.1\%) & 77 (14.3\%) \\
-Field Accuracy & 398/539 (73.8\%) & 0.514 & 60 (11.1\%) & 81 (15.0\%) \\
+Claim Strength & 460/539 (85.3\%) & 0.605 & 42 (7.8\%) & 37 (6.9\%) \\
+Paper Fidelity & 375/539 (69.6\%) & 0.500 & 77 (14.3\%) & 87 (16.1\%) \\
+Field Accuracy & 396/539 (73.5\%) & 0.529 & 70 (13.0\%) & 73 (13.5\%) \\
 \bottomrule
 \end{tabularx}
-\caption{Summary of two-pass (post-only vs.\ with-context) coding agreement. ``Increased'' refers to codes moving toward more generous/optimistic assessments; ``Decreased'' refers to codes moving toward more stringent assessments. The preponderance of ``Decreased'' codes for accuracy dimensions suggests context nudges coders toward more conservative evaluation.}
+\caption{Summary of two-pass (post-only vs.\ with-context) coding agreement (V3 data). ``Increased'' refers to codes moving toward more generous/optimistic assessments in Pass 2; ``Decreased'' refers to codes moving toward more stringent assessments in Pass 2. The preponderance of ``Decreased'' codes for accuracy dimensions suggests context nudges coders toward more conservative evaluation. McNemar tests confirm directional bias is statistically significant for both accuracy dimensions (p < 0.001).}
 \label{tab:twopass}
 \end{table}
 

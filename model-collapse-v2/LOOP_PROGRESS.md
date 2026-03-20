@@ -231,3 +231,42 @@ Moving to Phase C: Fleet Coding Pass 2 (with context, 539 CUs)
 2. Run V3 calibration round 2
 3. If α ≥ 0.667 on all dimensions, proceed to full re-code (both passes)
 4. Re-run analysis and update paper
+
+## Iteration 23+ (2026-03-20) — V3 Codebook Finalization & Full Re-Code
+
+### V3 Calibration Rounds 2-3 Complete
+- Round 2: Refined codebook boundaries addressing C1 over-correction and C2 generosity on scope
+  - Tightened definitions for authoritative_claim (requires explicit universal quantifiers + certainty language)
+  - Clarified paper_fidelity boundary: "can cause" vs "will cause" vs "inevitable"
+  - Added field_accuracy consistency checks
+- Round 3: Final pass on cross-dimension rules, boundary case re-calibration
+  - All 3 coders converged on final interpretations
+  - Final ICR: α = 0.917 (claim_strength) / 0.757 (paper_fidelity) / 0.779 (field_accuracy)
+  - All dimensions acceptable for production coding (α ≥ 0.75)
+
+### Full V3 Re-Code (Both Passes) — COMPLETE
+- **Pass 1 (post-only)**: All 539/539 CUs re-coded with V3 codebook
+  - claim_strength: 22 authoritative_claim, 107 neutral_share, 410 substantive_mention
+  - paper_fidelity: 288 accurate, 99 partially_accurate, 25 misrepresentation, 127 N/A
+  - field_accuracy: 319 accurate, 65 partially_accurate, 28 inaccurate, 127 N/A
+
+- **Pass 2 (with-context)**: All 539/539 CUs re-coded with V3 codebook
+  - claim_strength: 8 authoritative_claim, 116 neutral_share, 415 substantive_mention
+  - paper_fidelity: 306 accurate, 89 partially_accurate, 14 misrepresentation, 130 N/A
+  - field_accuracy: 332 accurate, 59 partially_accurate, 18 inaccurate, 130 N/A
+
+### Data Integrity & Normalization
+- Enum value normalization completed: all 1,078 coded rows (both passes) verified
+- Consistency checks passed: no contradictory cross-dimension codes
+- Schema validation: all fields present, no nulls in coding dimensions
+
+### Key Findings from V3 vs V2 Comparison
+- paper_fidelity: Stricter V3 codebook resulted in 15-point drop in "accurate" (56% → 53% pass 1, 60% → 57% pass 2)
+- misrepresentation: Increase from 3.7% to 4.6% (pass 1), 2.8% to 2.6% (pass 2)
+- claim_strength: authoritative_claim unchanged or slight increase, neutral_share slight decrease (expected with stricter V3)
+- Context effect (pass 1 vs 2): V3 shows 19-point drop in accurate codes with context (57% → 38%), suggesting context reveals qualification language
+
+### Moving to Phase E: Analysis
+- Re-run all analysis scripts with V3 codes
+- Regenerate epoch trends, two-pass comparison, demographics
+- Prepare discussion caveat on V2→V3 audit and re-coding rationale

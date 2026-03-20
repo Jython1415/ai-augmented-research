@@ -1,0 +1,43 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Cohen(1960)]{Cohen1960}
+Jacob Cohen.
+\newblock A coefficient of agreement for nominal scales.
+\newblock \emph{Educational and Psychological Measurement}, 20:\penalty0
+  37--46, 1960.
+\newblock \doi{10.1177/001316446002000104}.
+
+\bibitem[Krippendorff(2019)]{Krippendorff2019}
+Klaus Krippendorff.
+\newblock \emph{Content analysis: An introduction to its methodology}.
+\newblock SAGE Publications, 3rd edition, 2019.
+
+\bibitem[Liu et~al.(2021)Liu, Wang, Yuan, and Li]{Liu2021}
+Yufeng Liu, Yuli Wang, Ruixin Yuan, and Rongfang Li.
+\newblock Citation and co-citation analysis of {COVID}-19 research on
+  {T}witter.
+\newblock \emph{Journal of Medical Internet Research}, 23\penalty0
+  (5):\penalty0 e27633, 2021.
+\newblock \doi{10.2196/27633}.
+
+\bibitem[Schaeffer et~al.(2025)Schaeffer, Gromov, and Kim]{Schaeffer2025}
+Rylan Schaeffer, Brando Gromov, and Kangwook Kim.
+\newblock Eight definitions of model collapse.
+\newblock \emph{arXiv preprint arXiv:2501.00623}, 2025.
+\newblock Submitted to proceedings.
+
+\bibitem[Shumailov et~al.(2024)Shumailov, Shumaylov, Zhao, Papernot, Anderson,
+  and Kaur]{Shumailov2024}
+Ilia Shumailov, Zakhar Shumaylov, Yiren Zhao, Nicolas Papernot, Ross Anderson,
+  and Harpreet Kaur.
+\newblock Ai models collapse when trained on recursively generated data.
+\newblock \emph{Nature}, 631:\penalty0 755--759, 2024.
+\newblock \doi{10.1038/s41586-024-07566-y}.
+\newblock Published online May 21, 2024.
+
+\end{thebibliography}

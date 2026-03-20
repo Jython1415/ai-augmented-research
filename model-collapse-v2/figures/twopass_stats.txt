@@ -1,87 +1,45 @@
 ======================================================================
 DIMENSION: CLAIM_STRENGTH
 ======================================================================
-Categories: ['authoritative_claim', 'neutral_share', 'substantive_mention']
+Categories: []
 
 Confusion Matrix (Pass 1 rows × Pass 2 columns):
-Pass1\Pass2	authoritative_claim	neutral_share	substantive_mention
-authoritative_claim	9	2	8
-neutral_share	0	90	39
-substantive_mention	4	10	377
+Pass1\Pass2
 
-Total records: 539
-Agreement: 476 (88.3%)
-Changed: 63 (11.7%)
-Cohen's kappa: 0.6950
-McNemar chi2: 19.4444, p-value: 0.000010
+Total records: 0
+Agreement: 0 (nan%)
+Changed: 0 (nan%)
+Cohen's kappa: nan
+McNemar chi2: 0.0000, p-value: 1.000000
 
-Changes (top patterns):
-  neutral_share→substantive_mention: 39 cases (61.9% of changes)
-  substantive_mention→neutral_share: 10 cases (15.9% of changes)
-  authoritative_claim→substantive_mention: 8 cases (12.7% of changes)
-  substantive_mention→authoritative_claim: 4 cases (6.3% of changes)
-  authoritative_claim→neutral_share: 2 cases (3.2% of changes)
 
 ======================================================================
 DIMENSION: PAPER_FIDELITY
 ======================================================================
-Categories: ['accurate', 'misrepresentation', 'not_applicable', 'partially_accurate']
+Categories: []
 
 Confusion Matrix (Pass 1 rows × Pass 2 columns):
-Pass1\Pass2	accurate	misrepresentation	not_applicable	partially_accurate
-accurate	256	1	5	41
-misrepresentation	1	10	2	7
-not_applicable	32	0	90	9
-partially_accurate	35	4	5	41
+Pass1\Pass2
 
-Total records: 539
-Agreement: 397 (73.7%)
-Changed: 142 (26.3%)
-Cohen's kappa: 0.5507
-McNemar chi2: 1.0141, p-value: 0.313926
+Total records: 0
+Agreement: 0 (nan%)
+Changed: 0 (nan%)
+Cohen's kappa: nan
+McNemar chi2: 0.0000, p-value: 1.000000
 
-Changes (top patterns):
-  accurate→partially_accurate: 41 cases (28.9% of changes)
-  partially_accurate→accurate: 35 cases (24.6% of changes)
-  not_applicable→accurate: 32 cases (22.5% of changes)
-  not_applicable→partially_accurate: 9 cases (6.3% of changes)
-  misrepresentation→partially_accurate: 7 cases (4.9% of changes)
-  accurate→not_applicable: 5 cases (3.5% of changes)
-  partially_accurate→not_applicable: 5 cases (3.5% of changes)
-  partially_accurate→misrepresentation: 4 cases (2.8% of changes)
-  misrepresentation→not_applicable: 2 cases (1.4% of changes)
-  misrepresentation→accurate: 1 cases (0.7% of changes)
-  accurate→misrepresentation: 1 cases (0.7% of changes)
 
 ======================================================================
 DIMENSION: FIELD_ACCURACY
 ======================================================================
-Categories: ['accurate', 'inaccurate', 'not_applicable', 'partially_accurate']
+Categories: []
 
 Confusion Matrix (Pass 1 rows × Pass 2 columns):
-Pass1\Pass2	accurate	inaccurate	not_applicable	partially_accurate
-accurate	283	8	8	35
-inaccurate	2	12	2	5
-not_applicable	36	3	90	2
-partially_accurate	30	8	2	13
+Pass1\Pass2
 
-Total records: 539
-Agreement: 398 (73.8%)
-Changed: 141 (26.2%)
-Cohen's kappa: 0.5139
-McNemar chi2: 3.1277, p-value: 0.076974
+Total records: 0
+Agreement: 0 (nan%)
+Changed: 0 (nan%)
+Cohen's kappa: nan
+McNemar chi2: 0.0000, p-value: 1.000000
 
-Changes (top patterns):
-  not_applicable→accurate: 36 cases (25.5% of changes)
-  accurate→partially_accurate: 35 cases (24.8% of changes)
-  partially_accurate→accurate: 30 cases (21.3% of changes)
-  partially_accurate→inaccurate: 8 cases (5.7% of changes)
-  accurate→inaccurate: 8 cases (5.7% of changes)
-  accurate→not_applicable: 8 cases (5.7% of changes)
-  inaccurate→partially_accurate: 5 cases (3.5% of changes)
-  not_applicable→inaccurate: 3 cases (2.1% of changes)
-  inaccurate→not_applicable: 2 cases (1.4% of changes)
-  inaccurate→accurate: 2 cases (1.4% of changes)
-  not_applicable→partially_accurate: 2 cases (1.4% of changes)
-  partially_accurate→not_applicable: 2 cases (1.4% of changes)
 

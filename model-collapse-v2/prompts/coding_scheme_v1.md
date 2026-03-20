@@ -62,7 +62,16 @@ You are coding Bluesky posts that cite Shumailov et al. (2024) "AI models collap
 
 **Question**: Does the post accurately represent what Shumailov et al. actually found?
 
-Skip this dimension (code `not_applicable`) if Dimension 1 = `neutral_share`.
+Code `not_applicable` if:
+- Dimension 1 = `neutral_share`, OR
+- The post is a `substantive_mention` but does NOT assert or imply anything about the paper's findings or conclusions. Examples of substantive_mention posts that get `not_applicable` for paper_fidelity:
+  - Personal reactions to terminology: "I love the term Habsburg AI" (reacts to a label, not the paper's findings)
+  - Seeking the paper: "I was trying to get the link to the model collapse paper" (action, not a claim about findings)
+  - Questions without assertions: "Is this the same as Shumailov et al.?" (question, not a claim)
+  - Meta-commentary: "Not sure how I missed reading this paper" (personal reflection, no claim about what the paper found)
+  - Metaphor appreciation without mechanism claims: "The Habsburg AI metaphor is brilliant" (evaluates terminology, not findings)
+
+The test: **Does the post assert or imply something about what the paper found, what collapse is, or how it works?** If YES → evaluate fidelity. If NO (just personal reaction, question, or meta-commentary) → `not_applicable`.
 
 ### What the paper actually found (ground truth):
 
@@ -106,6 +115,21 @@ Skip this dimension (code `not_applicable`) if Dimension 1 = `neutral_share`.
 - "collapse will destroy/ruin all AI" → `misrepresentation` (universality + inevitability)
 - "ChatGPT is getting worse because of model collapse" → `misrepresentation` (attributes unrelated phenomenon without evidence)
 
+### Special Cases
+
+**Metaphor and terminology posts**: If a post primarily comments on terminology (e.g., "I love the term Habsburg AI") or appreciates a metaphor rather than making a claim about collapse itself:
+- If the post makes NO claim about the collapse mechanism → claim_strength = `substantive_mention` (personal reaction), paper_fidelity = `not_applicable` (no paper claim to evaluate)
+- If the metaphor IMPLIES a claim about collapse (e.g., "we've reached the Habsburg stage" = collapse is happening) → evaluate that implied claim normally
+- Do NOT code metaphor appreciation as `accurate` just because the metaphor is apt — evaluate only claims about the paper's findings
+
+**Industry inference**: Reasonable inferences about how findings motivate industry practice (e.g., "companies are seeking more training data because of collapse concerns") are `accurate` if grounded in the paper's findings, even if not explicitly tested by the paper.
+
+**Paper titles as neutral**: Paper titles shared without poster commentary count as neutral citations — code paper_fidelity as `not_applicable`, not `accurate`. The title is the paper's own description, not a claim by the poster.
+
+**Colloquial vs. quantitative language**: Informal descriptions like "quickly," "spew nonsense," "indecipherable," or "basic" are acceptable when they characterize the OUTPUT QUALITY degradation the paper demonstrated. Only mark as `partially_accurate` if the post makes a SPECIFIC FALSE CLAIM (e.g., "degradation happens on generation 1" when paper showed later). Colloquial tone ≠ inaccuracy.
+
+**Scope extension boundary**: A post that makes a REASONABLE INFERENCE from the paper's mechanism is `accurate` — e.g., "we should be careful about training data quality." A post that EXTENDS TO CERTAINTY about real-world occurrence is `partially_accurate` — e.g., "collapse is already happening in deployed systems." The distinction: inference about risk vs. assertion about reality.
+
 **Values**: `accurate` | `partially_accurate` | `misrepresentation` | `not_applicable`
 
 ---
@@ -114,7 +138,9 @@ Skip this dimension (code `not_applicable`) if Dimension 1 = `neutral_share`.
 
 **Question**: Does the post reflect the state of scientific knowledge at the time it was posted?
 
-Skip this dimension (code `not_applicable`) if Dimension 1 = `neutral_share`.
+Code `not_applicable` if:
+- Dimension 1 = `neutral_share`, OR
+- The post is a `substantive_mention` but does NOT make a factual claim about model collapse, AI training, or the state of the field. Apply the same test as paper_fidelity: personal reactions, questions, meta-commentary, and terminology appreciation without mechanism claims get `not_applicable`.
 
 ### Knowledge epochs (use the post's date to determine which applies):
 
@@ -190,6 +216,8 @@ The paper's core finding is that recursive training on synthetic data (under ful
 **Rule 4: Reasonable extensions must not remove conditionality.**
 Connecting collapse to related concerns (data quality, training practices) is fine and `accurate`. But extending to inevitability, universality, or real-world certainty crosses the line. "We should be careful about training data quality" = accurate extension. "AI is inevitably poisoning itself" = misrepresentation (removes conditionality, adds certainty).
 
+When evaluating paper_fidelity, consider whether the post's framing contradicts mitigations known at its epoch. A post in Epoch 5+ calling something "a very bad idea" without qualification, when mitigations are well-established, should be `partially_accurate` rather than `accurate`.
+
 ---
 
 ## Cross-Dimension Consistency
@@ -209,13 +237,27 @@ For each post, output a JSON object:
 ```json
 {
   "post_id": 123,
-  "claim_strength": "factual_assertion",
-  "claim_strength_reasoning": "Post states as fact that AI models degrade when trained on synthetic data",
-  "paper_fidelity": "partially_accurate",
-  "paper_fidelity_reasoning": "Correctly describes degradation but doesn't note the data replacement setup",
-  "field_accuracy": "oversimplified",
-  "field_accuracy_reasoning": "Posted Oct 2024; cites only collapse without mentioning Gerstgrasser accumulation fix available since Apr 2024",
-  "epoch": 5
+  "claim_strength": "neutral_share",
+  "claim_strength_reasoning": "Shares the paper title with no added commentary",
+  "paper_fidelity": "not_applicable",
+  "paper_fidelity_reasoning": "Neutral share — no claim to evaluate",
+  "field_accuracy": "not_applicable",
+  "field_accuracy_reasoning": "Neutral share — no claim to evaluate",
+  "epoch": 4
+}
+```
+
+**Substantive mention example:**
+```json
+{
+  "post_id": 456,
+  "claim_strength": "substantive_mention",
+  "claim_strength_reasoning": "Post adds own reaction: 'fascinating' characterizes the finding",
+  "paper_fidelity": "accurate",
+  "paper_fidelity_reasoning": "Correctly describes the mechanism (training on synthetic data causes degradation) and preserves conditionality",
+  "field_accuracy": "accurate",
+  "field_accuracy_reasoning": "Posted Mar 2024 (Epoch 3); the claim is consistent with available evidence",
+  "epoch": 3
 }
 ```
 
