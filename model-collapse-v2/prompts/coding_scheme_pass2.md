@@ -5,8 +5,12 @@
 ## Quick Reference — Key Rules (read these FIRST)
 
 1. **The test for `neutral_share` vs `substantive_mention` is: does the shared text make a causal, evaluative, or predictive claim about model collapse?** If YES → `substantive_mention`. If the text is purely a paper title, formal citation, descriptive headline ("New study examines AI training"), or link with no claims → `neutral_share`. It does not matter who wrote the text — poster or headline writer.
-2. **A post IS `accurate` on paper fidelity if it correctly describes the general phenomenon** — training on AI/synthetic/recursive data causes degradation. Reasonable extensions (connecting to hallucination, using words like "indecipherable", citing external statistics) are accurate. Reserve `partially_accurate` ONLY for claims that would give a reader a meaningfully wrong impression of the paper's scope.
-3. **A post IS `accurate` on field accuracy if its claims are not contradicted by available evidence at that time** — even if it doesn't cite the full literature. "Collapse is a concern" is accurate in every epoch. Only code `inaccurate` when claims are DIRECTLY contradicted (e.g., "collapse is inevitable" after Apr 2024).
+
+2. **Paper fidelity `accurate` requires preserving the CONDITIONAL nature of the finding.** The paper showed collapse under SPECIFIC conditions (full data replacement, recursive training). A post is `accurate` ONLY if it describes collapse as conditional on training approach, OR describes the general mechanism without claiming inevitability/universality. A post that says "AI trained on AI output can degrade" = accurate. A post that says "AI will inevitably collapse" or "collapse is already happening" = NOT accurate.
+
+3. **The bar for `partially_accurate` is: gets the general direction right but overgeneralizes or extends beyond tested conditions.** "Synthetic data causes problems" without specifying it's about recursive replacement = partially_accurate. "Collapse threatens all AI" = partially_accurate (overgeneralizes scope). "Collapse is inevitable" or "collapse is proven/certain" = misrepresentation (removes conditionality entirely).
+
+4. **Field accuracy: claims must not be contradicted by available evidence at that epoch.** "Collapse is a concern" = accurate in every epoch. "Collapse is inevitable" = inaccurate after Apr 2024 (Gerstgrasser showed prevention). "Collapse is already happening in deployed systems" = inaccurate (no evidence of this).
 
 ## Your Task
 
@@ -39,6 +43,7 @@ If context changes your interpretation compared to what a post-only reading woul
 
 2. Does the post claim **inevitability, universality, or prescribe policy action** about model collapse?
    - **YES** — presents collapse as an inescapable universal law. Trigger phrases: "inevitable", "proven", "will destroy all", "must stop", "mathematically certain". The word "always" alone does NOT trigger authoritative_claim — "it was always going to be a problem" (predictability) is different from "collapse will always happen to every model" (universality). The key test: does the post claim collapse is INESCAPABLE and UNIVERSAL? → `authoritative_claim`
+   - **Additional triggers for authoritative_claim**: Posts using universal quantifiers ("all AI", "every model", "always") combined with certainty about collapse, OR posts claiming collapse is "already happening" in real-world systems as established fact, OR posts prescribing policy based on collapse inevitability ("we must stop", "the only solution is"). The test: does the post claim CERTAINTY about collapse's occurrence or impact?
    - **NO** — everything else: questions, reactions, descriptions, hedged claims, factual statements, opinions, concerns, explanations → `substantive_mention`
 
 **Values**: `neutral_share` | `substantive_mention` | `authoritative_claim`
@@ -93,18 +98,26 @@ Skip this dimension (code `not_applicable`) if Dimension 1 = `neutral_share`.
 
 1. Identify the **claim about model collapse** the post makes (explicit or implicit).
 
-2. Does the claim **contradict or go beyond** the paper's actual findings?
-   - **NO — claim is consistent with the paper's findings**: The post describes collapse from training on synthetic/recursive/AI-generated data, mentions degradation or quality loss, or correctly scopes the finding. This is `accurate`. **You do NOT need to mention data replacement or experimental conditions to be accurate.** Describing the general phenomenon correctly is sufficient. **Reasonable interpretive extensions are also accurate** — connecting collapse to related phenomena, describing outcomes in slightly different terms, or contextualizing with external data does NOT make a claim partially_accurate. The claim must genuinely DISTORT the paper's scope to be anything other than `accurate`.
-   - **PARTIALLY — claim gets the gist right but adds distortion**: The post implies a broader scope than the paper tested (e.g., "all AI degrades" without specifying conditions), or conflates model collapse with a different phenomenon (e.g., hallucination, general AI failure). This is `partially_accurate`.
-   - **YES — claim clearly misrepresents the paper**: The post claims inevitability, universality, mathematical proof, or destruction that the paper did not claim. Words like "inevitable", "proven", "will destroy", "always" signal misrepresentation when applied to the paper's findings. This is `misrepresentation`.
+2. Does the claim preserve the CONDITIONAL nature of the finding?
+   - **YES — claim describes collapse as conditional or describes the mechanism without universalizing**: The post says collapse happens under recursive training, when AI trains on AI output, or under specific data management failures. It may describe the phenomenon in general terms ("AI trained on AI degrades") without claiming it's inevitable or universal. This is `accurate`.
+   - **PARTIALLY — claim gets the mechanism right but overgeneralizes**: The post extends the finding beyond what was tested. Examples: "synthetic data causes problems" (paper tested recursive replacement, not all synthetic data), "collapse threatens all AI" (paper tested specific models under specific conditions), "collapse is already happening" (paper showed lab conditions, not deployed systems). This is `partially_accurate`.
+   - **NO — claim removes conditionality entirely**: The post presents collapse as inevitable, universal, mathematically proven, or certain to occur regardless of data management. Words like "inevitable", "proven", "will destroy", "certain", "already happening everywhere" signal misrepresentation. Also: attributing unrelated phenomena (ChatGPT getting worse, hallucination, general AI failure) to model collapse without evidence. This is `misrepresentation`.
 
-**The key question**: Would a reader of this post form a correct impression of what Shumailov et al. found?
+**The key test**: Does the post preserve the fact that collapse is a CONDITIONAL risk dependent on training approach? If yes → accurate. If it overgeneralizes → partially_accurate. If it removes conditionality → misrepresentation.
 
-**Calibration by claim strength**: The standard scales with commitment:
-- `substantive_mention` + "model collapse is a thing" → `accurate` (vague but not wrong — the phenomenon is real)
-- `substantive_mention` + "AI models degrade when trained on their own output" → `accurate` (correctly describes the finding, even without mentioning data replacement)
-- `substantive_mention` + "all AI will degrade" → `partially_accurate` (overgeneralizes from "models under recursive training" to "all AI")
-- `authoritative_claim` + "model collapse is inevitable and proven" → `misrepresentation` (paper did not claim inevitability or universal proof)
+**Calibration examples** (apply these strictly):
+- "model collapse is a thing" → `accurate` (vague but not wrong)
+- "AI models can degrade when trained on their own output" → `accurate` (correctly conditional)
+- "training on synthetic data carries risks of collapse" → `accurate` (correctly identifies risk without certainty)
+- "AI trained on AI output degrades" → `accurate` (general description of mechanism)
+- "synthetic data causes collapse" → `partially_accurate` (paper tested recursive replacement, not all synthetic data)
+- "collapse threatens all AI" → `partially_accurate` (overgeneralizes from specific models/conditions)
+- "collapse is already happening" → `partially_accurate` (extends lab findings to real world without evidence)
+- "we need pre-2023 data or AI will collapse" → `partially_accurate` (reasonable concern but presented as certainty)
+- "model collapse is inevitable" → `misrepresentation` (paper did not claim inevitability)
+- "it's mathematically proven that AI will collapse" → `misrepresentation` (no such proof exists)
+- "collapse will destroy/ruin all AI" → `misrepresentation` (universality + inevitability)
+- "ChatGPT is getting worse because of model collapse" → `misrepresentation` (attributes unrelated phenomenon without evidence)
 
 **Values**: `accurate` | `partially_accurate` | `misrepresentation` | `not_applicable`
 
@@ -178,8 +191,8 @@ Field accuracy asks: **are the specific claims in this post contradicted by avai
 
 ## CODING RULES — Apply These Consistently
 
-**Rule 1: Describing collapse from AI/synthetic training IS accurate.**
-A post saying "AI trained on AI output degrades" correctly describes the paper's core finding. This IS `accurate` for paper fidelity. Only code `partially_accurate` if the claim genuinely distorts the scope — e.g., "all AI degrades" without any reference to training conditions.
+**Rule 1: Paper fidelity `accurate` requires preserving conditionality.**
+The paper's core finding is that recursive training on synthetic data (under full data replacement) causes collapse. A post that describes this mechanism — even in general terms like "AI trained on AI output degrades" — is `accurate`. But a post that REMOVES the conditional nature and presents collapse as inevitable, universal, or already occurring in deployed systems is NOT accurate. The distinction: "can cause" vs "will cause", "under certain conditions" vs "always", "a risk" vs "a certainty".
 
 **Rule 2: Claims consistent with evidence ARE field-accurate, even without citing the full literature.**
 "Shumailov showed collapse under recursive training" is `accurate` in every epoch — that claim is never contradicted. Code `oversimplified` only if the post implies a more absolute picture than evidence supports (e.g., "there's no way to prevent collapse"). Code `inaccurate` only when claims are directly contradicted by available evidence.
@@ -187,8 +200,18 @@ A post saying "AI trained on AI output degrades" correctly describes the paper's
 **Rule 3: Any text making a claim about model collapse IS a substantive_mention.**
 `neutral_share` requires ZERO claims about model collapse — only a paper title, citation, link, or purely descriptive headline. If the shared text contains causal claims, editorial framing, value judgments, or predictions about collapse, code `substantive_mention`. The test: does the text make a claim? If yes → `substantive_mention`.
 
-**Rule 4: Reasonable interpretive extensions ARE accurate.**
-Connecting collapse to related phenomena (hallucination), describing outcomes in slightly different terms ("indecipherable"), or contextualizing with external statistics — these are `accurate` as long as they don't contradict the paper. The bar for `partially_accurate` is: the claim would give a reader a meaningfully WRONG impression of what the paper found.
+**Rule 4: Reasonable extensions must not remove conditionality.**
+Connecting collapse to related concerns (data quality, training practices) is fine and `accurate`. But extending to inevitability, universality, or real-world certainty crosses the line. "We should be careful about training data quality" = accurate extension. "AI is inevitably poisoning itself" = misrepresentation (removes conditionality, adds certainty).
+
+---
+
+## Cross-Dimension Consistency
+
+Your codes across dimensions should be logically consistent:
+- If claim_strength = `authoritative_claim` (inevitability/universality), then paper_fidelity should typically be `misrepresentation` (paper didn't claim inevitability)
+- If paper_fidelity = `misrepresentation`, then field_accuracy should typically be `inaccurate` (misrepresentations are contradicted by evidence in every epoch after Epoch 2)
+- If paper_fidelity = `accurate`, the post should NOT contain inevitability/universality claims
+- If field_accuracy = `accurate`, the specific claims should be consistent with evidence at that epoch — check that inevitability claims aren't coded accurate after Apr 2024
 
 ---
 

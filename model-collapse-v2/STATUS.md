@@ -205,6 +205,12 @@ No active fleet dispatches. v4 classification and verification complete.
 - citation_units: 539 (36 link, 60 author_name, 152 title_phrase, 333 indirect)
 - thread_context: 671 posts across 263 citation units (318 standalone)
 
+## Codebook V3 Revision (2026-03-20)
+- V3 codebook applied: stricter paper_fidelity boundaries
+- ICR calibration round 1: α = 0.775/0.685/0.729 (all tentative)
+- Need 1 more calibration round before full re-code
+- After re-code: re-run all analysis scripts and update paper
+
 ## Coordination Notes for Future Phases
 - All subagents are Haiku (haiku-enforce plugin). Scope tasks to 1 focused item per agent. Pre-stage inputs locally.
 - Compact between phases. Check in with user at each phase transition.

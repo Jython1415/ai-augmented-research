@@ -200,3 +200,34 @@ Moving to Phase C: Fleet Coding Pass 2 (with context, 539 CUs)
 - Phase E: Analysis (summary stats, epoch trends, two-pass comparison, demographics, figures) ✓
 - Phase F: Paper draft ✓
 - Total ralph loop iterations: ~21
+
+## Iteration 22+ (2026-03-20) — Codebook V3 Revision
+
+### Issue Found: Systematic Leniency in Paper Fidelity
+- Audit of "accurate" codes: 38% should be partially_accurate (overgeneralize scope/inevitability)
+- Audit of "partially_accurate" codes: 33% should be misrepresentation (remove conditionality entirely)
+- Root cause: codebook's "reasonable interpretive extensions" guidance was too permissive
+- claim_strength audit: 86% correct (substantive_mention 67% — boundary issues)
+- field_accuracy audit: Haiku auditor said 100% but likely reflects same leniency bias
+
+### Codebook V3 Revisions Applied
+- Paper fidelity now requires preserving CONDITIONAL nature of the finding
+- Key test: "can cause" = accurate, "will cause" = partially_accurate, "inevitable/proven" = misrepresentation
+- Added 12 calibration examples (up from 4) with strict boundary guidance
+- Added cross-dimension consistency rules
+- Tightened authoritative_claim triggers (universal quantifiers + certainty)
+- Updated both pass 1 and pass 2 codebooks
+
+### V3 ICR Calibration Round 1 Results
+- claim_strength: α = 0.775 (tentative — down from 0.888, expected with stricter boundaries)
+- paper_fidelity: α = 0.685 (tentative — barely above 0.667, main issue is C1 vs C2 at 72%)
+- field_accuracy: α = 0.729 (tentative — down from 0.816)
+- Distribution shift confirmed: partially_accurate 16% → 33% of substantive claims
+- Spot-check found C1 over-corrects on some conditional posts; C2 sometimes too generous still
+- Need 1 more calibration round to improve paper_fidelity α
+
+### Next Steps
+1. Analyze V3 disagreement patterns, tweak codebook for C1/C2 boundary alignment
+2. Run V3 calibration round 2
+3. If α ≥ 0.667 on all dimensions, proceed to full re-code (both passes)
+4. Re-run analysis and update paper
