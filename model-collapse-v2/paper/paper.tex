@@ -326,6 +326,7 @@ Future work should: (1) extend this analysis to other high-profile papers across
 \begin{table}[H]
 \centering
 \small
+\resizebox{\linewidth}{!}{%
 \begin{tabularx}{\linewidth}{lrr}
 \toprule
 \textbf{Distortion Tag} & \textbf{Count (n=315 substantive)} & \textbf{Percentage} \\
@@ -342,7 +343,8 @@ Definitional Conflation & 0 & 0.0\% \\
 Any Distortion & 121 & 38.4\% \\
 Faithful (No Tags) & 194 & 61.6\% \\
 \bottomrule
-\end{tabularx}
+\end{tabularx}%
+}
 \caption{Summary of V4 distortion tag prevalence (among 315 substantive mentions). Multiple tags frequently co-occur within single posts (73.6\% of distorted posts contain multiple tags). Mechanism omission—discussing model collapse without specifying conditions—is the most prevalent distortion type, suggesting audiences understand the phenomenon but lack mechanistic grounding.}
 \label{tab:tags}
 \end{table}
