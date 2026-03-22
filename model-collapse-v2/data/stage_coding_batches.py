@@ -15,18 +15,20 @@ from pathlib import Path
 DB_PATH = Path("/Users/Joshua/agent/ai-augmented-research/model-collapse-v2/data/posts.db")
 
 
-def get_uncoded_units(pass_num: int, batch_size: int = 10):
+def get_uncoded_units(pass_num: str, batch_size: int = 10):
     """Query all citation_units that haven't been coded for the specified pass.
 
     Pass 1: Code based on post text only (no context).
     Pass 2: Code based on post + context (parent posts, quoted posts, thread context).
+    Pass "v4": Code based on post text only (for V4 scheme).
     """
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
 
-    if pass_num == 1:
-        # Find all citation units that don't have results in coding_pass1 table yet
-        query = """
+    if pass_num == 1 or pass_num == "v4":
+        # Find all citation units that don't have results in the respective table yet
+        table_name = "coding_pass1" if pass_num == 1 else "coding_v4"
+        query = f"""
             SELECT
                 cu.id as cu_id,
                 p.id as post_id,
@@ -36,7 +38,7 @@ def get_uncoded_units(pass_num: int, batch_size: int = 10):
                 p.text
             FROM citation_units cu
             JOIN posts p ON p.uri = cu.anchor_post_uri
-            WHERE cu.id NOT IN (SELECT citation_unit_id FROM coding_pass1)
+            WHERE cu.id NOT IN (SELECT citation_unit_id FROM {table_name})
             ORDER BY cu.epoch, cu.created_at
         """
         rows = conn.execute(query).fetchall()
@@ -108,7 +110,7 @@ def get_uncoded_units(pass_num: int, batch_size: int = 10):
             batches.append(batch)
 
     else:
-        raise ValueError(f"Invalid pass: {pass_num}. Must be 1 or 2.")
+        raise ValueError(f"Invalid pass: {pass_num}. Must be 1, 2, or v4.")
 
     conn.close()
     return batches, len(rows)
@@ -116,13 +118,26 @@ def get_uncoded_units(pass_num: int, batch_size: int = 10):
 
 def main():
     parser = argparse.ArgumentParser(description="Stage production coding batches.")
-    parser.add_argument("--pass", type=int, required=True, choices=[1, 2],
-                        dest="pass_num", help="Coding pass (1 or 2)")
+    parser.add_argument("--pass", required=True, dest="pass_num",
+                        help="Coding pass: 1, 2, or v4")
     parser.add_argument("--batch-size", type=int, default=10,
                         help="Batch size (default 10)")
     args = parser.parse_args()
 
     pass_num = args.pass_num
+
+    # Validate and normalize pass_num
+    try:
+        if pass_num in ["1", "2"]:
+            pass_num = int(pass_num)
+        elif pass_num != "v4":
+            # Try to parse as int
+            pass_num = int(pass_num)
+            if pass_num not in [1, 2]:
+                raise ValueError()
+    except ValueError:
+        parser.error("--pass must be 1, 2, or v4")
+
     batch_size = args.batch_size
 
     # Query and create batches
@@ -132,8 +147,9 @@ def main():
         print(f"No uncoded units for pass {pass_num}")
         return
 
-    # Create output directory
-    batch_dir = Path(f"/private/tmp/claude/coding/production/pass{pass_num}")
+    # Create output directory (handle both int and string pass_nums)
+    pass_str = f"pass{pass_num}" if isinstance(pass_num, int) else pass_num
+    batch_dir = Path(f"/private/tmp/claude/coding/production/{pass_str}")
     batch_dir.mkdir(parents=True, exist_ok=True)
 
     # Write batches

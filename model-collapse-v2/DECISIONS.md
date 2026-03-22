@@ -661,3 +661,39 @@ Not: domain/affiliation analysis (not selected).
 5. Vague references like "the first paper about the technology" without identifying Nature/Shumailov are NOT citation signals
 
 **Rationale**: Needed consistent rules for reconciling 128 verification flags. Three-category triage (confirmed FP / reinstate / manual review) was efficient. 29 confirmed false positives out of 610 = 4.8% FP rate.
+
+---
+
+## 2026-03-20: V4 Coding Scheme Redesign
+
+**Decision**: Replace ordinal paper_fidelity and field_accuracy scales with binary distortion tags.
+
+**Rationale (user + Opus)**:
+- V3 spot-check revealed the accurate/partially_accurate/inaccurate scale conflates fundamentally different error types
+- "Partially accurate" was used for certainty inflation, scope inflation, temporal overclaims, AND causal conflation — these are distinct problems with distinct implications
+- Binary tags produce higher ICR than ordinal scales (literature-supported)
+- Tag-based scheme enables richer analysis: which distortions dominate? How do they evolve across epochs?
+- Inspired by Wright et al. (2024) fine-grained distortion framework, Sumner et al. (2014) exaggeration typology
+
+**What's preserved**: claim_strength (3 levels, α=0.917)
+**What's replaced**: paper_fidelity + field_accuracy → ~8 binary distortion tags
+**What this enables**: Distortion co-occurrence analysis, per-tag epoch trajectories, distortion typology as methodological contribution
+
+**Candidate tags** (to be refined after deep research):
+- certainty_inflation, scope_inflation, temporal_overclaim, causal_conflation
+- mechanism_omission, mitigation_blindness, definitional_conflation, sensationalism
+
+---
+
+## 2026-03-22: V4 Calibration Complete — Accept and Proceed
+
+**Decision**: Accept V4 calibration results (α=0.796 for "any distortion", 94-96% pairwise agreement) and proceed to production coding.
+
+**Rationale**:
+- Per-tag α values are low for some tags due to low prevalence (1-4 TRUE per coder out of 50), not boundary confusion
+- Agreement percentages are excellent (94-99% per tag)
+- "Any distortion" α=0.796 is nearly strong threshold
+- Further calibration rounds show diminishing returns
+- certainty_inflation boundary (α=0.530) is acceptable given the aggregate signal
+
+**Production plan**: Single-pass coding of 539 CUs. No two-pass design needed — binary tags are objective enough that context shouldn't change judgment (verify post-coding).

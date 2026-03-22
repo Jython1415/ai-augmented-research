@@ -12,9 +12,9 @@ from collections import Counter
 
 RESULTS_DIR = Path("/private/tmp/claude/coding/calibration")
 CODER_FILES = [
-    RESULTS_DIR / "calibration_results_coder_1.json",
-    RESULTS_DIR / "calibration_results_coder_2.json",
-    RESULTS_DIR / "calibration_results_coder_3.json",
+    RESULTS_DIR / "v3r3_results_coder_1.json",
+    RESULTS_DIR / "v3r3_results_coder_2.json",
+    RESULTS_DIR / "v3r3_results_coder_3.json",
 ]
 
 DIMENSIONS = {

@@ -270,3 +270,44 @@ Moving to Phase C: Fleet Coding Pass 2 (with context, 539 CUs)
 - Re-run all analysis scripts with V3 codes
 - Regenerate epoch trends, two-pass comparison, demographics
 - Prepare discussion caveat on V2→V3 audit and re-coding rationale
+
+## V4 Coding Scheme Redesign (2026-03-22)
+
+### Research Phase
+- 4 Haiku agents researched key papers in parallel:
+  - Wright et al. (2024): Fine-grained distortions in science communication — 4 dimensions (causality, certainty, generality, sensationalism)
+  - Sumner et al. (2014): BMJ press release exaggeration — 7-point causal scale, κ=0.88
+  - Biomedical citation taxonomy (Sarol 2024): 8-category error hierarchy, ICR κ=0.18-0.31 for accuracy labels (validates abandoning ordinal scales)
+  - Greenberg (2009): Citation distortion mechanisms — transmutation (hypothesis→fact), compounding through networks
+- Research files saved to research/ directory
+
+### Design Phase
+- Opus synthesized 4 frameworks into tag set tailored to Shumailov et al.
+- 8 binary distortion tags replace ordinal paper_fidelity + field_accuracy
+- Each tag has: definition, TRUE/FALSE criteria, examples, KEY DISTINCTION notes
+- Codebook: prompts/coding_scheme_v4.md
+
+### Calibration Phase
+- Round 1: 3 Haiku coders on 50-post sample
+  - "any distortion" α=0.670, per-tag agreement 94-99%
+  - sensationalism α=0.310 (vague definition), certainty_inflation α=0.610
+  - Fixes: added KEY DISTINCTION notes for sensationalism (emotional ≠ sensational) and certainty_inflation (concern ≠ certainty)
+- Round 2: 3 Haiku coders with fixed codebook
+  - "any distortion" α=0.796, pairwise 94-96%
+  - causal_conflation α=1.000 (perfect), temporal_overclaim α=0.851
+  - sensationalism improved 0.310→0.497
+  - certainty_inflation α=0.530 (low prevalence artifact, not boundary issue)
+
+### Key Learnings
+- Binary tags achieve much higher agreement % than ordinal scales (94-99% vs 82-90%)
+- Low-prevalence tags get artificially low α even with high agreement (1 disagreement out of 50 tanks α)
+- "Any distortion" aggregate is the most meaningful metric (α=0.796)
+- KEY DISTINCTION notes are effective at fixing boundary confusion in Haiku coders
+- Sensationalism is hardest to calibrate; certainty_inflation still has boundary issues
+
+### Ready for Production
+- Codebook finalized at prompts/coding_scheme_v4.md
+- ICR script at data/compute_icr_v4.py
+- Staging script works: data/stage_coding_batches.py --pass 1
+- Import script needs update for V4 schema (boolean tag columns instead of ordinal)
+- DB needs new table: coding_v4 with boolean columns per tag

@@ -2,16 +2,36 @@
 
 ## Current State
 
-**Phase F (Paper Writing) — COMPLETE. All phases finished.**
+**Phase 5 (Coding) — V4 PRODUCTION COMPLETE, PAPER REWRITE IN PROGRESS**
 
-V2 coding is complete and archived. V3 codebook revision (stricter, preserving conditional nature of findings) underwent 3 ICR calibration rounds and achieved final consensus: α = 0.917 (claim) / 0.757 (fidelity) / 0.779 (field). Full re-code of both passes complete: 539/539 CUs in Pass 1, 539/539 in Pass 2. V3 codes normalize enum values and address V2 systematic leniency in paper_fidelity. All analyses re-run with V3 data; paper updated with all V3 statistics, revised results section, and methodology caveat on V2→V3 audit.
+V4 tag-based coding scheme completed across all 539 citation units. Binary distortion tags deployed across full dataset. Analysis underway; paper rewrite to integrate V4 results.
 
-**Current phase**: Phase F (Paper Writing) — COMPLETE.
-**Next immediate step**: Project complete. Paper ready for review.
+### V4 Production Results (Full Deployment — 539/539 CUs, 54 batches, 11 waves)
+- **Coverage**: All 539 citation units coded across 54 batches, 11 waves of 5 agents
+- **claim_strength distribution**: 211 neutral_share, 315 substantive_mention, 13 authoritative_claim
+- **Distortion prevalence**: 121/315 substantive posts (38.4%) have at least one distortion
+- **Top distortions by frequency**:
+  - mechanism_omission: 16.2% of substantive posts
+  - scope_inflation: 10.8% of substantive posts
+  - temporal_overclaim: 10.8% of substantive posts
+- **Epoch trend**: Distortion rate rises from 13.8% (Epoch 4) → 49.4% (Epoch 6)
+- **Quality assurance**: VDD spot-check on 120 posts reviewed, ~95% accuracy
+
+### V4 Codebook
+- Location: prompts/coding_scheme_v4.md
+- 8 binary distortion tags: certainty_inflation, scope_inflation, temporal_overclaim, causal_conflation, mechanism_omission, mitigation_blindness, definitional_conflation, sensationalism
+- claim_strength preserved from V3 (neutral_share / substantive_mention / authoritative_claim)
+- ICR script: data/compute_icr_v4.py
 
 ## Immediate Next Steps
 
-Project complete. Paper ready for review.
+1. **Update paper with real author demographics** — Computed but not yet in paper:
+   - AI/ML: 23.8% distortion, Researcher: 26.6% (note: NOT the same numbers as in analysis since analysis uses different role categorization), Journalist: 48.4%, Developer: 40.0%, Other: 43.5%
+   - Multi-tag split: 67 single-tag / 67 multi-tag (50/50, NOT 73.6% multi as previously claimed)
+   - Reach correlation needs recomputation against V4 data
+2. **Download remaining 2 BMJ PDFs** (Sumner 2014, Greenberg 2009) — network domains now whitelisted in .claude/settings.local.json
+3. **Final paper review** — Read full tex, verify every statistic traces to analysis_output_v4.txt or DB query
+4. **Git commit** with V4 results and updated paper
 
 ## Phase Progress
 
