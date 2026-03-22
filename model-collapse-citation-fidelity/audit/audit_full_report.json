@@ -1,0 +1,936 @@
+{
+  "total_audited": 75,
+  "compliant": 57,
+  "violations": 18,
+  "agents": [
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_003.json",
+      "results_file": "results_batch_003.json",
+      "compliant": true,
+      "agent_id": "a358b2fee833f494d"
+    },
+    {
+      "tools": {
+        "Read": 8,
+        "Write": 1
+      },
+      "total_tool_calls": 9,
+      "bash_violations": 0,
+      "batch_file": "batch_004.json",
+      "results_file": "results_batch_004.json",
+      "compliant": true,
+      "agent_id": "a8e96fbaadf03ebd7"
+    },
+    {
+      "tools": {
+        "Read": 9,
+        "Bash": 1,
+        "Write": 1
+      },
+      "total_tool_calls": 11,
+      "bash_violations": 1,
+      "batch_file": "batch_005.json",
+      "results_file": "results_batch_005.json",
+      "compliant": false,
+      "agent_id": "a8c469585777e1b61"
+    },
+    {
+      "tools": {
+        "Read": 8,
+        "Write": 1
+      },
+      "total_tool_calls": 9,
+      "bash_violations": 0,
+      "batch_file": "batch_006.json",
+      "results_file": "results_batch_006.json",
+      "compliant": true,
+      "agent_id": "a4d6486a30bc650c6"
+    },
+    {
+      "tools": {
+        "Read": 11,
+        "Bash": 1,
+        "Write": 1
+      },
+      "total_tool_calls": 13,
+      "bash_violations": 1,
+      "batch_file": "batch_007.json",
+      "results_file": "results_batch_007.json",
+      "compliant": false,
+      "agent_id": "a506aa58eb5fff44d"
+    },
+    {
+      "tools": {
+        "Read": 10,
+        "Bash": 3,
+        "Write": 2
+      },
+      "total_tool_calls": 15,
+      "bash_violations": 3,
+      "batch_file": "batch_008.json",
+      "results_file": "results_batch_008.json",
+      "compliant": false,
+      "agent_id": "ae3539c189521ea12"
+    },
+    {
+      "tools": {
+        "Read": 13,
+        "Glob": 1,
+        "Write": 1
+      },
+      "total_tool_calls": 15,
+      "bash_violations": 0,
+      "batch_file": "batch_009.json",
+      "results_file": "results_batch_009.json",
+      "compliant": true,
+      "agent_id": "a9fd01dad12aae334"
+    },
+    {
+      "tools": {
+        "Read": 5,
+        "Write": 1
+      },
+      "total_tool_calls": 6,
+      "bash_violations": 0,
+      "batch_file": "batch_010.json",
+      "results_file": "results_batch_010.json",
+      "compliant": true,
+      "agent_id": "aab610ec8ad883ce2"
+    },
+    {
+      "tools": {
+        "Read": 9,
+        "Write": 1
+      },
+      "total_tool_calls": 10,
+      "bash_violations": 0,
+      "batch_file": "batch_011.json",
+      "results_file": "results_batch_011.json",
+      "compliant": true,
+      "agent_id": "af3f77502872ecf60"
+    },
+    {
+      "tools": {
+        "Read": 5,
+        "Write": 1
+      },
+      "total_tool_calls": 6,
+      "bash_violations": 0,
+      "batch_file": "batch_012.json",
+      "results_file": "results_batch_012.json",
+      "compliant": true,
+      "agent_id": "a65761b40296a9522"
+    },
+    {
+      "tools": {
+        "Read": 7,
+        "Bash": 1,
+        "Write": 2,
+        "Edit": 3
+      },
+      "total_tool_calls": 13,
+      "bash_violations": 1,
+      "batch_file": "results_batch_012.json",
+      "results_file": "results_batch_012.json",
+      "compliant": false,
+      "agent_id": "a941a7ea0a9028c05"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_013.json",
+      "results_file": "results_batch_013.json",
+      "compliant": true,
+      "agent_id": "a464c88a0583fe166"
+    },
+    {
+      "tools": {
+        "Read": 8,
+        "Write": 1
+      },
+      "total_tool_calls": 9,
+      "bash_violations": 0,
+      "batch_file": "batch_014.json",
+      "results_file": "results_batch_014.json",
+      "compliant": true,
+      "agent_id": "acd4250992944edbd"
+    },
+    {
+      "tools": {
+        "Read": 7,
+        "Write": 1
+      },
+      "total_tool_calls": 8,
+      "bash_violations": 0,
+      "batch_file": "batch_015.json",
+      "results_file": "results_batch_015.json",
+      "compliant": true,
+      "agent_id": "a5efc43267cea6694"
+    },
+    {
+      "tools": {
+        "Read": 6,
+        "Write": 1
+      },
+      "total_tool_calls": 7,
+      "bash_violations": 0,
+      "batch_file": "batch_016.json",
+      "results_file": "results_batch_016.json",
+      "compliant": true,
+      "agent_id": "a8fc82baa4106e183"
+    },
+    {
+      "tools": {
+        "Read": 17,
+        "Bash": 1,
+        "Write": 1
+      },
+      "total_tool_calls": 19,
+      "bash_violations": 1,
+      "batch_file": "batch_017.json",
+      "results_file": "results_batch_017.json",
+      "compliant": false,
+      "agent_id": "a4df6b41b90768382"
+    },
+    {
+      "tools": {
+        "Read": 10,
+        "Write": 1
+      },
+      "total_tool_calls": 11,
+      "bash_violations": 0,
+      "batch_file": "batch_018.json",
+      "results_file": "results_batch_018.json",
+      "compliant": true,
+      "agent_id": "aad1522d2b9c78b7a"
+    },
+    {
+      "tools": {
+        "Read": 7,
+        "Bash": 1,
+        "Write": 1
+      },
+      "total_tool_calls": 9,
+      "bash_violations": 1,
+      "batch_file": "batch_019.json",
+      "results_file": "results_batch_019.json",
+      "compliant": false,
+      "agent_id": "a7b8ba648cb9542d4"
+    },
+    {
+      "tools": {
+        "Read": 5,
+        "Write": 1
+      },
+      "total_tool_calls": 6,
+      "bash_violations": 0,
+      "batch_file": "batch_020.json",
+      "results_file": "results_batch_020.json",
+      "compliant": true,
+      "agent_id": "a5aac1844a3659103"
+    },
+    {
+      "tools": {
+        "Read": 9,
+        "Write": 1
+      },
+      "total_tool_calls": 10,
+      "bash_violations": 0,
+      "batch_file": "batch_021.json",
+      "results_file": "results_batch_021.json",
+      "compliant": true,
+      "agent_id": "ac7c58d2b6f950482"
+    },
+    {
+      "tools": {
+        "Read": 14,
+        "Write": 1
+      },
+      "total_tool_calls": 15,
+      "bash_violations": 0,
+      "batch_file": "batch_022.json",
+      "results_file": "results_batch_022.json",
+      "compliant": true,
+      "agent_id": "af323ef27585c3365"
+    },
+    {
+      "tools": {
+        "Read": 14,
+        "Bash": 1,
+        "Write": 1
+      },
+      "total_tool_calls": 16,
+      "bash_violations": 1,
+      "batch_file": "batch_023.json",
+      "results_file": "results_batch_023.json",
+      "compliant": false,
+      "agent_id": "a7dfe24d3b61b6ccd"
+    },
+    {
+      "tools": {
+        "Read": 13,
+        "Write": 1
+      },
+      "total_tool_calls": 14,
+      "bash_violations": 0,
+      "batch_file": "batch_024.json",
+      "results_file": "results_batch_024.json",
+      "compliant": true,
+      "agent_id": "a592e70548add7470"
+    },
+    {
+      "tools": {
+        "Read": 10,
+        "Write": 1
+      },
+      "total_tool_calls": 11,
+      "bash_violations": 0,
+      "batch_file": "batch_025.json",
+      "results_file": "results_batch_025.json",
+      "compliant": true,
+      "agent_id": "a3428e32ca322ac13"
+    },
+    {
+      "tools": {
+        "Read": 5,
+        "Write": 1
+      },
+      "total_tool_calls": 6,
+      "bash_violations": 0,
+      "batch_file": "batch_026.json",
+      "results_file": "results_batch_026.json",
+      "compliant": true,
+      "agent_id": "a9b4affdc0295ca30"
+    },
+    {
+      "tools": {
+        "Read": 9,
+        "Bash": 1,
+        "Write": 1
+      },
+      "total_tool_calls": 11,
+      "bash_violations": 1,
+      "batch_file": "batch_027.json",
+      "results_file": "results_batch_027.json",
+      "compliant": false,
+      "agent_id": "a271675f34a06048e"
+    },
+    {
+      "tools": {
+        "Read": 5,
+        "Write": 1
+      },
+      "total_tool_calls": 6,
+      "bash_violations": 0,
+      "batch_file": "batch_028.json",
+      "results_file": "results_batch_028.json",
+      "compliant": true,
+      "agent_id": "a4312884e9c1719ea"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_029.json",
+      "results_file": "results_batch_029.json",
+      "compliant": true,
+      "agent_id": "a7c1107fa9c193d46"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_030.json",
+      "results_file": "results_batch_030.json",
+      "compliant": true,
+      "agent_id": "ad112e1a47fa42ad1"
+    },
+    {
+      "tools": {
+        "Read": 10,
+        "Bash": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 13,
+      "bash_violations": 2,
+      "batch_file": "batch_031.json",
+      "results_file": "results_batch_031.json",
+      "compliant": false,
+      "agent_id": "a746c3a25bc8f2478"
+    },
+    {
+      "tools": {
+        "Read": 12,
+        "Bash": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 15,
+      "bash_violations": 2,
+      "batch_file": "batch_032.json",
+      "results_file": "results_batch_032.json",
+      "compliant": false,
+      "agent_id": "a39ac153c4e91ce72"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_033.json",
+      "results_file": "results_batch_033.json",
+      "compliant": true,
+      "agent_id": "aceaac2a13139976c"
+    },
+    {
+      "tools": {
+        "Read": 5,
+        "Write": 1,
+        "Edit": 1
+      },
+      "total_tool_calls": 7,
+      "bash_violations": 0,
+      "batch_file": "batch_034.json",
+      "results_file": "results_batch_034.json",
+      "compliant": true,
+      "agent_id": "ac62adc21adb83ebe"
+    },
+    {
+      "tools": {
+        "Read": 9,
+        "Write": 1
+      },
+      "total_tool_calls": 10,
+      "bash_violations": 0,
+      "batch_file": "batch_035.json",
+      "results_file": "results_batch_035.json",
+      "compliant": true,
+      "agent_id": "a5118f10216bdf105"
+    },
+    {
+      "tools": {
+        "Read": 14,
+        "Bash": 2,
+        "mcp__playwright__browser_run_code": 1,
+        "Write": 1
+      },
+      "total_tool_calls": 18,
+      "bash_violations": 2,
+      "batch_file": "batch_036.json",
+      "results_file": "results_batch_036.json",
+      "compliant": false,
+      "agent_id": "ab41ec69996a63d3c"
+    },
+    {
+      "tools": {
+        "Read": 12,
+        "Bash": 1,
+        "Write": 1
+      },
+      "total_tool_calls": 14,
+      "bash_violations": 1,
+      "batch_file": "batch_037.json",
+      "results_file": "results_batch_037.json",
+      "compliant": false,
+      "agent_id": "af79874f6fe429392"
+    },
+    {
+      "tools": {
+        "Read": 8,
+        "Write": 1
+      },
+      "total_tool_calls": 9,
+      "bash_violations": 0,
+      "batch_file": "batch_038.json",
+      "results_file": "results_batch_038.json",
+      "compliant": true,
+      "agent_id": "a424246d5d8dbc52d"
+    },
+    {
+      "tools": {
+        "Read": 14,
+        "Write": 1
+      },
+      "total_tool_calls": 15,
+      "bash_violations": 0,
+      "batch_file": "batch_039.json",
+      "results_file": "results_batch_039.json",
+      "compliant": true,
+      "agent_id": "a58d09a39a18304e6"
+    },
+    {
+      "tools": {
+        "Read": 8,
+        "Bash": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 11,
+      "bash_violations": 2,
+      "batch_file": "batch_040.json",
+      "results_file": "results_batch_040.json",
+      "compliant": false,
+      "agent_id": "a40453a7a8d0af590"
+    },
+    {
+      "tools": {
+        "Read": 5,
+        "Write": 1
+      },
+      "total_tool_calls": 6,
+      "bash_violations": 0,
+      "batch_file": "batch_041.json",
+      "results_file": "results_batch_041.json",
+      "compliant": true,
+      "agent_id": "ae20abef0d6e8a899"
+    },
+    {
+      "tools": {
+        "Read": 10,
+        "Write": 1
+      },
+      "total_tool_calls": 11,
+      "bash_violations": 0,
+      "batch_file": "batch_042.json",
+      "results_file": "results_batch_042.json",
+      "compliant": true,
+      "agent_id": "a3dcf8f8a1fd3b396"
+    },
+    {
+      "tools": {
+        "Read": 8,
+        "Bash": 4
+      },
+      "total_tool_calls": 12,
+      "bash_violations": 4,
+      "batch_file": "results_batch_043.json",
+      "results_file": null,
+      "compliant": false,
+      "agent_id": "a10cb9bef3b9334bb"
+    },
+    {
+      "tools": {
+        "Read": 12,
+        "Write": 1
+      },
+      "total_tool_calls": 13,
+      "bash_violations": 0,
+      "batch_file": "batch_044.json",
+      "results_file": "results_batch_044.json",
+      "compliant": true,
+      "agent_id": "ae5c6ebcc69abf877"
+    },
+    {
+      "tools": {
+        "Read": 12,
+        "Write": 1
+      },
+      "total_tool_calls": 13,
+      "bash_violations": 0,
+      "batch_file": "batch_045.json",
+      "results_file": "results_batch_045.json",
+      "compliant": true,
+      "agent_id": "a09b5486199bc9941"
+    },
+    {
+      "tools": {
+        "Read": 11,
+        "Write": 1
+      },
+      "total_tool_calls": 12,
+      "bash_violations": 0,
+      "batch_file": "batch_046.json",
+      "results_file": "results_batch_046.json",
+      "compliant": true,
+      "agent_id": "ad2bdc249224ebee8"
+    },
+    {
+      "tools": {
+        "Read": 10,
+        "Write": 1
+      },
+      "total_tool_calls": 11,
+      "bash_violations": 0,
+      "batch_file": "batch_047.json",
+      "results_file": "results_batch_047.json",
+      "compliant": true,
+      "agent_id": "a8d1095fe945a6f98"
+    },
+    {
+      "tools": {
+        "Read": 18,
+        "Bash": 7,
+        "Grep": 10,
+        "Write": 1,
+        "Edit": 3
+      },
+      "total_tool_calls": 39,
+      "bash_violations": 7,
+      "batch_file": "results_batch_048.json",
+      "results_file": "results_batch_048.json",
+      "compliant": false,
+      "agent_id": "af5a909416ee8ebdc"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_049.json",
+      "results_file": "results_batch_049.json",
+      "compliant": true,
+      "agent_id": "a2a0cb2dd93b67948"
+    },
+    {
+      "tools": {
+        "Read": 12,
+        "Write": 1
+      },
+      "total_tool_calls": 13,
+      "bash_violations": 0,
+      "batch_file": "batch_050.json",
+      "results_file": "results_batch_050.json",
+      "compliant": true,
+      "agent_id": "a1225ffed65213147"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_051.json",
+      "results_file": "results_batch_051.json",
+      "compliant": true,
+      "agent_id": "a9b6007f7f3170687"
+    },
+    {
+      "tools": {
+        "Read": 9,
+        "Write": 1
+      },
+      "total_tool_calls": 10,
+      "bash_violations": 0,
+      "batch_file": "batch_052.json",
+      "results_file": "results_batch_052.json",
+      "compliant": true,
+      "agent_id": "aa56b429bea707cec"
+    },
+    {
+      "tools": {
+        "Read": 6,
+        "Write": 1
+      },
+      "total_tool_calls": 7,
+      "bash_violations": 0,
+      "batch_file": "batch_053.json",
+      "results_file": "results_batch_053.json",
+      "compliant": true,
+      "agent_id": "abd8a51891eaf7e8e"
+    },
+    {
+      "tools": {
+        "Read": 12,
+        "Bash": 1,
+        "Glob": 1,
+        "Write": 1
+      },
+      "total_tool_calls": 15,
+      "bash_violations": 1,
+      "batch_file": "batch_054.json",
+      "results_file": "results_batch_054.json",
+      "compliant": false,
+      "agent_id": "a1ba53f2d3604b882"
+    },
+    {
+      "tools": {
+        "Read": 10,
+        "Glob": 1,
+        "Grep": 6,
+        "Write": 1
+      },
+      "total_tool_calls": 18,
+      "bash_violations": 0,
+      "batch_file": "batch_055.json",
+      "results_file": "results_batch_055.json",
+      "compliant": true,
+      "agent_id": "ae7912a6a3b1c6cfa"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_056.json",
+      "results_file": "results_batch_056.json",
+      "compliant": true,
+      "agent_id": "a4cc41cefd6e6b6f3"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_057.json",
+      "results_file": "results_batch_057.json",
+      "compliant": true,
+      "agent_id": "ab88539cd92691616"
+    },
+    {
+      "tools": {
+        "Read": 8,
+        "Glob": 1,
+        "Write": 1
+      },
+      "total_tool_calls": 10,
+      "bash_violations": 0,
+      "batch_file": "batch_058.json",
+      "results_file": "results_batch_058.json",
+      "compliant": true,
+      "agent_id": "ad25eb17d84a40f49"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_059.json",
+      "results_file": "results_batch_059.json",
+      "compliant": true,
+      "agent_id": "aa950baeaaf30ac47"
+    },
+    {
+      "tools": {
+        "Read": 14,
+        "Write": 1
+      },
+      "total_tool_calls": 15,
+      "bash_violations": 0,
+      "batch_file": "batch_060.json",
+      "results_file": "results_batch_060.json",
+      "compliant": true,
+      "agent_id": "ab25cc9110de5d84c"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_061.json",
+      "results_file": "results_batch_061.json",
+      "compliant": true,
+      "agent_id": "a053f45eba479c3cb"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_062.json",
+      "results_file": "results_batch_062.json",
+      "compliant": true,
+      "agent_id": "aa95ef4293d16335a"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_063.json",
+      "results_file": "results_batch_063.json",
+      "compliant": true,
+      "agent_id": "a0d4f49287d36b571"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_064.json",
+      "results_file": "results_batch_064.json",
+      "compliant": true,
+      "agent_id": "a54003c2e9c56755c"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_065.json",
+      "results_file": "results_batch_065.json",
+      "compliant": true,
+      "agent_id": "abdf5590411d00e45"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_066.json",
+      "results_file": "results_batch_066.json",
+      "compliant": true,
+      "agent_id": "a860a7a1a0606e313"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_067.json",
+      "results_file": "results_batch_067.json",
+      "compliant": true,
+      "agent_id": "a5807c438a8fd60b6"
+    },
+    {
+      "tools": {
+        "Read": 19,
+        "Write": 3,
+        "Glob": 2,
+        "Grep": 21
+      },
+      "total_tool_calls": 45,
+      "bash_violations": 0,
+      "batch_file": "batch_068.json",
+      "results_file": "results_batch_068.json",
+      "compliant": true,
+      "agent_id": "a46dba8c5889fbcdc"
+    },
+    {
+      "tools": {
+        "Read": 5,
+        "Write": 1
+      },
+      "total_tool_calls": 6,
+      "bash_violations": 0,
+      "batch_file": "batch_069.json",
+      "results_file": "results_batch_069.json",
+      "compliant": true,
+      "agent_id": "a563f8dd55cb8ce50"
+    },
+    {
+      "tools": {
+        "Read": 9,
+        "Write": 1
+      },
+      "total_tool_calls": 10,
+      "bash_violations": 0,
+      "batch_file": "batch_070.json",
+      "results_file": "results_batch_070.json",
+      "compliant": true,
+      "agent_id": "ae7ab9420ae4e92bc"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_071.json",
+      "results_file": "results_batch_071.json",
+      "compliant": true,
+      "agent_id": "a6dc4d0196df30f72"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_072.json",
+      "results_file": "results_batch_072.json",
+      "compliant": true,
+      "agent_id": "ab29f53c614a00e7b"
+    },
+    {
+      "tools": {
+        "Read": 6,
+        "Bash": 1,
+        "Write": 1
+      },
+      "total_tool_calls": 8,
+      "bash_violations": 1,
+      "batch_file": "batch_073.json",
+      "results_file": "results_batch_073.json",
+      "compliant": false,
+      "agent_id": "a224d207bc3ef5795"
+    },
+    {
+      "tools": {
+        "Read": 2,
+        "Write": 1
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file": "batch_074.json",
+      "results_file": "results_batch_074.json",
+      "compliant": true,
+      "agent_id": "ad3a8affc1d9345b0"
+    },
+    {
+      "tools": {
+        "Read": 10,
+        "Write": 1
+      },
+      "total_tool_calls": 11,
+      "bash_violations": 0,
+      "batch_file": "batch_cleanup.json",
+      "results_file": "results_batch_cleanup.json",
+      "compliant": true,
+      "agent_id": "a0553f62f153d8b6e"
+    },
+    {
+      "tools": {
+        "Read": 18,
+        "Bash": 1,
+        "Write": 1
+      },
+      "total_tool_calls": 20,
+      "bash_violations": 1,
+      "batch_file": "batch_cleanup.json",
+      "results_file": "results_batch_cleanup_2.json",
+      "compliant": false,
+      "agent_id": "ae9350f20ce597938"
+    }
+  ]
+}

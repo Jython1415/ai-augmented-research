@@ -1,0 +1,47 @@
+PDF Download Status Report
+==========================
+Date: 2026-03-22
+
+SUCCESSFULLY DOWNLOADED (2/4):
+==============================
+
+1. Wright/Wührl et al. 2024 (ACL Findings)
+   - Filename: wright-wuhrl-2024-lm-trained-lm-data.pdf
+   - Size: 1.1M
+   - Source: https://aclanthology.org/2024.findings-acl.369.pdf
+   - Status: ✓ Complete PDF
+
+2. Sarol et al. 2024 (Bioinformatics)
+   - Filename: sarol-2024-bioinformatics.pdf
+   - Size: 527K
+   - Source: https://arxiv.org/pdf/2402.12431
+   - Status: ✓ Complete PDF (3 pages)
+
+FAILED TO DOWNLOAD (2/4):
+==========================
+
+3. Sumner et al. 2014 (BMJ)
+   - Attempted URLs:
+     • https://www.bmj.com/content/349/bmj.g7015.full.pdf (403 Forbidden)
+     • https://pmc.ncbi.nlm.nih.gov/articles/PMC4262123/pdf/ (Cloudflare challenge page)
+     • https://doi.org/10.1136/bmj.g7015.pdf (Redirect to paywall)
+   - Paper Info: DOI 10.1136/bmj.g7015
+   - Status: ✗ Paywalled - requires institutional access or purchase
+   - Note: Open access article under CC BY 4.0, but direct PDF downloads blocked
+
+4. Greenberg 2009 (BMJ)
+   - Attempted URLs:
+     • https://pmc.ncbi.nlm.nih.gov/articles/PMC2714656/pdf/ (404 Not Found)
+     • https://www.bmj.com/content/339/bmj.b2865.full.pdf (Paywall)
+   - Paper Info: DOI 10.1136/bmj.b2865
+   - Status: ✗ Not available through attempted mirrors
+
+RECOMMENDATIONS FOR REMAINING PAPERS:
+======================================
+
+For Sumner 2014 and Greenberg 2009:
+- Access through institutional library (if available)
+- Contact corresponding authors for copies
+- Check if your organization has BMJ subscription
+- Try ResearchGate (requires account/request)
+- Check library interlibrary loan services

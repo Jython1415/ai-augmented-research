@@ -1,0 +1,111 @@
+{
+  "agents_audited": 5,
+  "audit_date": "2026-03-16",
+  "session_id": "b4532f2d-881c-4c4a-b6c5-35037c032173",
+  "notes": "These agents were NOT classification agents - they were debugging and analysis agents for network monitoring troubleshooting. Only agent-ac9e3a9dcc0bc0207 was used for file creation (non-classification task). The remaining 4 agents all violate the Bash ban despite being classification tasks.",
+  "agents": [
+    {
+      "agent_id": "ac9e3a9dcc0bc0207",
+      "filename": "agent-ac9e3a9dcc0bc0207.jsonl",
+      "size_kb": 34,
+      "tools_used": ["Write"],
+      "tool_counts": {
+        "Write": 3,
+        "Read": 0
+      },
+      "total_tool_calls": 3,
+      "bash_violations": 0,
+      "batch_file_read": "none",
+      "results_file_written": "none",
+      "task_type": "file_creation",
+      "compliant": true,
+      "notes": "Created 3 files (mcp_server.py, network-monitor.plist, network-monitor.dashboard.plist). Used only Write tool. Not a classification agent."
+    },
+    {
+      "agent_id": "a5fca849e71a7b2cc",
+      "filename": "agent-a5fca849e71a7b2cc.jsonl",
+      "size_kb": 163,
+      "tools_used": ["Bash", "Read", "Grep"],
+      "tool_counts": {
+        "Bash": 16,
+        "Read": 10,
+        "Grep": 1
+      },
+      "total_tool_calls": 27,
+      "bash_violations": 16,
+      "batch_file_read": "none",
+      "results_file_written": "none",
+      "task_type": "network_traffic_analysis",
+      "compliant": false,
+      "notes": "VIOLATION: Heavy Bash usage (16 calls) for network debugging. Used lsof, ps, grep, head commands. Task was analyzing network traffic data, not classification."
+    },
+    {
+      "agent_id": "a2d9bc149b9139150",
+      "filename": "agent-a2d9bc149b9139150.jsonl",
+      "size_kb": 123,
+      "tools_used": ["Bash", "Read"],
+      "tool_counts": {
+        "Bash": 14,
+        "Read": 1
+      },
+      "total_tool_calls": 15,
+      "bash_violations": 14,
+      "batch_file_read": "none",
+      "results_file_written": "none",
+      "task_type": "network_monitor_startup",
+      "compliant": false,
+      "notes": "VIOLATION: Extensive Bash usage (14 calls) for network monitor startup and diagnostics. Used nohup, ps, ls, head commands for data collection verification."
+    },
+    {
+      "agent_id": "a4e221304dfd13448",
+      "filename": "agent-a4e221304dfd13448.jsonl",
+      "size_kb": 80,
+      "tools_used": ["Bash", "Edit", "Read", "Write"],
+      "tool_counts": {
+        "Bash": 1,
+        "Edit": 1,
+        "Read": 1,
+        "Write": 1
+      },
+      "total_tool_calls": 4,
+      "bash_violations": 1,
+      "batch_file_read": "none",
+      "results_file_written": "none",
+      "task_type": "network_monitor_implementation",
+      "compliant": false,
+      "notes": "VIOLATION: 1 Bash call detected despite correct use of Read/Edit/Write. Mixed tools for implementation task."
+    },
+    {
+      "agent_id": "af6eaba227704659b",
+      "filename": "agent-af6eaba227704659b.jsonl",
+      "size_kb": 307,
+      "tools_used": ["Bash", "Read", "Write"],
+      "tool_counts": {
+        "Bash": 34,
+        "Read": 4,
+        "Write": 4
+      },
+      "total_tool_calls": 42,
+      "bash_violations": 34,
+      "batch_file_read": "none",
+      "results_file_written": "none",
+      "task_type": "network_traffic_forensics",
+      "compliant": false,
+      "notes": "CRITICAL VIOLATION: Heavy Bash usage (34 calls) for network traffic analysis and forensics. Used lsof, ps, awk, sort, uniq for data processing and analysis."
+    }
+  ],
+  "summary": {
+    "total_agents": 5,
+    "compliant_agents": 1,
+    "violations": 4,
+    "total_bash_violations": 65,
+    "agents_with_bash_violations": 4
+  },
+  "key_findings": [
+    "Only 1 of 5 agents (ac9e3a9dcc0bc0207) was compliant - but this was a non-classification file creation task",
+    "All 4 remaining agents violated Bash ban despite being used for system debugging and analysis",
+    "No agents were actually performing classification tasks as expected",
+    "These logs appear to be from a different workflow (network monitoring) than the classification pipeline intended for audit",
+    "Agents that violated instructions used Bash for: process inspection, log analysis, data file verification, CSV parsing, statistical analysis"
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "agents_audited": 5,
+  "summary": "Critical violations found: agents a96992224ad6c7ea6 and a084d89ada34b3600 used Bash tool extensively. Per feedback_subagent_bash_ban.md, Bash must be banned from classification subagents entirely.",
+  "agents": [
+    {
+      "agent_id": "a326d8b4c1b965339",
+      "agent_slug": "fizzy-jumping-seal",
+      "tools_used": [
+        "Read"
+      ],
+      "tool_counts": {
+        "Read": 2,
+        "Write": 0,
+        "Bash": 0
+      },
+      "total_tool_calls": 2,
+      "bash_violations": 0,
+      "batch_file_read": "None",
+      "results_file_written": "None",
+      "compliant": true,
+      "notes": "Agent only read two files (transcribe_voice_memos.py and VOICE_MEMOS.md). No batch processing, no file writing. Fully compliant with Read/Write-only restriction."
+    },
+    {
+      "agent_id": "a96992224ad6c7ea6",
+      "agent_slug": "fizzy-jumping-seal",
+      "tools_used": [
+        "Read",
+        "Bash"
+      ],
+      "tool_counts": {
+        "Read": 2,
+        "Write": 0,
+        "Bash": 3
+      },
+      "total_tool_calls": 5,
+      "bash_violations": 3,
+      "batch_file_read": "Unknown (large file, not fully inspected)",
+      "results_file_written": "Unknown (no Write tool found)",
+      "compliant": false,
+      "notes": "VIOLATION: Used Bash tool 3 times despite ban. No Write calls found. Very large log file (content exceeds 256KB). Violated feedback_subagent_bash_ban.md policy."
+    },
+    {
+      "agent_id": "acfd56430d16c47dc",
+      "agent_slug": "fizzy-jumping-seal",
+      "tools_used": [
+        "Read",
+        "Write"
+      ],
+      "tool_counts": {
+        "Read": 1,
+        "Write": 1,
+        "Bash": 0
+      },
+      "total_tool_calls": 2,
+      "bash_violations": 0,
+      "batch_file_read": "transcribe_voice_memos.py",
+      "results_file_written": "transcribe_voice_memos.py (file overwritten)",
+      "compliant": true,
+      "notes": "Agent read the transcribe_voice_memos.py file and rewrote it completely per design specification. Compliant with instructions. No Bash usage."
+    },
+    {
+      "agent_id": "a084d89ada34b3600",
+      "agent_slug": "fizzy-jumping-seal",
+      "tools_used": [
+        "Bash"
+      ],
+      "tool_counts": {
+        "Read": 0,
+        "Write": 0,
+        "Bash": 38
+      },
+      "total_tool_calls": 38,
+      "bash_violations": 38,
+      "batch_file_read": "Unknown (large file, 38 Bash calls suggest heavy CLI usage)",
+      "results_file_written": "Unknown (no Write tool found)",
+      "compliant": false,
+      "notes": "CRITICAL VIOLATION: Used Bash tool 38 times exclusively, with zero Read or Write calls. This violates feedback_subagent_bash_ban.md policy entirely. Large log file (350+ lines). Agent performed all work via shell commands instead of tool-based file I/O."
+    },
+    {
+      "agent_id": "ace927f3343caf37c",
+      "agent_slug": "fizzy-jumping-seal",
+      "tools_used": [
+        "Read"
+      ],
+      "tool_counts": {
+        "Read": 2,
+        "Write": 0,
+        "Bash": 0
+      },
+      "total_tool_calls": 2,
+      "bash_violations": 0,
+      "batch_file_read": "transcribe_vm.py, voice_memos_transcripts.xml (first 50 lines)",
+      "results_file_written": "None (report-only task)",
+      "compliant": true,
+      "notes": "Agent read two files to answer user questions: transcribe_vm.py and voice_memos_transcripts.xml. Report-only task, no batch processing. Fully compliant."
+    }
+  ],
+  "compliance_summary": {
+    "total_agents": 5,
+    "compliant_agents": 3,
+    "violating_agents": 2,
+    "bash_violations_total": 41,
+    "critical_issues": [
+      "Agent a084d89ada34b3600: 38 Bash calls, zero Read/Write - complete violation of policy",
+      "Agent a96992224ad6c7ea6: 3 Bash calls mixed with Read operations - partial violation"
+    ]
+  },
+  "recommendations": [
+    "Review hook system to block Bash invocations in subagents entirely (PreToolUse hook)",
+    "Check why classification agents were given Bash capability when policy explicitly bans it",
+    "Verify that remaining 2 compliant agents (acfd56430d16c47dc, ace927f3343caf37c) properly handled their batch data",
+    "Re-run batch operations through agents a96992224ad6c7ea6 and a084d89ada34b3600 with Bash tool explicitly disabled"
+  ]
+}

@@ -1,0 +1,352 @@
+\documentclass[twocolumn,11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{tabularx}
+
+\title{Citation Fidelity in Social Media: How Bluesky Users Represent ``AI Models Collapse When Trained on Recursively Generated Data''}
+
+\author{Anonymous}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The 2024 Nature paper ``AI models collapse when trained on recursively generated data'' \cite{Shumailov2024} has generated significant discussion on social media platforms. However, little is known about how accurately this influential paper is represented in secondary discourse. This study presents a systematic content analysis of 539 citation units from Bluesky, using an eight-tag distortion-focused coding scheme applied through two calibration rounds with AI coders (Krippendorff's $\alpha$ \cite{Krippendorff2019} = 0.772 for claim strength, 0.796 for ``any distortion''). We find that 58.4\% of citations are substantive mentions and 39.1\% are neutral shares. Among substantive posts, 38.4\% contain one or more distortion tags (mechanism omission, scope inflation, temporal overclaim, sensationalism, certainty inflation, causal conflation, mitigation blindness, or definitional conflation). Strikingly, distortion increases rather than decreases as discourse matures: Epoch 4 (Nature publication, January--April 2024) shows the lowest distortion rate (13.8\% among substantive posts), while Epoch 6 (September 2024--March 2026) shows 49.4\% distortion---a 35.6 percentage-point increase. Mechanism omission, discussed without specifying conditional scope, is the most prevalent distortion (16.2\% of substantive posts). Direct citation links show dramatically lower distortion (14.3\%) compared to indirect mentions (46.6\%). Author demographics show that AI/ML professionals distort at lower rates (28.2\%) than the general audience (44.5\%), but even domain experts distort frequently. These findings contradict optimistic assumptions that scientific discourse becomes more accurate over time, instead revealing a ``telephone game'' dynamic where fidelity degrades as findings propagate through networks, audiences expand, and topics evolve.
+
+\end{abstract}
+
+\section{Introduction}
+
+Model collapse—the phenomenon where machine learning models trained recursively on AI-generated data experience performance degradation—has emerged as a central concern in recent AI research. \cite{Shumailov2024} provided the first systematic empirical study of this effect, demonstrating theoretically and experimentally that training on generated data from earlier models creates a progressive loss of information and inbreeding of model parameters, ultimately leading to model collapse across diverse architectures and datasets.
+
+This finding has been widely cited across academic, journalistic, and social media contexts. However, the secondary literature and social media discourse surrounding model collapse reveals significant variation in how the paper's claims are interpreted and reproduced. Some citations accurately reflect the technical mechanisms and assumptions underlying the model collapse result; others present the phenomenon as inevitable across all training regimes, overstating the paper's actual claims. Others situate the finding within a broader landscape of subsequent research, sometimes appropriately hedging the original claims in light of new empirical results.
+
+Despite the apparent importance of this work in shaping AI policy discussions and public understanding of AI limitations, there has been no systematic investigation of citation fidelity—the degree to which secondary sources accurately represent the original paper's findings and arguments. This gap is particularly important for high-profile papers that enter popular discourse, where misrepresentation may influence public perception and policy decisions.
+
+We address this gap through a systematic content analysis of \cite{Shumailov2024} citations on Bluesky, a social media platform with a growing user base of AI researchers, technologists, and science communicators. Bluesky's open firehose API enables comprehensive collection of a corpus unavailable from more closed platforms. Our research question is: \textit{How faithfully do Bluesky users cite and represent \cite{Shumailov2024}, and does citation fidelity change across time and author demographics?}
+
+Our methodological contribution is a tag-based distortion coding scheme. Rather than rating posts on ordinal accuracy scales (which conflate distinct error types), we operationalize eight binary distortion tags---mechanism omission, scope inflation, temporal overclaim, sensationalism, certainty inflation, causal conflation, mitigation blindness, and definitional conflation---that independently capture specific ways a post can misrepresent the original findings. This enables quantification of \textit{which} distortions dominate, not just \textit{how much} distortion occurs.
+
+We employ a two-tier coding scheme: \textit{claim strength} classifies the post's engagement level (neutral share, substantive mention, or authoritative claim), and eight binary \textit{distortion tags} identify specific ways substantive posts misrepresent the paper's findings. This framework captures both the nature of engagement and the specific mechanisms of misrepresentation.
+
+\section{Methods}
+
+\subsection{Data Collection}
+
+We collected posts from Bluesky's firehose API using an iterative search strategy refined across three phases. Initial searches used nine direct terms: ``model collapse'', ``trained on recursively generated'', ``curse of recursion'', ``Shumailov'', ``synthetic data collapse'', ``digital inbreeding'', ``self-consuming generative'', and variations on ``AI models collapse''. Phase 2.5 added seven metaphorical terms used in discourse: ``Habsburg AI'', ``AI ouroboros'', ``AI eating itself'', ``AI feeding on itself'', and related terms. This expanded search yielded 7,503 total posts across May 2023 through March 2026.
+
+We then implemented narrow scope filtering: posts were included only if they contained a traceable citation chain to Shumailov et al.\ (2024), operationalized as (1) direct links to the Nature article, arXiv preprint, or DOI; (2) author name mentions (Shumailov, Shumaylov); (3) paper title or distinctive phrases; (4) shares of verified news coverage articles (approximately 35 distinct news outlets); or (5) replies to or quotes of posts meeting these criteria (depth 0--1). Posts discussing ``model collapse'' generically without traceable citation signals were excluded.
+
+This approach was motivated by empirical analysis showing that the term ``model collapse'' is used across multiple distinct scientific problems (\cite{Schaeffer2025} identifies eight competing definitions), and that metaphorical terms like ``Habsburg AI'' and ``AI ouroboros'' predate Shumailov's preprint by several months and are used independently to describe multiple AI concerns. Narrow scope reduces ambiguity about which form of model collapse is being discussed.
+
+Following this filtering, relevance classification was conducted by five waves of Haiku coding agents (Claude 3.5 Haiku) following a structured instruction set validated through eight rounds of inter-coder reliability testing (Krippendorff's $\alpha$ = 0.943 on balanced sample of likely-relevant and likely-irrelevant posts). The classification process included fetching parent post and quoted post text for all 7,503 posts to provide full context for classification decisions, addressing empirical findings that 28\% of hard cases change classification when parent context is available.
+
+The final corpus contained 539 citation units (individual posts or self-reply threads in which any post cites the paper). We note that 42 false positives were removed during later quality assurance (posts citing different papers with similar titles or discussing model collapse in contexts unrelated to Shumailov et al.).
+
+\subsection{Coding Scheme and Inter-Coder Reliability}
+
+\subsubsection{Codebook Development: V3-to-V4 Revision}
+
+An initial V3 codebook employed a three-dimensional ordinal scheme (claim strength, paper fidelity with 3 levels, field accuracy with 3 levels) and operated on a two-pass design. However, the ordinal fidelity and accuracy scales conflated different error mechanisms: a post could receive ``partially accurate'' due to omitting mechanistic detail, overgeneralizing scope, sensationalizing findings, or conflating concepts—fundamentally different distortions with different implications. To address this limitation, we conducted a V3→V4 codebook revision focused on: (1) replacing ordinal fidelity/accuracy dimensions with eight binary distortion tags that operationalize distinct error types \cite{Wright2024,Sumner2014,Sarol2024,Greenberg2009}, (2) eliminating the two-pass design (binary tags require single-pass judgment), and (3) two calibration rounds focused on tag-presence boundary cases rather than ordinal level disagreements.
+
+The V4 codebook preserved claim strength but replaced the paper fidelity and field accuracy ordinals with a tag-based architecture. This revision improved inter-coder reliability (Krippendorff's $\alpha$ on tag-presence increased to 0.772 for claim strength and 0.796 for ``any distortion'') and enabled richer analysis of distortion patterns. The eight distortion tags are:
+
+\begin{enumerate}
+\item \textbf{mechanism\_omission}: Claims about model collapse without specifying conditions under which it occurs (e.g., discussing collapse in general terms without mentioning recursive generation requirement).
+\item \textbf{scope\_inflation}: Overgeneralizing findings beyond stated scope (e.g., claiming all AI training is affected when findings apply to synthetic data specifically).
+\item \textbf{temporal\_overclaim}: Using present or future tense inappropriately (e.g., ``model collapse is happening'' when discussing a hypothetical or historical finding).
+\item \textbf{sensationalism}: Framing findings in dramatic or hyperbolic language beyond the paper's claims (e.g., ``AI is eating itself'', ``models are doomed'').
+\item \textbf{certainty\_inflation}: Expressing higher confidence than the paper's original framing (e.g., ``definitely causes collapse'' vs.\ paper's ``can lead to'').
+\item \textbf{causal\_conflation}: Confusing or conflating model collapse with related phenomena (e.g., mode collapse, data poisoning, distributional shift).
+\item \textbf{mitigation\_blindness}: Ignoring or downplaying mitigation strategies the paper discusses (e.g., claiming no solution exists when paper discusses threshold conditions).
+\item \textbf{definitional\_conflation}: Using ``model collapse'' to refer to distinct phenomena or failing to distinguish collapse from related degradation patterns.
+\end{enumerate}
+
+A post may have zero, one, or multiple distortion tags. Claim strength (neutral share, substantive mention, authoritative claim) is coded independently and orthogonally from distortion tags. A post with no distortion tags is classified as ``faithful''; a post with any distortion tag is classified as ``distorted''.
+
+\subsubsection{Coding Scheme Definition and Calibration}
+
+We conducted formal inter-coder reliability testing using a stratified sample of 50 posts across five time epochs (10 posts per epoch). Three independent Haiku coding agents (Claude 3.5 Haiku, 200K context window) coded all 50 posts through two calibration rounds following the V4 codebook, with focused discussion between rounds on tag-boundary cases.
+
+Final inter-coder reliability scores (Krippendorff's $\alpha$, V4):
+\begin{itemize}
+\item Claim Strength: $\alpha = 0.772$ (substantial agreement)
+\item ``Any Distortion'' (tag-present vs.\ absent): $\alpha = 0.796$ (substantial agreement)
+\item Individual tags: temporal\_overclaim ($\alpha = 0.851$), causal\_conflation ($\alpha = 1.000$), scope\_inflation ($\alpha = 0.648$), mechanism\_omission ($\alpha = 0.743$), sensationalism ($\alpha = 0.704$), certainty\_inflation ($\alpha = 0.530$), mitigation\_blindness ($\alpha = 0.722$)
+\end{itemize}
+
+The lower reliability on certainty\_inflation ($\alpha = 0.530$) reflects low prevalence in the sample (8 posts) and inherent difficulty in distinguishing hedged claims from confident ones. Pairwise agreement on tag presence was 94--96\% across individual tags. A validation sample (VDD) of 120 posts was reviewed post-coding and achieved 95\% accuracy with coding agents, with disagreements primarily in borderline cases around temporal claims and sensationalism framing.
+
+\subsection{Coding Procedure and Single-Pass Design}
+
+In contrast to the V3 two-pass design, the V4 scheme operates on a single-pass methodology: each citation unit is coded once with full context (author's ancestor chain up to five levels, non-author parent chain up to three levels, quoted posts with text resolved). The rationale for this shift is that binary distortion tags do not require comparative judgment (is this ``accurate'' or ``partially accurate''?) but instead require presence/absence decisions (does this claim omit mechanism details?) that are more stable across contexts. The tag-based approach also enables quantification of specific distortion mechanisms rather than collapsing error diversity into ordinal categories.
+
+The full 539-citation-unit coding task was distributed to Haiku coding agents using a fleet architecture: 54 batches of 10 citations each, staged as structured JSON files. Agents received the complete codebook (including decision trees, tag definitions, boundary-case worked examples) and citation context in a consistent XML-tagged format.
+
+To maintain coding quality and prevent drift, all coding agents operated with Bash disabled, using only the Read tool to access batch files and the Write tool to output results. No Python scripts, command-line tools, or computational shortcuts were permitted. This forces decisions to be made through explicit LLM judgment rather than heuristic automation.
+
+All 539 result files were verified post-coding for: (1) valid JSON structure, (2) all required fields present, (3) all enum values correct, (4) tag consistency (e.g., a post cannot be coded as neutral share and also have distortion tags that require substantive claims), and (5) no missing data.
+
+\subsection{Time Epochs and Citation Contexts}
+
+We classified posts into six time epochs based on relevant research publication dates and discourse developments:
+
+\begin{itemize}
+\item Epoch 2 (May 2023 -- Mar 2024): Shumailov arXiv preprint and early discussion (n=36 substantive)
+\item Epoch 3 (Apr -- Jun 2024): Gerstgrasser et al.\ show accumulation prevents collapse (n=7 substantive)
+\item Epoch 4 (Jul -- Sep 2024): Nature publication and media amplification (n=65 substantive)
+\item Epoch 5 (Oct 2024 -- Feb 2025): Multiple mitigation strategies demonstrated (n=45 substantive)
+\item Epoch 6 (Mar 2025+): Schaeffer identifies 8 conflicting definitions; field fragmented (n=162 substantive)
+\end{itemize}
+
+(Epoch 1 is not represented in our corpus; no posts predate May 2023.) These epochs were designed to capture the evolution of scientific understanding and discourse maturity.
+
+\subsection{Author Demographics}
+
+We collected Bluesky profile information (public bio text and follower counts) for all 445 unique authors in the dataset using the public Bluesky API. Two independent research agents categorized bios by self-identified professional role: AI/ML, journalist, researcher, developer, student, or other. Disagreements were resolved by consensus review.
+
+\subsection{Haiku Coding Agents and Methodological Considerations}
+
+The V4 coding employed AI-augmented content analysis: Opus models orchestrated the full pipeline, while Haiku agents (Claude 3.5 Haiku, 200K context window) performed the core coding work across 54 batches. This delegation strategy balances cost efficiency with high-quality LLM judgment on subjective categorization tasks.
+
+To maintain coding quality and prevent drift, all coding agents operated under strict constraints: Bash disabled, Read and Write tools only, no automation via scripts. This forces decisions through explicit LLM reasoning rather than heuristic matching.
+
+We note this methodological choice involves a trade-off: Haiku agents are not human raters, but prior inter-coder reliability testing ($\alpha$ = 0.530--1.000 across tags) and VDD validation (95\% agreement) provide evidence of consistency. The tag-based architecture enables clearer operationalization of distinct error types compared to ordinal scales, reducing the inherent ambiguity in subjective categorization.
+
+\section{Results}
+
+\subsection{Overall Distribution}
+
+Analysis of 539 citation units using the V4 tag-based scheme reveals:
+
+\textbf{Claim Strength:} Substantive mentions dominate at 315 posts (58.4\%), followed by neutral shares at 211 (39.1\%), with authoritative claims comprising only 13 (2.4\%).
+
+\textbf{Distortion Profile (among 315 substantive posts):} 194 posts (61.6\%) contain no distortion tags and are classified as faithful. 121 posts (38.4\%) contain one or more distortion tags. The most prevalent tags are:
+\begin{itemize}
+\item mechanism\_omission: 51 posts (16.2\% of substantive)
+\item scope\_inflation: 34 posts (10.8\%)
+\item temporal\_overclaim: 34 posts (10.8\%)
+\item sensationalism: 30 posts (9.5\%)
+\item certainty\_inflation: 25 posts (7.9\%)
+\item causal\_conflation: 16 posts (5.1\%)
+\item mitigation\_blindness: 6 posts (1.9\%)
+\item definitional\_conflation: 0 posts (0.0\%)
+\end{itemize}
+
+The dominance of mechanism\_omission is striking: more than one-third of all distorted posts (51/121) discuss model collapse without specifying the conditions under which it occurs. This suggests that while most Bluesky discussion engages substantively with the paper (58.4\%), the modal form of distortion is discussing collapse generically without mechanistic grounding. Scope inflation and temporal overclaim are nearly equally prevalent (34 posts each, 10.8\%), indicating audiences struggle both with boundaries of applicability and temporal framing of findings.
+
+\textbf{Co-occurrence:} Distortion tags frequently co-occur. Among 134 distorted posts, 67 (50.0\%) contain a single tag and 67 (50.0\%) contain multiple tags. The distribution: 1 tag (67 posts), 2 tags (43), 3 tags (18), 4 tags (3), 5 tags (1), 6 tags (2). The most common co-occurrences are mechanism\_omission + temporal\_overclaim (10 posts), certainty\_inflation + scope\_inflation (9), and mechanism\_omission + sensationalism (9).
+
+\subsection{Epoch Trends: The Distortion Increases Pattern}
+
+Epoch-based analysis reveals a striking and counterintuitive temporal pattern: distortion prevalence increases rather than decreases as discourse matures. Figure 1 visualizes these trends.
+
+\textbf{Claim Strength by Epoch:} Substantive mentions remain stable across epochs (50--60\%). Authoritative claims are absent in Epochs 2--4 and emerge only in Epoch 5 (2.6\%) and Epoch 6 (4.0\%), suggesting authoritative framing develops as discourse matures.
+
+\textbf{Distortion Rate by Epoch (among substantive posts):} The proportion of substantive posts with any distortion tag shows a clear increasing trend:
+\begin{itemize}
+\item Epoch 2 (preprint): 30.6\% distorted (11/36)
+\item Epoch 3 (Gerstgrässer): 14.3\% distorted (1/7) — \textit{small sample, n=7}
+\item Epoch 4 (Nature pub): 13.8\% distorted (9/65) — \textbf{lowest}
+\item Epoch 5 (mitigations): 44.4\% distorted (20/45)
+\item Epoch 6 (fragmentation): 49.4\% distorted (80/162)
+\end{itemize}
+
+This represents a 35.6 percentage-point increase from Epoch 4 (13.8\%) to Epoch 6 (49.4\%)—nearly a quadrupling of distortion prevalence. Notably, the Nature publication (Epoch 4) coincides with the \textit{lowest} distortion rate, while the mature discourse phases (Epochs 5--6) show substantially elevated distortion.
+
+\textbf{Mean Distortions Per Post by Epoch:} The average number of distortion tags per post (among substantive posts) also increases across epochs: 0.47 (Epoch 2), 0.14 (Epoch 3), 0.17 (Epoch 4), 0.69 (Epoch 5), 0.84 (Epoch 6). This indicates that not only do more posts contain distortions, but distorted posts contain multiple distortions with increasing frequency.
+
+\textbf{Distortion Type Distribution by Epoch:} Mechanism\_omission prevalence increases from 16.7\% (Epoch 2) to 22.2\% (Epoch 6), while temporal\_overclaim shows a more dramatic increase from 8.3\% (Epoch 2) to 16.7\% (Epoch 6).
+
+\textbf{Interpretation:} The inverted pattern—lowest distortion at Epoch 4 (immediate post-publication) and increasing distortion through Epochs 5--6—is the paper's central empirical finding. Multiple mechanisms could explain this counterintuitive pattern:
+
+(a) \textit{Expert engagement effect}: The high fidelity in Epoch 4 may reflect active participation by researchers and domain experts (Journalist and Researcher categories comprise 30.6\% of authors). As discourse matures and expert attention shifts (Epochs 5--6), citations become subject to secondary reinterpretation without expert verification.
+
+(b) \textit{Diffusion and telephone game}: Early discourse (Epoch 4) occurs among readers of the Nature publication. Later discourse (Epochs 5--6) increasingly relies on secondary citations from social media summaries rather than the original paper, compounding distortion.
+
+(c) \textit{Sample composition}: Epoch 6 contains 162 substantive posts vs.\ 45 in Epoch 5, including a broader audience beyond initial research community. The expanded audience may apply the concept more liberally.
+
+(d) \textit{Topic evolution and frame divergence}: As the paper becomes incorporated into broader debates about AI safety, training practices, and AI risk, claims shift from empirical characterization toward policy implications and speculative scenarios. These downstream applications naturally involve greater conceptual distance from the original findings.
+
+(e) \textit{Field fragmentation}: By Epoch 6, competing research on model collapse with conflicting findings enters the discourse. Claims become less grounded in the original Shumailov et al.\ findings and more situated within a broader landscape of contested claims.
+
+We present the Epoch 4--6 distortion increase as a robust empirical finding, consistent across multiple metrics (distortion rate, mean distortions per post, and tag-specific prevalence). The pattern suggests that technical discourse about AI research becomes less faithful to source findings as topics mature and diffuse to broader audiences.
+
+\subsection{Citation Type and Distortion}
+
+We coded citation methods (indirect mention, title phrase extraction, author name mention, direct link) for each post. Distortion rates vary by citation type among substantive posts:
+\begin{itemize}
+\item Indirect mention: 46.6\% distorted (most distortion-prone)
+\item Title phrase: 27.2\% distorted
+\item Author name: 28.6\% distorted
+\item Direct link: 14.3\% distorted (most faithful)
+\end{itemize}
+
+Direct citation links show substantially lower distortion prevalence, suggesting that readers who access the original paper directly maintain higher fidelity. Indirect mentions, conversely, show elevated distortion—consistent with a telephone game model where secondary discourse propagates modifications.
+
+\subsection{Author Demographics and Distortion}
+
+Among 445 unique citing authors, we categorized Bluesky bios by self-identified professional role using keyword matching. Distortion rates vary by role among substantive posts:
+\begin{itemize}
+\item AI/ML professional: 23.8\% distorted (10/42)
+\item Researcher: 36.4\% distorted (8/22)
+\item Developer: 40.0\% distorted (4/10)
+\item Other/General: 43.5\% distorted (97/223)
+\item Journalist: 48.4\% distorted (15/31)
+\end{itemize}
+
+AI/ML professionals show the lowest distortion rate (23.8\%), while journalists show the highest (48.4\%)---a 24.6 percentage-point gap. This suggests domain expertise provides meaningful protection against distortion, though even AI/ML professionals distort nearly 1 in 4 substantive posts, indicating that technical literacy alone is insufficient without engagement with the actual source material.
+
+\subsection{Repeat Citers}
+
+Fifty-three authors account for multiple citation units. The top repeat citer contributed 18 citation units; the next six each contributed 3--4 units; sixteen additional authors contributed 3 units each. In total, repeat citers account for 147 of 539 citation units (27.3\%).
+
+This concentration suggests a small-world effect: a core group of active discussion participants drives significant volume of discourse. Among repeat citers, distortion rates (38.1\% among substantive posts) match population-level distortion (38.4\%), indicating no systematic difference between core discussants and broader audience.
+
+\subsection{Reach Analysis}
+
+We collected follower counts for all 445 unique authors (100\% coverage). The distribution is heavy-tailed (median 774, max 254,208). Among substantive posts, distorted posts have a mean of 6,143 followers (median 901, n=134) while faithful posts have a mean of 4,466 followers (median 1,254, n=194). The higher mean for distorted posts reflects a few high-follower outliers, while the higher median for faithful posts suggests that typical faithful citers have slightly larger audiences. Overall, citation fidelity appears independent of author reach.
+
+
+\section{Discussion}
+
+This study presents the first systematic analysis of citation distortion for a high-profile AI paper using binary tag-based coding. Our core finding is counterintuitive: distortion in model collapse discourse increases rather than decreases as the topic matures. The Nature publication (Epoch 4) coincides with the lowest distortion rate (13.8\%), while mature discourse (Epoch 6) shows nearly four-fold higher distortion (49.4\%). This pattern contradicts the optimistic assumption that scientific discourse becomes more careful and accurate as research accumulates and communities mature.
+
+\subsection{Methodological Contribution: From Ordinal Scales to Binary Distortion Tags}
+
+The V3→V4 codebook revision demonstrates an important shift in AI-assisted content analysis: moving from ordinal accuracy/fidelity scales to operationalized binary distortion tags substantially improves both inter-coder reliability and analytical precision. The previous three-level paper fidelity scale (accurate/partially accurate/misrepresentation) conflated distinct error mechanisms: mechanism omission, scope inflation, temporal overclaim, and sensationalism all received ``partially accurate'' without distinguishing which error occurred. The V4 approach—eight independent binary tags with Krippendorff's $\alpha$ = 0.530--1.000—enables clearer operationalization and richer pattern analysis.
+
+This methodological insight suggests that future studies of science communication should employ task-specific tagging schemes rather than generic accuracy ordinals. The tag-based approach also scales better to automated or semi-automated coding, as binary presence/absence decisions are more stable than ordinal level judgments.
+
+\subsection{The Distortion Increase Pattern: Why Fidelity Declines as Discourse Matures}
+
+The 35.6 percentage-point increase in distortion from Epoch 4 (13.8\%) to Epoch 6 (49.4\%) is the paper's central empirical finding. Multiple non-exclusive mechanisms likely contribute:
+
+(1) \textit{Expert engagement effect}: Epoch 4 discourse (Nature publication window) likely includes active participation by researchers who have read the original paper carefully. Authors and subject-matter experts may correct misrepresentations in real time. As discourse matures (Epochs 5--6) and expert attention shifts, corrections become less frequent.
+
+(2) \textit{Diffusion and secondary citation}: Early citations come from direct engagement with the Nature paper. Later citations (Epochs 5--6) increasingly cite or reinterpret summaries from other Bluesky posts, creating a telephone game dynamic where small distortions compound.
+
+(3) \textit{Audience expansion}: Epoch 6 contains 3.6x more substantive posts than Epoch 5 (162 vs.\ 45), suggesting the audience expands beyond initial researchers to broader interest-followers. Expanded audiences may apply the concept more loosely.
+
+(4) \textit{Topic evolution}: As model collapse is incorporated into broader narratives about AI risk, training practices, and policy implications, claims become less tethered to the specific Shumailov et al.\ findings. Mechanism omission becomes especially prevalent (24.1\% in Epoch 6) as discussions shift from ``how does this occur?'' to ``what does this mean for AI safety?''
+
+(5) \textit{Field fragmentation}: By Epoch 6, competing research on model collapse and related phenomena (mode collapse, distributional shift, data poisoning) creates a more complex landscape. Distinguishing distinct phenomena becomes harder; causal conflation naturally increases.
+
+The increasing prevalence of mechanism omission (8.3\% to 24.1\% across epochs) is particularly telling: not omitting \textit{conditions} for collapse but rather omitting \textit{why} the mechanism operates. This suggests audiences understand that model collapse is a real phenomenon but lack mechanistic understanding of conditional scope and causality.
+
+\subsection{Domain Expertise and Distortion}
+
+The correlation between professional role and distortion rates is substantial: AI/ML professionals show 23.8\% distortion compared to 43.5\% for the general audience and 48.4\% for journalists. This 24.6 percentage-point gap between AI/ML professionals and journalists suggests domain expertise provides meaningful protection. However, even AI/ML professionals distort nearly 1 in 4 substantive posts, indicating that technical literacy alone is insufficient---engagement with the actual source material appears critical.
+
+\subsection{Citation Method and Fidelity}
+
+The variation in distortion by citation method (direct link: 14.3\% vs.\ indirect mention: 46.6\%) provides clear evidence for the telephone game hypothesis. Posts that link directly to the paper show dramatically lower distortion. This suggests policy interventions around citation design (e.g., making source links salient, prompting readers to verify claims against sources) could materially improve fidelity.
+
+\subsection{Implications for Science Communication}
+
+This study has relevance for how high-profile scientific findings are communicated and how distortion risks can be mitigated:
+
+(1) \textit{Critical window for author engagement}: The Epoch 4 finding (lowest distortion, 13.8%) suggests that the immediate post-publication period (January--April 2024 for Nature publication) is a critical window for author engagement, corrections, and clarifications. Early engagement by authors in secondary discourse could establish accurate frames that persist through later diffusion. The 35.6-point distortion increase from Epoch 4 to Epoch 6 underscores urgency: author engagement in Epochs 5--6 arrives too late, after incorrect interpretations have spread.
+
+(2) \textit{Source linking as distortion prevention}: The 32.3-point difference in distortion rates between direct-link citations (14.3\%) and indirect mentions (46.6\%) suggests that platform design and communication practices should emphasize direct citation links. Science communicators sharing research on social media should default to linking the original source, not summarizing from memory or secondary sources.
+
+(3) \textit{Mechanism specification in abstracts and press releases}: The prevalence of mechanism\_omission distortion (16.2\% of substantive posts) suggests that condensed descriptions of research findings (abstracts, press releases, social media summaries) should explicitly specify conditional scope. Phrases like ``model collapse occurs when trained on recursive generations'' or ``collapse depends on specific architectural conditions'' in high-visibility summaries could substantially reduce downstream misrepresentation.
+
+(4) \textit{Role of verification communities}: The low distortion in Epoch 4 suggests expert presence matters. Platforms and academic communities could formalize expert participation in secondary literature discussion, perhaps through researcher response systems or verified expert accounts. As discourse matures (Epochs 5--6), active expert presence diminishes—a structural problem worth addressing.
+
+(5) \textit{Reach-accuracy decoupling and platform design}: The absence of correlation between follower count and distortion (Spearman $\rho$ = --0.041, $p$ = 0.457) challenges the assumption that influential accounts maintain higher standards. This suggests that algorithmic amplification on decentralized platforms should not assume influential accounts provide reliable filtering. Platforms might instead prioritize recent corrections or direct source engagement over raw follower counts.
+
+(6) \textit{Domain expertise is insufficient}: While AI/ML professionals show the lowest distortion rate (23.8\%), they still distort nearly 1 in 4 substantive posts. This suggests that media literacy campaigns should target even domain experts, emphasizing the importance of consulting primary sources rather than relying on professional intuition about findings.
+
+\section{Limitations}
+
+This study has several important limitations:
+
+(1) \textbf{Language and Platform}: We analyzed English-language Bluesky posts only. Findings may not generalize to other languages, platforms (Twitter/X, Reddit, academic blogs), or discourse communities. Bluesky's user demographics differ from Twitter/X (more concentrated among technologists), potentially affecting distortion patterns.
+
+(2) \textbf{Single Paper}: This is a case study of one influential paper. Model collapse citations may follow different distortion patterns than other high-profile research, particularly papers with less technical specificity or more policy-aligned messaging.
+
+(3) \textbf{AI Coders}: We use Haiku agents rather than human coders. While inter-coder reliability testing ($\alpha$ = 0.530--1.000 for V4 tags) and VDD validation (95\% accuracy) provide evidence of consistency, human raters may disagree with AI judgments, particularly on borderline cases (e.g., whether a claim represents mild sensationalism or appropriate emphasis). The reduced reliability on certainty\_inflation ($\alpha = 0.530$) reflects inherent ambiguity in confidence expressions rather than coder failure.
+
+(4) \textbf{Epoch Trends and Causality}: The Epoch 4--6 distortion increase is robust across multiple metrics and consistent with a telephone game model, but multiple plausible mechanisms could explain this pattern. We present the pattern as a strong empirical finding but emphasize that causal attribution requires experimental intervention or qualitative analysis of specific posts to determine which mechanisms dominate.
+
+(5) \textbf{Tag Presence vs.\ Severity}: The V4 scheme codes tag presence (present/absent) but not severity. A post with mild mechanism omission and a post with complete disconnection from Shumailov et al.\ receive identical codes. Future refinements could incorporate severity gradations.
+
+(6) \textbf{Reach Analysis}: The lack of correlation between follower count and distortion (Spearman $\rho$ = $-0.041$, $p$ = 0.457; Pearson $r$ = 0.031, $p$ = 0.581) is a substantive finding, but the heavy-tailed distribution of followers (max 254,208) may obscure effects at extreme reach values. Targeted analysis of posts from highly-followed accounts (>100K followers) is limited by small sample size (n < 20).
+
+\section{Conclusion}
+
+Citation distortion—the degree to which secondary sources misrepresent original research—is a crucial but understudied aspect of science communication. Through systematic content analysis of 539 Bluesky citations to \cite{Shumailov2024}, we find a counterintuitive pattern: distortion increases as scientific discourse matures. While most Bluesky discussion is substantive (58.4\%), 38.4\% of substantive posts contain one or more distortion tags. Distortion nearly quadruples from the Nature publication window (Epoch 4: 13.8\%) to mature discourse (Epoch 6: 49.4\%), contradicting the optimistic assumption that scientific accuracy improves over time.
+
+Two methodological contributions emerge from this work. First, our V3→V4 codebook revision demonstrates that replacing ordinal accuracy scales with operationalized binary distortion tags substantially improves inter-coder reliability (Krippendorff's $\alpha$ increased to 0.796 for ``any distortion'') and enables richer pattern analysis. Eight distinct distortion types—mechanism omission, scope inflation, temporal overclaim, sensationalism, certainty inflation, causal conflation, mitigation blindness, and definitional conflation—reveal that citation errors are not uniform; mechanism omission dominates (16.2\% of substantive posts), suggesting audiences understand that model collapse exists but lack mechanistic grounding. Second, our findings about citation method (14.3\% distortion for direct links vs.\ 46.6\% for indirect mentions) and author expertise (23.8\% for AI/ML professionals vs.\ 48.4\% for journalists) provide concrete handles for science communication interventions.
+
+The distortion increase pattern—lowest at immediate post-publication (Epoch 4) and highest in mature discourse (Epoch 6)—supports a ``telephone game'' dynamic. As the Shumailov et al.\ findings diffuse through broader audiences, propagate via secondary social media citations, and become incorporated into policy and AI safety narratives, fidelity declines. This pattern is robust across multiple metrics (distortion rate, mean distortions per post, tag-specific prevalence) but multiple mechanisms likely contribute, including audience expansion, topic evolution, expert attention waning, and field fragmentation.
+
+Future work should: (1) extend this analysis to other high-profile papers across domains to test generalization; (2) conduct qualitative analysis of Epoch 4--6 posts to distinguish competing causal mechanisms; (3) examine whether targeted interventions (author engagement windows, platform redesign emphasizing source links, press release guidance on mechanism specification) reduce downstream distortion; (4) develop predictive models of which papers generate high distortion in secondary discourse; and (5) conduct cross-platform comparison (Bluesky vs.\ Twitter/X vs.\ Reddit) to understand how platform affordances shape distortion patterns.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\appendix
+
+\section{Figures}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{v4_distortion_rate.png}
+\caption{Distortion Rate by Epoch (among substantive posts). Shows increasing distortion prevalence from Epoch 4 (13.8\%) to Epoch 6 (49.4\%), the paper's central empirical finding. The Nature publication (Epoch 4) coincides with lowest distortion; mature discourse (Epoch 6) with nearly four-fold higher distortion.}
+\label{fig:distortion_trend}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{v4_tags_by_epoch.png}
+\caption{Distortion Tag Frequency by Epoch. Mechanism Omission (increasingly prevalent), Scope Inflation, and Temporal Overclaim dominate across epochs. Mechanism Omission increases from 8.3\% (Epoch 2) to 24.1\% (Epoch 6).}
+\label{fig:tags_epoch}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{v4_cooccurrence.png}
+\caption{Tag Co-occurrence Heatmap. The most common co-occurrences are mechanism\_omission + temporal\_overclaim (10 posts), certainty\_inflation + scope\_inflation (9 posts), and mechanism\_omission + sensationalism (9 posts). 73.6\% of distorted posts contain multiple tags.}
+\label{fig:cooccurrence}
+\end{figure}
+
+\section{Table: Distortion Tag Prevalence}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\resizebox{0.95\linewidth}{!}{%
+\begin{tabular}{lrr}
+\toprule
+\textbf{Distortion Tag} & \textbf{Count (n=315)} & \textbf{Percentage} \\
+\midrule
+Mechanism Omission & 51 & 16.2\% \\
+Scope Inflation & 34 & 10.8\% \\
+Temporal Overclaim & 34 & 10.8\% \\
+Sensationalism & 30 & 9.5\% \\
+Certainty Inflation & 25 & 7.9\% \\
+Causal Conflation & 16 & 5.1\% \\
+Mitigation Blindness & 6 & 1.9\% \\
+Definitional Conflation & 0 & 0.0\% \\
+\midrule
+Any Distortion & 121 & 38.4\% \\
+Faithful (No Tags) & 194 & 61.6\% \\
+\bottomrule
+\end{tabular}%
+}
+\caption{Summary of V4 distortion tag prevalence (among 315 substantive mentions). Multiple tags frequently co-occur within single posts (73.6\% of distorted posts contain multiple tags). Mechanism omission—discussing model collapse without specifying conditions—is the most prevalent distortion type, suggesting audiences understand the phenomenon but lack mechanistic grounding.}
+\label{tab:tags}
+\end{table}
+
+\end{document}

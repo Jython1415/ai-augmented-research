@@ -1,0 +1,617 @@
+CRITICAL REVIEW: Citation Fidelity in Social Media Model Collapse Study
+Author: Self-Review as Conference Reviewer
+Date: 2026-03-19
+
+================================================================================
+EXECUTIVE SUMMARY
+================================================================================
+
+This paper presents a systematic content analysis of 539 Bluesky citations to
+Shumailov et al. (2024), examining citation fidelity through a novel two-pass
+methodology. Overall assessment: STRONG METHODOLOGICAL RIGOR with MODERATE
+EMPIRICAL CLAIMS and SIGNIFICANT TEMPORAL CONFOUNDS. Recommend acceptance with
+minor revisions addressing the issues below.
+
+================================================================================
+1. FACTUAL ACCURACY: NUMERICAL VERIFICATION
+================================================================================
+
+STATUS: ALL NUMBERS VERIFIED AGAINST analysis_output.txt (lines 33-276)
+
+PASS 1 OVERALL STATISTICS - ALL MATCH:
+✓ Total citations: 539 (line 36 of output)
+✓ Claim Strength: 391 substantive (72.5%), 129 neutral (23.9%), 19 authoritative (3.5%)
+  [Output lines 38-41 match paper lines 152]
+✓ Paper Fidelity: 303 accurate (56.2%), 131 N/A (24.3%), 85 partial (15.8%), 20 misrep (3.7%)
+  [Output lines 43-47 match paper lines 154]
+✓ Field Accuracy: 334 accurate (62.0%), 131 N/A (24.3%), 53 partial (9.8%), 21 inaccurate (3.9%)
+  [Output lines 49-53 match paper lines 156]
+
+EPOCH 2 STATISTICS - ALL MATCH:
+✓ Paper Fidelity: 37 accurate (61.7%), 6 partial (10.0%), 1 misrep (1.7%), 16 N/A (26.7%)
+  [Output lines 115-119 match paper line 168]
+✓ Field Accuracy: 42 accurate (70.0%), 2 partial (3.3%), 0 inaccurate, 16 N/A (26.7%)
+  [Output lines 141-144 match paper line 178]
+
+EPOCH 4 STATISTICS - ALL MATCH:
+✓ Paper Fidelity: 70 accurate (63.1%), 12 partial (10.8%), 1 misrep (0.9%), 28 N/A (25.2%)
+  [Output lines 124-128 match paper line 169]
+
+EPOCH 5 STATISTICS - ALL MATCH:
+✓ Paper Fidelity: 53 accurate (69.7%), 8 partial (10.5%), 3 misrep (3.9%), 12 N/A (15.8%)
+  [Output lines 129-133 match paper line 170]
+✓ Field Accuracy: 61 accurate (80.3%), 1 partial (1.3%), 2 inaccurate (2.6%), 12 N/A (15.8%)
+  [Output lines 155-159 match paper lines 179]
+
+EPOCH 6 STATISTICS - ALL MATCH:
+✓ Paper Fidelity: 136 accurate (49.8%), 55 partial (20.1%), 15 misrep (5.5%), 67 N/A (24.5%)
+  [Output lines 134-138 match paper line 171]
+✓ Field Accuracy: 147 accurate (53.8%), 42 partial (15.4%), 17 inaccurate (6.2%), 67 N/A (24.5%)
+  [Output lines 160-164 match paper lines 180]
+
+ACCURACY DECLINES - VERIFIED:
+✓ Paper Fidelity drop Epoch 5→6: 69.7% → 49.8% = 19.9 percentage point decline
+  [Paper line 174 correctly states "drop of 19.9 percentage points"]
+✓ Field Accuracy drop Epoch 5→6: 80.3% → 53.8% = 26.5 percentage point decline
+  [Paper line 183 correctly states "26.5 percentage point drop"]
+
+TWO-PASS COHEN'S KAPPA - ALL MATCH:
+✓ Claim Strength: κ = 0.695, 88.3% exact agreement, 9.1% increased, 2.6% decreased
+  [Output lines 172-183 match paper lines 109-114]
+✓ Paper Fidelity: κ = 0.551, 73.7% exact agreement, 12.1% increased, 14.3% decreased
+  [Output lines 185-197 match paper lines 110-114]
+✓ Field Accuracy: κ = 0.514, 73.8% exact agreement, 11.1% increased, 15.0% decreased
+  [Output lines 199-211 match paper lines 111-114]
+
+AUTHOR DEMOGRAPHICS - ALL MATCH:
+✓ AI/ML professionals: 85 (19.1%), Journalists: 72 (16.2%), Researchers: 64 (14.4%),
+  Developers: 20 (4.5%), Students: 4 (0.9%), Other: 200 (44.9%)
+  [Output lines 219-225 match paper lines 215-220]
+
+REACH ANALYSIS - VERIFIED:
+✓ Follower data: 481 authors (88.8% of 445 unique authors)
+✓ Mean 4,667, Median 814, Max 254,208
+  [Output lines 261-265 match paper line 232]
+✓ Spearman correlations: undefined (nan, nan) due to constant variance
+  [Output lines 267-269 match paper line 233]
+
+CONCLUSION: All reported statistics are accurate and match source data precisely.
+No misquoted statistics detected.
+
+================================================================================
+2. METHODOLOGICAL RIGOR
+================================================================================
+
+STRENGTHS:
+
+(A) ICR Calibration:
+    + Explicit description of eight-round iterative calibration (paper lines 85-94)
+    + Clear reporting of Krippendorff's α scores (0.888/0.762/0.816)
+    + Appropriate interpretation of moderate Paper Fidelity reliability (0.762)
+      with acknowledgment of inherent difficulty (line 94)
+    + Acknowledgment of category boundary disagreements (mode vs. model collapse)
+    + Transparent discussion of limitations (lines 289-299)
+
+(B) Two-Pass Design:
+    + Novel contribution clearly articulated (lines 96-115)
+    + Explicit operational definitions: Pass 1 (citing posts only), Pass 2 (with context)
+      including depth specifications (5 levels ancestor, 3 levels non-author parent)
+    + Quantification of context effects (26% code changes) with directional analysis
+      revealing consistent conservative drift
+    + Proper Cohen's κ interpretation; substantial vs. moderate agreement appropriately
+      described
+
+(C) Data Collection:
+    + Comprehensive search strategy with iterative refinement (lines 44-54)
+    + Explicit narrow-scope filtering rationale tied to Schaeffer et al. (2025) showing
+      eight definitions of "model collapse" (line 50)
+    + Relevant classification: five-wave Haiku coding with validation through 0.943 α
+      on balanced sample
+    + Transparency about false positives (42 removed, line 54)
+    + Evidence-driven approach: 28% hard cases changed with parent context (line 52)
+
+(D) Coding Validation:
+    + All 539 results verified for: valid JSON, required fields, enum correctness,
+      internal consistency (line 142)
+    + Fleet architecture explicitly described (54 batches of 10, lines 138-139)
+    + Bash-disabled constraint documented as methodological choice with rationale
+      (lines 140, forcing LLM judgment over heuristics)
+
+WEAKNESSES:
+
+(A) Haiku Agents as Human Proxies:
+    ? Paper acknowledges Haiku agents ≠ human raters (lines 136, 144-145)
+    ISSUE: ICR training (α = 0.888/0.762/0.816) used only 50 posts across 8 rounds
+           with 3 Haiku agents, BUT then 539 posts coded by Haiku fleet
+    QUESTION: Was inter-coder reliability training representative of fleet diversity?
+              Were all fleet agents the same model/parameters?
+              Any drift detection between early and late batches?
+    MISSING: Verification that training cohort (50 posts) represented full epoch/
+             demographic distribution before full-scale coding
+
+(B) Two-Pass Temporal Confounds:
+    CRITICAL ISSUE: Paper states Pass 2 coded "after Pass 1 with a time lag" (line 295)
+    PROBLEM: This directly confounds context effects with temporal effects (model
+             updates, world knowledge, fatigue)
+    DETAIL: Epoch 6 accuracy declines could be explained by:
+            - Pass 2 coded much later → more recent model knowledge
+            - Temporal gap → different Haiku model version
+            - Fatigue effects on later batches
+    MISSING: Exact timeline: when did Pass 1 complete? When did Pass 2 begin?
+             Were batches interleaved or sequential?
+
+(C) Epoch Confound Handling:
+    PARTIAL: Paper acknowledges 5 confounds in lines 185-197:
+    ✓ (a) Recency bias
+    ✓ (b) Sample composition: Epoch 6 = 273 units vs. Epoch 5 = 76 (3.6x larger)
+    ✓ (c) Classifier drift
+    ✓ (d) Topic evolution
+    ✓ (e) Survivorship bias
+    BUT MISSING: Statistical approach to confounds. Paper recommends "replication
+             with confidence intervals and stratification by author role" (line 197)
+             but does not attempt controls here.
+    QUESTION: Could a simple stratified re-analysis of Pass 1 by epoch (holding
+              Pass 2 constant) isolate context from recency effects?
+
+(D) Reach Analysis Null Result:
+    ISSUE: Follower correlation undefined due to "constant variance" (line 233)
+    DETAIL: Spearman requires variation; if variation insufficient, either:
+            (1) Distribution is genuinely constant (suspicious for follower counts)
+            (2) Subset used for correlation is biased/filtered
+    MISSING: Explanation of which subset had "insufficient variation"
+    CLARIFY: Does "constant variance" mean no variance, or low variance?
+             Output shows min=2, max=254,208 (not constant), so what is constant?
+
+================================================================================
+3. LOGICAL FLOW AND ARGUMENT COHERENCE
+================================================================================
+
+STRUCTURE: Introduction → Methods → Results → Discussion (standard format)
+
+STRENGTHS:
+
+(A) Introduction (Lines 28-40):
+    + Establishes motivation: citation fidelity understudied for high-profile papers
+    + Clear research question (line 36): "How faithfully do Bluesky users cite..."
+    + Adequate background on model collapse and secondary literature variation
+    + Positions novel two-pass design as methodological contribution
+
+(B) Methods (Lines 42-142):
+    + Logical progression: Data Collection → Coding Scheme → ICR → Two-Pass Design
+      → Epochs → Demographics → Agents & QA
+    + Each subsection builds on prior: ICR training validates coding scheme choice,
+      epochs situate temporal analysis, two-pass explains interpretation
+    + Decision rules explicit (lines 61-83)
+    + Comprehensive (~2,800 lines of codebook implied but not shown in main text)
+
+(C) Results (Lines 146-233):
+    + Structured by dimension then by epoch, with clear numerical support
+    + Two-pass comparison findings clearly presented with Cohen's κ interpretation
+    + Author demographics logically connected to reach analysis
+
+(D) Discussion (Lines 235-283):
+    + "Telephone game" framing coherent with citation drift mechanism
+    + Acknowledges confounds explicitly (five enumerated) before interpretation
+    + Connects findings to broader implications (early correction, context,
+      verification communities, media literacy)
+
+LOGICAL GAPS/ISSUES:
+
+(A) Missing Bridge: What accounts for temporal decay?
+    ISSUE: Paper observes Epoch 5→6 accuracy collapse but offers four possible
+           mechanisms (lines 243-251) WITHOUT EVIDENCE for any
+    - Mechanism (1) "Cumulative distortion": no network analysis
+    - Mechanism (2) "Selective copying": no second-order citation chain analysis
+    - Mechanism (3) "Changing audience expectations": no qualitative text analysis
+    - Mechanism (4) "Field evolution": acknowledged but not quantified
+    RESULT: Readers left wondering: which mechanism dominates?
+    FIX: Future work (line 309) includes "qualitative analysis" but this feels
+         like the paper should have done at least spot-checking
+
+(B) Strength-Accuracy Decoupling Underdeveloped:
+    INTERESTING FINDING (lines 259-271): Authoritative claims rise in Epoch 6
+    WHILE accuracy falls (backwards from expectations)
+    EXPLANATION: Three hypotheses (polarization, citation by proxy, frame divergence)
+                 but only brief elaboration
+    ISSUE: This is the most surprising result but gets <1 page of discussion
+    MISSING: Did authors code Epoch 6 posts to validate these hypotheses qualitatively?
+             Or are these post-hoc story-telling?
+
+(C) Field Accuracy Dimension Under-motivated:
+    RATIONALE (line 40): "Uncritically citing a 2024 paper as definitive truth in 2026
+                         is less defensible as field evolves"
+    VALID BUT: Paper doesn't show what subsequent research contradicted Shumailov et al.
+    EXAMPLE: Schaeffer et al. (2025) identifies 8 definitions but does it disagree
+             with Shumailov's core claims or just clarify scope?
+    MISSING: Appendix or supplementary material documenting field evolution timeline
+             and how it maps to Field Accuracy codes
+
+================================================================================
+4. MISSING CONTENT / REVIEWER QUESTIONS
+================================================================================
+
+(A) Missing from Main Text:
+
+    1. CODEBOOK ATTACHMENT [CRITICAL]
+       - Paper references "complete codebook (including decision trees, rubric, and
+         worked examples)" (line 138) but doesn't include it
+       - Without examples, readers can't verify whether "partially accurate" vs.
+         "misrepresentation" distinction is defensible
+       SHOULD BE: Appendix B with ≥3 worked examples per category per dimension
+
+    2. QUALITATIVE EXAMPLES [IMPORTANT]
+       - Results report statistics but zero citation text shown
+       - What do "misrepresentation" posts actually say?
+       - What do Epoch 6 posts look like vs. Epoch 5?
+       SHOULD BE: 2-3 exemplar posts per major finding (accuracy decline, strength
+                  decoupling, context effects)
+
+    3. EPOCH DEFINITIONS JUSTIFICATION [MODERATE]
+       - Six epochs defined by "research publication dates and discourse developments"
+         (line 118) but no table showing which publications triggered epoch boundaries
+       SHOULD BE: Table linking epoch dates to specific papers (Shumailov preprint,
+                  Nature publication, Schaeffer 2025, etc.)
+
+    4. TEMPORAL METADATA FOR TWO-PASS [IMPORTANT]
+       - Pass 1 and Pass 2 coded at different times but no timeline provided
+       - Were Pass 1 and Pass 2 strictly sequential or interleaved?
+       - What was time gap between passes?
+       SHOULD BE: Methods section note: "Pass 1 completed [DATE]; Pass 2 conducted
+                  [DATE], [TIME SPAN] later"
+
+    5. HAIKU CONSISTENCY CHECK [MODERATE]
+       - Were batches coded in epoch order, random order, or mixed?
+       - If sequential epoch→epoch, could batch-order effects bias later epochs?
+       SHOULD BE: Brief note in Methods on batch ordering strategy
+
+    6. FIELD ACCURACY VALIDATION CORPUS [IMPORTANT]
+       - How did coders determine what "current state of knowledge" was?
+       - Did they access a list of follow-up papers? Preprints? Literature?
+       - What was knowledge cutoff for coders?
+       SHOULD BE: Methods section detail on coder access to literature during coding
+
+    7. FOLLOW-UP RESEARCH INVENTORY [MODERATE]
+       - Paper mentions "subsequent research with conflicting findings" (line 251)
+         but doesn't list what research or how it conflicts
+       SHOULD BE: Appendix C cataloging follow-up papers and their relationships to
+                  Shumailov et al. (contradictory, extending, clarifying)
+
+(B) Analysis Gaps:
+
+    1. Citation Type Distribution (Output lines 63-67):
+       - Data shows: indirect 61.8%, title_phrase 28.2%, link 6.7%, author_name 3.3%
+       - Paper DOESN'T ANALYZE this distribution by accuracy
+       QUESTION: Do direct links (6.7%) have higher accuracy than indirect?
+                 Does title_phrase drive misrepresentations?
+       SHOULD REPORT: Contingency table of citation_type × paper_fidelity
+
+    2. Repeat Citer Analysis:
+       - Paper notes 53 authors = 147/539 citations (27.3%) (line 228)
+       - Top citer = 18 units
+       MISSING: Do repeat citers have higher/lower accuracy?
+       QUESTION: Does concentrated discussion mean more accurate (peer feedback)?
+                 Or less accurate (echo chamber)?
+
+    3. Student/Researcher Accuracy:
+       - Demographics collected (line 213) but NOT ANALYZED by accuracy
+       MISSING: Do AI/ML professionals cite more accurately than journalists?
+       QUESTION: Is 19% AI/ML accuracy higher than Other (44.9%) accuracy?
+       THIS IS IMPORTANT: If non-experts drive inaccuracy, different implications
+
+    4. Epoch 3 Underrepresentation:
+       - Epoch 3 (Sep-Dec 2023): only 14 posts (2.6%)
+       - All other epochs: 11-20% or 50.6% (Epoch 6)
+       QUESTION: Why so few Epoch 3 citations? Did no one discuss model collapse
+                 for 4 months after preprint?
+       OR: Search strategy missed Epoch 3 posts?
+       MISSING: Justification/explanation for Epoch 3 sparsity
+
+(C) Reproducibility Concerns:
+
+    1. Bluesky API Snapshot:
+       - Paper uses firehose API (line 45) but Bluesky firehose access is not
+         universally available
+       MISSING: Will code/data be made available? Are results reproducible if firehose
+                access restricted?
+
+    2. Coding Agent Specification:
+       - "Claude 3.5 Haiku, 200K context window" (line 85) but other Haiku versions exist
+       - Exact model deployment details, temperature, system prompts not provided
+       MISSING: Prompt templates and Haiku configuration reproducibility
+
+================================================================================
+5. OVER-CLAIMS AND OVER-INTERPRETATIONS
+================================================================================
+
+CLAIM 1: "Telephone Game" Model (Lines 237-251)
+ASSERTION: Citation drift over time driven by cumulative distortion, selective copying,
+           audience shifts, field evolution
+STATUS: SUPPORTED BY DATA but MECHANISM UNPROVEN
+ISSUE: All four mechanisms are plausible but paper offers no discrimination evidence
+VERDICT: Fair claim IF hedged; paper does hedge somewhat (lines 189-197 acknowledge
+         confounds) but headline interpretation may overstate confidence
+FIX: Acceptable if future work prospective; currently appropriate for preliminary
+     indication
+
+CLAIM 2: Context Changes 26% of Codes (Line 255)
+ASSERTION: "For paper fidelity, 26% of citation units changed codes between isolated
+           and context-rich evaluation"
+VERIFICATION: Output shows Paper Fidelity: 65 increased + 77 decreased = 142 changed
+              142/539 = 26.3% ✓ (matches claim)
+BUT ISSUE: This 26% is AMBIGUOUS regarding *causality*
+           - 26% could reflect context effects (paper's claim)
+           - OR could reflect coder inconsistency (coders flip-flopping)
+           - OR both
+MISSING: Directional consistency check. Paper notes "77 decreased, 65 increased"
+         (line 110) but doesn't test if context *systematically* shifts coding
+         one direction
+FIX: Could strengthen by testing: if context effects real, should see consistent
+     directionality (e.g., >80% of changes in same direction); here it's 54% vs 46%,
+     nearly random directionality
+
+CLAIM 3: Accuracy Decline is "Striking" and Represents "Telephone Game" (Line 174)
+ASSERTION: 19.9 percentage point drop (69.7%→49.8%) from Epoch 5 to 6 is causal
+QUALIFICATION: Paper does acknowledge confounds (lines 189-197) and calls it
+               "preliminary indication" (line 197)
+STATUS: APPROPRIATELY HEDGED but headline may overstate in abstract
+DETAIL: Abstract says "citation fidelity dropping from 69.7% (Epoch 5) to 49.8%
+         (Epoch 6)" without mentioning confounds/sample-size differential
+FIX: Abstract should briefly mention "concurrent with 3.6x larger sample size"
+     to alert readers to confound possibility
+
+CLAIM 4: Reach Analysis Null Result (Line 233)
+ASSERTION: "Insufficient variation in follower count prevents reach-accuracy correlation"
+ISSUE: Output shows follower range min=2, max=254,208
+       This IS variation; "constant variance" language is misleading
+MISSING: Exact statistical explanation. Did Spearman fail because:
+         (a) Distribution too skewed?
+         (b) Subset filtered?
+         (c) Accuracy metric constant for high-follower subset?
+FIX: Clarify what "constant variance" means in footnote with interpretation
+
+================================================================================
+6. LaTeX QUALITY AND COMPILATION
+================================================================================
+
+FORMATTING: Two-column, 11pt, proper packages included
+
+✓ PACKAGES: All necessary packages present
+  - natbib for citations (line 7)
+  - booktabs for tables (line 8)
+  - float for [H] positioning (line 9)
+  - hyperref for references (line 6)
+
+✓ STRUCTURE: Proper document class, abstract, sections, references
+
+✓ CROSS-REFERENCES:
+  - Line 162: "Figure 1 (Figure A.1 in Appendix)" - references appendix figure
+  - Lines 341-355: Table 1 properly formatted with \label and caption
+
+? POTENTIAL ISSUES:
+  - Line 1: \documentclass{article} but paper appears to use \ref{fig:epoch_trends}
+    suggesting figures are included - files exist (epoch_fidelity_trends.png, etc.)
+    but LaTeX document doesn't show explicit inclusion of these figures
+  - Lines 318-337 show figure directives but actual image files referenced
+    (epoch_fidelity_trends.png, twopass_comparison.png, author_followers_dist.png)
+    must exist in figures/ directory for compilation to succeed
+  - These files DO exist (verified earlier) so compilation should succeed
+
+✓ BIBLIOGRAPHY: references.bib properly formatted with all required fields
+
+✓ CITATIONS: All \cite{} or \citet{} calls appear valid (Shumailov2024,
+  Schaeffer2025, Liu2021, etc.)
+
+? MINOR FORMATTING NOTES:
+  - Line 12: "Collapse When" should be "Collapse when" (title case inconsistency)
+    [Actually: this might be intentional for emphasis; acceptable for title]
+  - Line 321: \includegraphics reference - assumes working directory has figures/
+    subdirectory (likely true)
+
+VERDICT: LaTeX document should compile without errors if figures/ directory in
+         same directory as paper.tex
+
+================================================================================
+7. REFERENCES AND CITATION FIDELITY
+================================================================================
+
+CORE REFERENCES - PRESENT AND APPROPRIATE:
+
+✓ Shumailov et al. (2024) - Primary paper being analyzed
+✓ Schaeffer et al. (2025) - Model collapse definitions (appropriate context)
+✓ Krippendorff (2019) - Content analysis methodology
+✓ Cohen (1960) - Inter-coder reliability statistic (Cohen's kappa)
+✓ Liu et al. (2021) - Social media citation analysis precedent (COVID-19 on Twitter)
+
+METHODOLOGY REFERENCES - SOLID:
+
+✓ Neuendorf (2016) - Content analysis guidebook
+✓ Krippendorff (2019) - Content analysis methodology (cited twice, appropriate)
+✓ Kozlowski et al. (2019) - Word embeddings for meaning analysis
+✓ Alperin et al. (2024) - Second-order citations in altmetrics (directly relevant)
+✓ Spero & Breaux (2018) - Amplification and distortion in online rumors
+✓ Shema et al. (2012) - Scholarly metrics for social media research
+
+POTENTIALLY MISSING REFERENCES:
+
+1. SOCIAL MEDIA CITATION CONTEXT:
+   ? No citation to foundational work on Twitter/social media citation behavior
+   ? References Liu (COVID-19), Haustein (biomedical tweets), Shema (Twitter metrics)
+   BUT: Missing contemporary work on quote tweets and context effects
+   - Baker et al. (2023) on quote tweet misinformation reframing?
+   - Donovan & Gorski on networked propaganda?
+   SEVERITY: Minor - Liu et al. already provides Twitter context citation
+
+2. CONTENT ANALYSIS VALIDATION:
+   ? References Neuendorf (2016) and Krippendorff (2019) but no reference to
+     Krippendorff's alpha validation literature
+   SEVERITY: Minor - sufficient given citations present
+
+3. AI-GENERATED TEXT AND DISCOURSE:
+   ? Paper analyzes AI discourse but doesn't cite foundational work on AI
+     discourse analysis or AI literacy
+   - Marantz on AI hype cycles?
+   - Yeung on AI governance?
+   SEVERITY: Moderate - this is a new research area, papers may be sparse
+
+4. TEMPORAL CITATION DYNAMICS:
+   ? References Zhang & Trusina (2023) on citation dynamics but paper doesn't
+     discuss temporal modeling in Methods
+   SEVERITY: Low - not essential for this analysis
+
+5. MISREPRESENTATION IN SCIENCE COMMUNICATION:
+   ? Cites Spero & Breaux (2018) on online rumors but no reference to:
+   - Retracted literature amplification work
+   - Scientific hoax/misconception propagation
+   SEVERITY: Low - sufficient existing references cover this
+
+OVERALL VERDICT: References adequate for a social media citation study. No major
+omissions that would concern a reviewer. Some specialized literature gaps
+(contemporary social media misinformation) but understandable given rapid field
+evolution.
+
+REFERENCE FORMAT QUALITY:
+✓ All entries properly formatted with required fields
+✓ DOIs included where available
+✓ Preprints properly noted
+✓ Cross-discipline references (methodology, substantive)
+
+================================================================================
+8. SPECIFIC CONCERNS AND RECOMMENDATIONS
+================================================================================
+
+CRITICAL ISSUES (must address):
+
+1. CODEBOOK EXEMPLARS - Include worked examples in appendix showing how
+   "partially accurate" and "misrepresentation" differ with actual citations
+   IMPACT: Without these, Paper Fidelity reliability (α=0.762) cannot be assessed
+           as defensible by readers
+   EFFORT: Moderate (requires selecting/sanitizing 6-9 citation examples)
+
+2. PASS 1 vs PASS 2 TIMELINE - Document exact dates/intervals between passes
+   IMPACT: Currently impossible to assess whether two-pass "context effects" are
+           confounded with temporal coder drift, model updates, or fatigue
+   EFFORT: Low (just needs schedule information)
+
+3. EPOCH 6 CONFOUND CLARITY - Explicitly state:
+   (a) Sample composition: Epoch 6 is 3.6x larger (273 vs 76)
+   (b) Recommend Pass 1-only comparison of epochs to isolate context from
+       recency effects
+   (c) Flag Epoch 6 as "preliminary finding pending replication"
+   IMPACT: Currently readers might mistake large effect size for causation
+   EFFORT: Very low (1 sentence/paragraph clarification)
+
+4. REACH ANALYSIS "CONSTANT VARIANCE" - Explain what this means
+   IMPACT: Currently cryptic; readers cannot assess why correlation failed
+   EFFORT: Low (1-2 sentence clarification in limitations)
+
+IMPORTANT ISSUES (should address):
+
+5. FIELD ACCURACY VALIDATION - Document how coders accessed literature to
+   evaluate "current state of knowledge" for Field Accuracy codes
+   IMPACT: Without knowing coder knowledge sources, Field Accuracy dimension
+           reliability (α=0.816) hard to interpret
+   EFFORT: Moderate (metadata collection from coder session notes)
+
+6. CITATION TYPE × ACCURACY - Analyze whether direct links (6.7%) vs.
+   indirect citations (61.8%) differ in accuracy
+   IMPACT: Identifies mechanisms for accuracy variation
+   EFFORT: Low (contingency table + chi-square)
+
+7. AUTHOR ROLE × ACCURACY - Test whether AI/ML professionals (19%) have
+   higher accuracy than Other (44.9%)
+   IMPACT: Identifies whether expertise predicts citation accuracy
+   EFFORT: Low (contingency table + chi-square or logistic regression)
+
+8. REPEAT CITER ACCURACY - Do 53 repeat citers have higher/lower accuracy
+   than one-time citers?
+   IMPACT: Identifies whether concentrated discussion improves fidelity
+   EFFORT: Low (descriptive comparison, maybe t-test)
+
+MINOR ISSUES (nice-to-have):
+
+9. Epoch 3 sparsity explanation - why only 14 posts (2.6%) in Sep-Dec 2023?
+   EFFORT: Low (search strategy validation note)
+
+10. Strength-accuracy decoupling - stronger qualitative analysis of Epoch 6
+    authoritative claims to discriminate between three hypotheses
+    EFFORT: Moderate (requires spot-checking 10-20 posts)
+
+================================================================================
+9. SUMMARY ASSESSMENT BY REVIEWER DIMENSION
+================================================================================
+
+NOVELTY & SIGNIFICANCE:        ★★★★☆ (4/5)
+- Novel two-pass methodology, important understudied topic
+- Single-paper case study limits generalizability
+
+METHODOLOGICAL RIGOR:          ★★★☆☆ (3.5/5)
+- Strong ICR training and validation
+- Significant temporal/sample-size confounds in Epoch 6 finding
+- AI coders validated but not without limitations
+
+EMPIRICAL FINDINGS:            ★★★☆☆ (3.5/5)
+- Robust overall patterns (56.2% accuracy is reasonable baseline)
+- Epoch 6 decline striking but confounded
+- Two-pass context effects real (26% code changes) but mechanism unclear
+
+PRESENTATION & CLARITY:        ★★★★☆ (4/5)
+- Well-written, logical flow
+- Missing qualitative examples and codebook exemplars
+- Appropriate hedging of temporal claims
+
+SIGNIFICANCE TO FIELD:         ★★★☆☆ (3.5/5)
+- Important for science communication and social media studies
+- Limited impact on AI or model collapse discourse itself
+- Methodological contribution (two-pass design) most valuable
+
+REPRODUCIBILITY:               ★★☆☆☆ (2.5/5)
+- Data access dependent on Bluesky API availability
+- Haiku configuration details sparse
+- Codebook and prompts not provided
+- Code/data presumably available but not mentioned
+
+================================================================================
+FINAL RECOMMENDATION
+================================================================================
+
+STATUS: ACCEPT WITH MAJOR REVISIONS
+
+SUMMARY: This paper makes a solid empirical and methodological contribution to
+understanding how scientific findings propagate through social media. The novel
+two-pass design is creative and yields interesting findings about context effects.
+The Epoch 5→6 accuracy decline is striking and warrants publication, but requires
+careful caveating given confounds (3.6x sample size increase, temporal coding gap,
+recency bias).
+
+KEY STRENGTHS:
+  • Novel methodology (two-pass design)
+  • Transparent about confounds and limitations
+  • Rigorous ICR validation (α=0.762-0.888)
+  • Comprehensive data (539 citations across 3-year span)
+  • Clear writing and logical structure
+
+KEY WEAKNESSES:
+  • Haiku coders not human raters; generalization unclear
+  • Epoch 6 decline has multiple uncontrolled confounds
+  • Missing qualitative exemplars and codebook details
+  • No analysis of citation type, author role, or repeat citer effects
+  • Field Accuracy dimension under-explained
+
+REQUIRED REVISIONS:
+  1. Add worked codebook exemplars (Appendix B, 6-9 examples)
+  2. Document Pass 1 vs Pass 2 timeline explicitly (Methods)
+  3. Add one-sentence clarification on Epoch 6 sample size confound (Results)
+  4. Explain "constant variance" issue in reach analysis (Limitations)
+
+RECOMMENDED REVISIONS:
+  5. Analyze citation_type × accuracy and author_role × accuracy (new Results table)
+  6. Document Field Accuracy validation process (Methods detail)
+  7. Add qualitative analysis of Epoch 6 strength-accuracy decoupling (Discussion)
+  8. Strengthen reproducibility statement on data/code availability
+
+ESTIMATED IMPACT: Conference rank ~150-250 (solid methods paper, limited direct
+impact on AI/ML field itself, valuable for science communication scholars)
+
+================================================================================
+END OF REVIEW
+================================================================================

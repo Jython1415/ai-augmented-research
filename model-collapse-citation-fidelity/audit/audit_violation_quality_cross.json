@@ -1,0 +1,144 @@
+{
+  "findings": [
+    {
+      "agent_id": "a8c469585777e1b61",
+      "batch": "batch_005",
+      "bash_count": 1,
+      "in_high_fp_list": true,
+      "relevance_rate": "33%"
+    },
+    {
+      "agent_id": "a506aa58eb5fff44d",
+      "batch": "batch_007",
+      "bash_count": 1,
+      "in_high_fp_list": false,
+      "relevance_rate": null
+    },
+    {
+      "agent_id": "ae3539c189521ea12",
+      "batch": "batch_008",
+      "bash_count": 3,
+      "in_high_fp_list": false,
+      "relevance_rate": null
+    },
+    {
+      "agent_id": "a941a7ea0a9028c05",
+      "batch": "batch_012",
+      "bash_count": 1,
+      "in_high_fp_list": true,
+      "relevance_rate": "28%"
+    },
+    {
+      "agent_id": "a4df6b41b90768382",
+      "batch": "batch_017",
+      "bash_count": 1,
+      "in_high_fp_list": false,
+      "relevance_rate": null
+    },
+    {
+      "agent_id": "a7b8ba648cb9542d4",
+      "batch": "batch_019",
+      "bash_count": 1,
+      "in_high_fp_list": false,
+      "relevance_rate": null
+    },
+    {
+      "agent_id": "a7dfe24d3b61b6ccd",
+      "batch": "batch_023",
+      "bash_count": 1,
+      "in_high_fp_list": false,
+      "relevance_rate": null
+    },
+    {
+      "agent_id": "a271675f34a06048e",
+      "batch": "batch_027",
+      "bash_count": 1,
+      "in_high_fp_list": false,
+      "relevance_rate": null
+    },
+    {
+      "agent_id": "a746c3a25bc8f2478",
+      "batch": "batch_031",
+      "bash_count": 2,
+      "in_high_fp_list": false,
+      "relevance_rate": null
+    },
+    {
+      "agent_id": "a39ac153c4e91ce72",
+      "batch": "batch_032",
+      "bash_count": 2,
+      "in_high_fp_list": true,
+      "relevance_rate": "35%"
+    },
+    {
+      "agent_id": "ab41ec69996a63d3c",
+      "batch": "batch_036",
+      "bash_count": 2,
+      "in_high_fp_list": false,
+      "relevance_rate": null
+    },
+    {
+      "agent_id": "af79874f6fe429392",
+      "batch": "batch_037",
+      "bash_count": 1,
+      "in_high_fp_list": false,
+      "relevance_rate": null
+    },
+    {
+      "agent_id": "a40453a7a8d0af590",
+      "batch": "batch_040",
+      "bash_count": 2,
+      "in_high_fp_list": false,
+      "relevance_rate": null
+    },
+    {
+      "agent_id": "a10cb9bef3b9334bb",
+      "batch": "batch_043",
+      "bash_count": 4,
+      "in_high_fp_list": false,
+      "relevance_rate": null
+    },
+    {
+      "agent_id": "af5a909416ee8ebdc",
+      "batch": "batch_048",
+      "bash_count": 7,
+      "in_high_fp_list": false,
+      "relevance_rate": null
+    },
+    {
+      "agent_id": "a1ba53f2d3604b882",
+      "batch": "batch_054",
+      "bash_count": 1,
+      "in_high_fp_list": true,
+      "relevance_rate": "45%"
+    },
+    {
+      "agent_id": "a224d207bc3ef5795",
+      "batch": "batch_073",
+      "bash_count": 1,
+      "in_high_fp_list": false,
+      "relevance_rate": null
+    },
+    {
+      "agent_id": "ae9350f20ce597938",
+      "batch": "batch_cleanup",
+      "bash_count": 1,
+      "in_high_fp_list": false,
+      "relevance_rate": null
+    }
+  ],
+  "correlation_summary": "MODERATE CORRELATION DETECTED: Of 18 agents with Bash violations, 4 are in the high false-positive list (22% match rate). All 4 matched agents show quality issues: batch_005 (33% relevant), batch_012 (28% relevant—confirmed over-classification), batch_032 (35% relevant), and batch_054 (45% relevant). However, 14 violating agents are NOT in the problem list, suggesting Bash use alone is not a strong predictor of classification quality. The presence of violations in batch_012 (28% relevance) and batch_032 (35% relevance) aligns with known quality issues, but other violations in batches like batch_008 (3 violations), batch_043 (4 violations), and batch_048 (7 violations) did not produce detectably poor results, indicating that Bash usage may be symptomatic rather than causal for quality problems.",
+  "summary_statistics": {
+    "total_violations": 18,
+    "violations_in_high_fp_list": 4,
+    "match_rate_percent": 22.2,
+    "total_bash_calls_violations": 27,
+    "known_problem_batches_count": 11,
+    "overlap_batches": [
+      "batch_005",
+      "batch_012",
+      "batch_032",
+      "batch_054"
+    ]
+  }
+}

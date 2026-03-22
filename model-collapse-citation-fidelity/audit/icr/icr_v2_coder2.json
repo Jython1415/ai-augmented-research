@@ -1,0 +1,256 @@
+{
+  "batch_id": "icr_calibration_v2",
+  "coder_id": "coder2",
+  "classifications": [
+    {
+      "id": 4365,
+      "relevant": false,
+      "rationale": "Post and parent discuss generic AI topics without any citation signal to the Shumailov paper."
+    },
+    {
+      "id": 411,
+      "relevant": false,
+      "rationale": "Article about Apple's 'accuracy collapse' in reasoning models is a different topic with no citation to Shumailov paper."
+    },
+    {
+      "id": 1152,
+      "relevant": false,
+      "rationale": "Uses 'model collapse' without traceable citation signal; appears to be about coding errors, not the Shumailov paper."
+    },
+    {
+      "id": 6333,
+      "relevant": false,
+      "rationale": "About AI art and sculpture with metaphorical 'AI eating itself' language but no citation to Shumailov paper."
+    },
+    {
+      "id": 2713,
+      "relevant": false,
+      "rationale": "Mentions 'model collapse' generically without any traceable citation signal to the specific paper."
+    },
+    {
+      "id": 6189,
+      "relevant": false,
+      "rationale": "Brief comment with partial link to unidentified source; no citation signal to Shumailov paper."
+    },
+    {
+      "id": 682,
+      "relevant": false,
+      "rationale": "Discusses AMOC collapse in climate science context; not about AI model collapse and no paper citation."
+    },
+    {
+      "id": 254,
+      "relevant": false,
+      "rationale": "Single phrase with no context; search term matches but post is too brief to determine relevance without citation."
+    },
+    {
+      "id": 1675,
+      "relevant": false,
+      "rationale": "Mentions 'model collapse' as a general concern about AI sustainability but no traceable citation to Shumailov paper."
+    },
+    {
+      "id": 900,
+      "relevant": false,
+      "rationale": "About fiction novels with no connection to model collapse or any paper citation."
+    },
+    {
+      "id": 4588,
+      "relevant": false,
+      "rationale": "Discusses pandemic health service collapse in policy context; not about AI model collapse."
+    },
+    {
+      "id": 2181,
+      "relevant": false,
+      "rationale": "About cosmology/universe expansion collapse; not about AI and no paper citation."
+    },
+    {
+      "id": 3696,
+      "relevant": false,
+      "rationale": "About face collapse syndrome in medical context; not about AI model collapse."
+    },
+    {
+      "id": 493,
+      "relevant": false,
+      "rationale": "About generative AI's impact on career progression; no citation to Shumailov paper."
+    },
+    {
+      "id": 961,
+      "relevant": false,
+      "rationale": "Blog post title mentions 'Model Collapse' generically without traceable citation to Shumailov paper."
+    },
+    {
+      "id": 6537,
+      "relevant": false,
+      "rationale": "Uses Ouroboros metaphor about AI but parent discusses 'AI eating itself' without citing Shumailov paper."
+    },
+    {
+      "id": 773,
+      "relevant": false,
+      "rationale": "About trade collapse economics model; not about AI model collapse."
+    },
+    {
+      "id": 5912,
+      "relevant": false,
+      "rationale": "About self-consuming retraining loops in generative models (arXiv:2505.09768) but not the Shumailov paper."
+    },
+    {
+      "id": 2671,
+      "relevant": false,
+      "rationale": "Discusses planned economy model collapse in historical context; not about AI."
+    },
+    {
+      "id": 6832,
+      "relevant": false,
+      "rationale": "Uses Ouroboros metaphor for ed tech feedback loops without citing Shumailov paper."
+    },
+    {
+      "id": 3185,
+      "relevant": false,
+      "rationale": "About physics/relativistic collapse models; not about AI model collapse."
+    },
+    {
+      "id": 5048,
+      "relevant": false,
+      "rationale": "About Daisyworld biosphere collapse model in environmental science; not about AI."
+    },
+    {
+      "id": 7310,
+      "relevant": false,
+      "rationale": "Trending words in non-English languages; not about model collapse or AI research."
+    },
+    {
+      "id": 1125,
+      "relevant": false,
+      "rationale": "About metabolic collapse in inherited blindness treatment; not about AI model collapse."
+    },
+    {
+      "id": 3187,
+      "relevant": false,
+      "rationale": "About Chicago's policy response to deportations; not about model collapse."
+    },
+    {
+      "id": 2536,
+      "relevant": false,
+      "rationale": "Discusses business model sustainability for AI companies but no citation to Shumailov paper."
+    },
+    {
+      "id": 5948,
+      "relevant": false,
+      "rationale": "Discusses synthetic data accumulation causing collapse without citing specific paper."
+    },
+    {
+      "id": 5506,
+      "relevant": false,
+      "rationale": "Uses 'model collapse' metaphorically for AI training on troll content without traceable citation."
+    },
+    {
+      "id": 184,
+      "relevant": false,
+      "rationale": "Defines 'semantic collapse' in AI from synthetic data but no citation to Shumailov paper."
+    },
+    {
+      "id": 4371,
+      "relevant": false,
+      "rationale": "About ice sheet modeling and Antarctic climate science; not about AI model collapse."
+    },
+    {
+      "id": 7428,
+      "relevant": false,
+      "rationale": "About AI training on AI-generated content with 'feeding on itself' language but no Shumailov citation."
+    },
+    {
+      "id": 7356,
+      "relevant": false,
+      "rationale": "Links to Verge article about AI data scraping without citing Shumailov paper."
+    },
+    {
+      "id": 6327,
+      "relevant": false,
+      "rationale": "Uses 'AI eating itself' metaphor without citing Shumailov paper."
+    },
+    {
+      "id": 2215,
+      "relevant": false,
+      "rationale": "About Monopoly game and capitalism dynamics; 'model collapse' refers to systemic economic collapse, not AI."
+    },
+    {
+      "id": 2699,
+      "relevant": false,
+      "rationale": "Colloquial reference to model collapse without traceable citation to specific paper."
+    },
+    {
+      "id": 4345,
+      "relevant": false,
+      "rationale": "Discusses AMOC ocean current collapse in climate science; not about AI model collapse."
+    },
+    {
+      "id": 5883,
+      "relevant": false,
+      "rationale": "About AI 'digital inbreeding' concept without citation to Shumailov paper."
+    },
+    {
+      "id": 6228,
+      "relevant": false,
+      "rationale": "Uses 'eating itself' metaphor for AI content generation without citing specific research paper."
+    },
+    {
+      "id": 5707,
+      "relevant": false,
+      "rationale": "References Habsburg inbreeding metaphor for AI without citing Shumailov paper."
+    },
+    {
+      "id": 5681,
+      "relevant": false,
+      "rationale": "Explains Habsburg AI inbreeding metaphor for AI consuming AI-generated content without Shumailov citation."
+    },
+    {
+      "id": 1168,
+      "relevant": false,
+      "rationale": "About startup failure prediction model; not about AI model collapse."
+    },
+    {
+      "id": 886,
+      "relevant": false,
+      "rationale": "About HANDY societal collapse model in environmental science; not about AI."
+    },
+    {
+      "id": 2914,
+      "relevant": false,
+      "rationale": "References 'model autophagy disorder' in relation to model collapse but no citation to Shumailov paper."
+    },
+    {
+      "id": 1620,
+      "relevant": false,
+      "rationale": "About AI industry financial dynamics and bubble; 'model collapse' used generically without paper citation."
+    },
+    {
+      "id": 1745,
+      "relevant": true,
+      "rationale": "Directly cites arXiv:2404.05090 which is about model collapse and synthetic data, likely related to this research area."
+    },
+    {
+      "id": 5373,
+      "relevant": false,
+      "rationale": "About bridge/structural engineering collapse metaphor; not about AI model collapse."
+    },
+    {
+      "id": 6542,
+      "relevant": false,
+      "rationale": "Discusses Ouroboros and AI data hoarding without citing Shumailov paper."
+    },
+    {
+      "id": 6810,
+      "relevant": false,
+      "rationale": "Questions whether AI is an ouroboros of self-feeding nonsense without citing specific research."
+    },
+    {
+      "id": 2813,
+      "relevant": false,
+      "rationale": "References 'model collapse' in context of GPT-3 limitations without citing Shumailov paper."
+    },
+    {
+      "id": 3666,
+      "relevant": false,
+      "rationale": "About SSD storage collapse/wear; not about AI model collapse."
+    }
+  ]
+}
