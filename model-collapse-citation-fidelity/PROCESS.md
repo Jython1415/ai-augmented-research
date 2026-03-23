@@ -21,7 +21,7 @@ This document is a factual log of the AI-augmented research process that produce
 
 **What subagents did**:
 - Research fleet (17 agents in Wave 7 alone) investigated keystone papers (Shumailov, Dohmatob, Gerstgrasser) and discovery papers across six knowledge epochs (pre-Jul 2024 through Mar 2025+).
-- Literature agents built `lit-timeline/timeline.md` with 21 papers organized by publication date and conceptual epoch.
+- Literature agents built `lit-timeline/timeline.md` with 20 papers organized by publication date and conceptual epoch.
 - Built coding reference document with ground-truth explanations for later calibration.
 
 **Key outputs**:
@@ -42,12 +42,12 @@ This document is a factual log of the AI-augmented research process that produce
 
 **What the main agent decided**:
 - Launched parallel pipelines: (1) Bluesky data collection, (2) literature deep-dive, (3) codebook V1 design, (4) infrastructure setup.
-- Built `collect_posts.py` using atproto SDK with six search queries and exponential backoff.
+- Built `collect_posts.py` using atproto SDK with initial design of six search terms, later expanded to 17 search terms in Phase 2.5, and exponential backoff.
 - Designed V1 codebook with six dimensions: accuracy, claim_type, source_cited, caveating_level, literature_awareness, depth.
 - Prepared infrastructure for calibration: state files, batch templates, git structure.
 
 **What subagents did**:
-- Collection agent: Executed data pull in 44 seconds, collecting posts across May 2023–March 2026.
+- Collection agent: Executed data pull collecting posts across May 2023–March 2026.
 - Infrastructure agents: Set up repository, configured `.gitignore`, created state files for later parallel work.
 - Calibration agents: Ran initial V1 calibration rounds with 3-5 coders to test codebook clarity.
 
@@ -73,7 +73,7 @@ This document is a factual log of the AI-augmented research process that produce
 - Launched Pass 1 classification at scale: 7,766 posts into 78 batches of 100 posts, distributed across four waves of Haiku agents.
 - **Wave 10 (13:23)**: 86 agents processing 78 batches + spot-checks in 9 minutes.
 - Embedded full literature timeline in each batch prompt as reference.
-- Ran VDD reviews (three Sonnet agents): methodology critique, statistical validation, overclaim detection.
+- Ran VDD reviews (three Haiku agents): methodology critique, statistical validation, overclaim detection.
 
 **What subagents did**:
 - Each Haiku agent in Wave 10 classified ~100 posts as relevant or not relevant to model collapse phenomenon.
@@ -137,22 +137,21 @@ This document is a factual log of the AI-augmented research process that produce
 - Final approval (Mar 22, 17:46): "Proceed" on final fleet wave.
 
 **What the main agent decided**:
-- **Mar 19 (Waves 71–74, 93 agents peak)**: Comprehensive analysis and paper write phase. Built analysis scripts, computed statistics by epoch and source type, generated four publication-ready figures.
+- **Mar 19 (Waves 71–74, 93 agents peak)**: Comprehensive analysis and paper write phase. Built analysis scripts, computed statistics by epoch and source type, generated three publication-ready figures.
 - **Mar 20 (Waves 75–100, 95 agents)**: V3/V4 testing and refinement cycles with human feedback integration.
 - **Mar 22–23 (Waves 105–111, peak 70 agents)**: Final production run:
   - Wave 105 (58 agents, 9.5min): Full V4 production coding, spot-check verification.
   - Wave 107: Paper update after finding fabricated bibliography entries (caught by agents).
   - Wave 108 (11 agents, 7min): Fix statistics and intro, audit Bash compliance, verify citations.
-  - Waves 109–111 (15 agents combined): PDF visual verification via Playwright, citation format audit, final table fixes.
+  - Waves 109–111 (10 agents combined): PDF visual verification via Playwright, citation format audit, final table fixes.
 
 **What subagents did**:
 - Analysis agents (18 total): Cross-tabulated accuracy by epoch, source type, claim type; computed literature awareness distributions; plotted monthly post volume.
 - Writing agents (54 total): Produced paper.tex (~2,500 lines LaTeX), README updates, ANALYSIS.md revisions.
-- Visualization agents (4): Built V4 analysis figures:
+- Visualization agents: Built V4 analysis figures:
   - `v4_tags_by_epoch.png`: Distortion tag frequency by epoch.
   - `v4_cooccurrence.png`: Co-occurrence matrix of distortion tags.
   - `v4_distortion_rate.png`: Distortion rate progression Epoch 4–6.
-  - `v4_claim_strength_by_epoch.png`: Claim strength distribution by epoch.
 - Verification agents (113 total): Inter-coder reliability computation, citation verification, PDF visual checks, Bash usage audits.
 
 **Key outputs**:
@@ -162,12 +161,12 @@ This document is a factual log of the AI-augmented research process that produce
   - Results: 6 subsections with accuracy distribution tables, epoch breakdowns, source analysis, claim type patterns, caveating frequencies, literature awareness correlations.
   - Discussion: Distortion increases in later epochs, non-expert sources drive exaggeration, citations shape accuracy.
   - Full bibliography with 7 cited entries (cleaned from expanded working list).
-- **Four publication-quality figures** with proper legends and annotations.
+- **Three publication-quality figures**: v4_distortion_rate.png, v4_tags_by_epoch.png, v4_cooccurrence.png, with proper legends and annotations.
 - **Central findings**:
   - 121/315 substantive posts (38.4%) contain any distortion.
   - Distortion rate quadruples from Epoch 4 (13.8%) to Epoch 6 (49.4%).
   - Indirect citations: 46.6% distorted vs direct links: 14.3% distorted.
-- **VDD reviews** (3 Sonnet agents each round):
+- **VDD reviews** (3 Haiku agents each round):
   - Round 1: Caught methodology circularity (accuracy & literature_awareness overlap), missing sample sizes, causal language.
   - Round 2: Verified table calculations, flagged "discourse population grew significantly" as overclaimed (changed to "did not measurably increase"), confirmed data availability.
 - **Issues caught and fixed**:
@@ -184,7 +183,7 @@ This document is a factual log of the AI-augmented research process that produce
 
 **Total agents spawned**: 1,054 across 137 coordinated waves (Mar 12–23, 260 hours)
 
-**Model deployment**: Main orchestrator (Opus), workers (Haiku, 1,054 agents across 137 waves), VDD review agents (unspecified tier per batch logs)
+**Model deployment**: Main orchestrator (Opus). All 1,054 delegated agents: Haiku (across 137 waves). VDD review agents: Haiku.
 
 **Allocation by function**:
 - Infrastructure/pipeline: 300 agents (28.5%) — git, database, log parsing, state files
@@ -231,11 +230,11 @@ This document is a factual log of the AI-augmented research process that produce
 | **Codebook versions** | V1 → V3 → V4 |
 | **Calibration rounds** | 8 (ICR α=0.772–0.796) |
 | **Paper length** | 12 pages LaTeX |
-| **Figures produced** | 4 (all publication-ready) |
+| **Figures produced** | 3 (all publication-ready) |
 | **VDD review cycles** | 2 (methodology, statistics, overclaims) |
 | **Issues found by VDD** | 8 (153 invalid codes, causal language, missing sample sizes, table errors, 9 fabricated stats, 4 fake bib entries) |
 | **User active input time** | ~3–4 hours (45+ explicit decisions across 260 hours) |
-| **Model tier** | Opus (orchestrator), Haiku (1,054 workers), VDD review (unspecified per logs) |
+| **Model tier** | Opus (orchestrator) + Haiku (1,054 delegated workers) |
 
 ---
 
@@ -259,6 +258,6 @@ This 260-hour session demonstrates an AI-augmented research workflow optimized f
 
 7. **Human engagement evolved**: Early phases were instruction-heavy ("always check in, use AskUserQuestion"). Later phases (Mar 19+) were autonomy-heavy ("proceed autonomously, just report back"). The human provided minimal input after establishing protocols.
 
-The final artifact—a publication-ready paper with 539 coded citation units, four figures, and rigorous methodology—was produced in 260 hours of wall-clock time with ~3–4 hours of active human input. This represents ~65–87× efficiency gain over solo analysis, demonstrating the scalability of AI-augmented discourse analysis for individual researchers producing peer-review-quality work.
+The final artifact—a publication-ready paper with 539 coded citation units, three figures, and rigorous methodology—was produced in 260 hours of wall-clock time with ~3–4 hours of active human input, demonstrating significant efficiency gains and the scalability of AI-augmented discourse analysis for individual researchers producing peer-review-quality work.
 
 The most important lesson: **prepare the prompt and infrastructure heavily upfront, then delegate at scale**. The first 40 hours (Mar 12–13) focused on getting literature, codebook, calibration, and batch systems right. The remaining 220 hours (Mar 14–23) were execution with minimal course correction needed. Invest in foundations; scale executes efficiently.
