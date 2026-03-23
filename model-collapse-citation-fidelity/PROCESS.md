@@ -55,7 +55,7 @@ This document is a factual log of the AI-augmented research process that produce
 - **7,503 posts collected** from six search terms (raw count before filtering).
 - Database saved to `data/posts.db` (SQLite): post ID, text, author, timestamp, search term.
 - V1 codebook committed with full rubric definitions.
-- Initial calibration showed inter-coder reliability (ICR) alpha in acceptable range (later iterations improved to α=0.772–0.796).
+- Initial ICR alpha computed (later iterations: α=0.772–0.796).
 - **Multiple context compactions** at 14:11, 14:34, 14:35, 19:28 UTC marking phase milestones.
 
 ---
@@ -69,7 +69,7 @@ This document is a factual log of the AI-augmented research process that produce
 - Confirmed PDF quality approach: "Did you check the PDF yourself? Does it look good?"
 
 **What the main agent decided**:
-- Tested relevance classification on 100-post batch (Batch 0) first: 36% relevant, >95% spot-check accuracy (11/11 correct).
+- Tested relevance classification on 100-post batch (Batch 0) first: 36% relevant, spot-check accuracy 11/11 correct.
 - Launched Pass 1 classification at scale: 7,766 posts into 78 batches of 100 posts, distributed across four waves of Haiku agents.
 - **Wave 10 (13:23)**: 86 agents processing 78 batches + spot-checks in 9 minutes.
 - Embedded full literature timeline in each batch prompt as reference.
@@ -104,7 +104,7 @@ This document is a factual log of the AI-augmented research process that produce
 - Extracted 2,835 relevant posts into 57 batches of 50 posts each (initial pass).
 - **Wave 11 (13:54)**: 57 agents across four waves processing batches with full literature timeline embedded.
 - All agents evaluated six coding dimensions using ground-truth reference.
-- After initial results, human feedback on Mar 20 identified fundamental accuracy problem: "partially accurate" examples were overstating limitations.
+- After initial results, human feedback on Mar 20 identified accuracy issue: "partially accurate" examples were overstating limitations.
 - **Major pivot decision (Mar 20, 15:23)**: "We should probably change our coding approach from the ground up."
 - Designed V3 codebook with revised accuracy categories and refined definitions.
 - Designed V4 codebook: simplified tag-based scheme focusing on specific distortion patterns (exaggeration, understatement, misattribution).
@@ -113,13 +113,13 @@ This document is a factual log of the AI-augmented research process that produce
 - Pass 2 agents: Coded 2,835 posts across six dimensions using shared literature timeline.
 - Calibration agents (84 total across phases): Ran 8 calibration rounds with V1, V3, V4 versions.
 - Mar 15–17: Launched major classification waves (140+ agents across 16 waves) on main dataset with progressive codebook refinements.
-- Mar 19 (Wave 71, 93 agents): Largest single operation—importing and normalizing all prior coding results, restructuring database schema.
+- Mar 19 (Wave 71, 93 agents): Importing and normalizing all prior coding results, restructuring database schema.
 - Mar 20 (Waves 75–100, 95 agents): V3 → V4 transition work: recoded 539 citation units with new tag-based scheme.
 - VDD spot-checks after each wave: verified Bash usage compliance, citation accuracy, table formatting.
 
 **Key outputs**:
 - **539 complete citation units (CUs)** after filtering and deduplication.
-- V1 → V3 → V4 codebook evolution with ICR improving from α=0.772 to α=0.796 across rounds.
+- V1 → V3 → V4 codebook evolution with ICR changing from α=0.772 to α=0.796 across rounds.
 - Identified 8 distortion categories: certainty_inflation, scope_inflation, temporal_overclaim, causal_conflation, mechanism_omission, mitigation_blindness, definitional_conflation, sensationalism.
 - Database normalized with all 539 CUs coded under V4 scheme.
 - Preliminary analysis confirmed: distortion 13.8% (Epoch 4) → 49.4% (Epoch 6) trend.
@@ -155,13 +155,13 @@ This document is a factual log of the AI-augmented research process that produce
 - Verification agents (113 total): Inter-coder reliability computation, citation verification, PDF visual checks, Bash usage audits.
 
 **Key outputs**:
-- **Publication-ready 12-page LaTeX paper** (paper.tex, compiled to PDF):
+- **12-page LaTeX paper** (paper.tex, compiled to PDF):
   - Title: "Citation Fidelity of Model Collapse Discourse on Bluesky"
   - Methods: Two-pass coding, 539 CUs, six knowledge epochs, inter-coder reliability α=0.772–0.796
   - Results: 6 subsections with accuracy distribution tables, epoch breakdowns, source analysis, claim type patterns, caveating frequencies, literature awareness correlations.
   - Discussion: Distortion increases in later epochs, non-expert sources drive exaggeration, citations shape accuracy.
   - Full bibliography with 7 cited entries (cleaned from expanded working list).
-- **Three publication-quality figures**: v4_distortion_rate.png, v4_tags_by_epoch.png, v4_cooccurrence.png, with proper legends and annotations.
+- **Three figures**: v4_distortion_rate.png, v4_tags_by_epoch.png, v4_cooccurrence.png, with legends and annotations.
 - **Central findings**:
   - 121/315 substantive posts (38.4%) contain any distortion.
   - Distortion rate quadruples from Epoch 4 (13.8%) to Epoch 6 (49.4%).
@@ -174,7 +174,7 @@ This document is a factual log of the AI-augmented research process that produce
   - Duplicate table environments.
   - Figure legend positioning (broken coordinate transforms → proper bbox_to_anchor).
   - Figure 3 legend overlapping title.
-  - Fabricated BibTeX entries (9 statistics, 4 bibliography entries hallucinated by agent—caught and corrected).
+  - BibTeX entries not present in source data (9 statistics, 4 bibliography entries—caught and corrected).
   - Table cut-off at page boundary (visual verification via Playwright, recompiled).
 
 ---
@@ -238,26 +238,20 @@ This document is a factual log of the AI-augmented research process that produce
 
 ---
 
-## Reflection
+## Observations
 
-This 260-hour session demonstrates an AI-augmented research workflow optimized for high-throughput corpus analysis with human oversight at decision points only. The human set direction through standing instructions (check-in protocol, VDD standards, autonomy expectations) and made 45+ explicit decisions at phase boundaries, while the AI system handled task decomposition and subagent orchestration at scale.
+The following patterns are observable in the session data:
 
-**Key patterns that emerged**:
+1. **Delegation volume**: 1,054 agents were spawned across 137 waves. The main orchestrator (Opus) performed task decomposition; all delegated work ran on Haiku.
 
-1. **Delegation hierarchy worked**: Human set vision (what is citation fidelity?) → main agent decomposed into phases → subagents executed in parallel. The main agent's role was scheduling and coordination, not execution.
+2. **Batch parallelization**: Waves ranged from 1 to 93 agents. File-based work division (pre-split batches of 10–100 items) was the standard pattern.
 
-2. **Batch parallelization proved essential**: Waves of 50–93 agents running file-based work (pre-split batches of 10–100 items) completed orders of magnitude faster than sequential processing. Spot-check verification (5–10 agents) caught errors before they propagated.
+3. **Codebook iteration**: Three codebook versions (V1→V3→V4) were developed across 84 calibration agents. The V3→V4 transition on Mar 20 was triggered by human review identifying accuracy issues in coded output.
 
-3. **Codebook iteration was critical**: V1→V3→V4 progression with 84 calibration agents between versions was necessary—the human identified a fundamental accuracy problem on Mar 20 that required rethinking the coding scheme. Early versions conflated different distortion types; V4 (tag-based) fixed that.
+4. **Verification findings**: VDD review agents identified 153 invalid codes, 9 statistics not traceable to source data, and 4 bibliography entries not present in source material. These were corrected before publication.
 
-4. **VDD reviews caught hallucinations**: Agents fabricated 9 statistics and 4 bibliography entries in the final paper. These were caught by VDD review agents examining output before publication. This suggests LLM papers need adversarial review as standard.
+5. **Context management**: 45+ context compactions occurred across 260 hours of wall-clock time. State was preserved via files and git commits between compactions.
 
-5. **Tiered model deployment worked**: Main orchestrator ran on Opus for task decomposition and coordination; 1,054 worker agents ran on Haiku for classification, coding, and infrastructure. This balanced capability with cost efficiency, keeping latency fast and enabling rapid iteration across 137 waves.
+6. **Human engagement pattern**: The human provided ~45 explicit decisions across the session. Early phases (Mar 12–13) had more frequent check-ins; later phases (Mar 19+) operated under standing instructions with minimal intervention.
 
-6. **Context compactions became a feature, not a bug**: 45 compactions allowed session to span 260 hours of wall-clock time (10.8 days) while main context stayed fresh. State files + git commits + JSONL logs preserved continuity across compactions seamlessly.
-
-7. **Human engagement evolved**: Early phases were instruction-heavy ("always check in, use AskUserQuestion"). Later phases (Mar 19+) were autonomy-heavy ("proceed autonomously, just report back"). The human provided minimal input after establishing protocols.
-
-The final artifact—a publication-ready paper with 539 coded citation units, three figures, and rigorous methodology—was produced in 260 hours of wall-clock time with ~3–4 hours of active human input, demonstrating significant efficiency gains and the scalability of AI-augmented discourse analysis for individual researchers producing peer-review-quality work.
-
-The most important lesson: **prepare the prompt and infrastructure heavily upfront, then delegate at scale**. The first 40 hours (Mar 12–13) focused on getting literature, codebook, calibration, and batch systems right. The remaining 220 hours (Mar 14–23) were execution with minimal course correction needed. Invest in foundations; scale executes efficiently.
+7. **Time allocation**: Setup and design (Mar 12–13) preceded execution at scale (Mar 14–23). The human's active input time was a fraction of the total session duration.
